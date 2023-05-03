@@ -172,3 +172,6 @@ function searchGroup($nameGroup)
         $conn->close();
     }
 }
+
+
+// test commit
