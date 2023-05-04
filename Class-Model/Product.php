@@ -9,8 +9,9 @@ class Product{
   private $color;
   private $des;
   private $active;
+  private $image;
 
-  public function __construct($id, $grID,$name,$price,$quantity,$size,$color,$des,$act)
+  public function __construct($id, $grID,$name,$price,$quantity,$size,$color,$des,$act,$img)
   {
     $this->prID = $id;
     $this->grID = $grID;
@@ -21,6 +22,7 @@ class Product{
     $this->color = $color;
     $this->des = $des;
     $this->active = $act;
+    $this->image = $img;
 
   }
   public function getPrID(){
@@ -49,6 +51,9 @@ class Product{
   }
   public function getAct(){
     return $this->active;
+  }
+  public function getImg(){
+    return $this->image;
   }
 }
 ?>
