@@ -13,8 +13,7 @@ $lengtGroup = count($listGroup);
 </head>
 
 <body>
-    <!-- <h1><?php echo $lengtGroup ?></h1> -->
-    <form method="post" action="/Project_WebBanHang/Action-Controller/ProductController/CreateProduct_action.php">
+    <form method="post" enctype="multipart/form-data" action="/Project_WebBanHang/Action-Controller/ProductController/CreateProduct_action.php">
         <label for="Cat">Danh mục sản phẩm:</label>
         <select id="category" name="GroupProduct_ID">
             <option value="">-- Chọn danh mục --</option>
@@ -51,12 +50,27 @@ $lengtGroup = count($listGroup);
         <br>
         <textarea type="text" id="description" type="text" name="ProductDescription" placeholder="Mô tả sản phẩm..."></textarea>
         <br>
+        <br>
+        <label for="image">Thêm ảnh đại diện:</label>
+        <br>
+        <input type="file" name="ProductImage" onchange="loadFile(event)">
+        <br>
+        <img id="output" style="width:300px;height:300px;object-fit:cover;" />
+        <br>
         <button type="submit">Thêm</button>
     </form>
     <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">
         <?php $_SESSION["err_value"] = ""; ?>
         Tro Lai
     </a>
+    <script>
+    var loadFile = function (event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function () {
+            URL.revokeObjectURL(output.src)
+        }
+    };
+</script>
 </body>
-
 </html>

@@ -24,7 +24,8 @@ function getListProduct()
                     $row["size"],
                     $row["color"],
                     $row["description"],
-                    $row["active"]
+                    $row["active"],
+                    $row["image"]
                 );
                 $count = $count + 1;
             }
@@ -57,7 +58,8 @@ function getAllListProduct()
                     $row["size"],
                     $row["color"],
                     $row["description"],
-                    $row["active"]
+                    $row["active"],
+                    $row["image"]
                 );
                 $count = $count + 1;
             }
@@ -115,7 +117,7 @@ function createProduct($newProduct)
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
     $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
     try {
-        $sql = "INSERT INTO product (proID,grID,proName,price,quantity,size,color,description, active) 
+        $sql = "INSERT INTO product (proID,grID,proName,price,quantity,size,color,description, active,image) 
         VALUES (
             0,
             '" . $newProduct->getGrID() . "',
@@ -125,7 +127,8 @@ function createProduct($newProduct)
             '" . $newProduct->getSize() . "',
             '" . $newProduct->getColor() . "',
             '" . $newProduct->getDes() . "',
-            '" . $newProduct->getAct() . "'
+            '" . $newProduct->getAct() . "',
+            '" . $newProduct->getImg() . "'
              )";
         $conn->query($sql);
     } catch (Exception $e) {
