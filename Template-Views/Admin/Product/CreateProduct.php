@@ -10,6 +10,7 @@ $lengtGroup = count($listGroup);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/product.css">
 </head>
 
 <body>
@@ -57,6 +58,12 @@ $lengtGroup = count($listGroup);
         <br>
         <img id="output" style="width:300px;height:300px;object-fit:cover;" />
         <br>
+        <label for="image">Thêm ảnh mô tả:</label>
+        <br>
+        <input id="inputImg" type="file" name="images[]" multiple="multiple">
+        <br>
+        <div id="imageContainer"></div>
+        <br>
         <button type="submit">Thêm</button>
     </form>
     <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">
@@ -71,6 +78,40 @@ $lengtGroup = count($listGroup);
             URL.revokeObjectURL(output.src)
         }
     };
+    document.addEventListener("DOMContentLoaded", function() {
+      let imageInput = document.querySelector("#inputImg");
+      let imageContainer = document.querySelector("#imageContainer");
+
+      imageInput.addEventListener("change", function() {
+        imageContainer.innerHTML = ""; // Xóa hết ảnh trước đó trong #imageContainer
+
+        // Lặp qua từng file được chọn
+        for (let i = 0; i < this.files.length; i++) {
+          let file = this.files[i];
+
+          // Kiểm tra nếu file không phải là ảnh thì bỏ qua
+          if (!file.type.match("image.*")) {
+            continue;
+          }
+
+          // Đọc file ảnh
+          let reader = new FileReader();
+          reader.onload = function(event) {
+            // Tạo một thẻ <img> mới và thêm vào #imageContainer
+            let imgElement = document.createElement("img");
+            imgElement.setAttribute("src", event.target.result);
+            imgElement.setAttribute("object-fit", "cover");
+            imgElement.setAttribute("height", "150px");
+            imgElement.setAttribute("width", "150px");
+            classCSs = imgElement.classList;
+            classCSs.add("imgs");
+            imageContainer.appendChild(imgElement);
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    });
+  </script>
 </script>
 </body>
 </html>

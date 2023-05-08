@@ -130,7 +130,7 @@ $lengtProduct = count($listProduct);
                 <div class="content_Admin">
                     <h3>Danh sách sản phẩm</h3>
                     <a href="/Project_WebBanHang/Template-Views/Admin/Product/CreateProduct.php">Thêm sản phẩm mới</a>
-                    <a href="/Project_WebBanHang/Template-Views/Admin/Product/listProductDeleted.php">Sản phẩm đã xoá</a>
+                    <a href="/Project_WebBanHang/Template-Views/Admin/Product/ProductDeleted.php">Sản phẩm đã xoá</a>
                     <?php
                     if ($lengtProduct > 0) {
                     ?>
@@ -157,7 +157,7 @@ $lengtProduct = count($listProduct);
                                     <td>
                                         <div class="icon_thaotac">
                                             <div class="item-edit">
-                                                <a href="/Project_WebBanHang/Action-Controller/ProductController/DetailGroup_action.php?id=<?php echo $listProduct[$i]->getPrID(); ?>" class="btn mx-1">
+                                                <a href="/Project_WebBanHang/Action-Controller/ProductController/DetailProduct_action.php?id=<?php echo $listProduct[$i]->getPrID(); ?>" class="btn mx-1">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
                                                         <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
                                                         <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z" />
@@ -165,7 +165,7 @@ $lengtProduct = count($listProduct);
                                                 </a>
                                             </div>
                                             <div class="item-edit">
-                                                <a href="/Project_WebBanHang/Action-Controller/ProductController/GetInfoGroup_action.php?id=<?php echo $listProduct[$i]->getPrID(); ?>" class="btn mx-1">
+                                                <a href="/Project_WebBanHang/Action-Controller/ProductController/GetInfoProduct_action.php?id=<?php echo $listProduct[$i]->getPrID(); ?>" class="btn mx-1">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
                                                         <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
                                                     </svg>
