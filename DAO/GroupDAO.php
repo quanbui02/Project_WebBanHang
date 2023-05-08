@@ -76,7 +76,7 @@ function getAllListDeletedGroup() {
     try{
         $list= array();
         $count = 0;
-        $sql = "select * from group_product";
+        $sql = "select * from group_product where active = 0";
         $result = $conn->query($sql);
         if($result->num_rows>0){
             while($row = $result->fetch_assoc()){

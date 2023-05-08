@@ -1,12 +1,12 @@
 <?php
-include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GroupProduct.php";
-include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/GroupDAO.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/ProductDAO.php";
 session_start();
 $active = 1;
-$grID = intval($_GET["id"]);
+$ID = intval($_GET["id"]);
 $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
-$sql = "UPDATE group_product SET active = $active where grID = ".$grID;
+$sql = "UPDATE product SET active = $active where proID = ".$ID;
 $result = $conn->query($sql);
 $_SESSION["err_value"] = "";
-header("Location: /Project_WebBanHang/Template-Views/Admin/Category/Index.php");
+header("Location: /Project_WebBanHang/Template-Views/Admin/Product/Index.php");
 ?>

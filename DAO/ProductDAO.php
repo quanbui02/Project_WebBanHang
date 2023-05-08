@@ -90,18 +90,29 @@ function getIndexPage()
     }
 }
 
-function getAllListDeletedGroup()
+function getAllListDeletedProduct()
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
     $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
     try {
         $list = array();
         $count = 0;
-        $sql = "select * from product";
+        $sql = "select * from product where active = 0";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $list[$count] = new GroupProduct($row["grID"], $row["grName"], $row["active"]);
+                $list[$count] = new Product(
+                    $row["proID"],
+                    $row["grID"],
+                    $row["proName"],
+                    $row["price"],
+                    $row["quantity"],
+                    $row["size"],
+                    $row["color"],
+                    $row["description"],
+                    $row["active"],
+                    $row["image"]
+                );
                 $count = $count + 1;
             }
         }
@@ -129,6 +140,25 @@ function createProduct($newProduct)
             '" . $newProduct->getDes() . "',
             '" . $newProduct->getAct() . "',
             '" . $newProduct->getImg() . "'
+             )";
+        $conn->query($sql);
+        $id = $conn->insert_id;
+        $conn->close();
+        return $id;
+    } catch (Exception $e) {
+        $_SESSION["error-sql"] = $e->getMessage();
+    }
+}
+function createDetailImg($newImgs)
+{
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/ImgProduct.php";
+    $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
+    try {
+        $sql = "INSERT INTO image_products (id, idProduct,image) 
+        VALUES (
+            0,
+            '" . $newImgs->getProID() . "',
+            '" . $newImgs->getImg() . "'
              )";
         $conn->query($sql);
     } catch (Exception $e) {
