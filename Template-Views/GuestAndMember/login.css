@@ -1,0 +1,45 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+  background-image: radial-gradient( circle 311px at 8.6% 27.9%,  rgba(62,147,252,0.57) 12.9%, rgba(239,183,192,0.44) 91.2% );
+  text-align: center;
+}
+.login-form{
+    width:25vw;
+    height:40vh;
+    display: inline-block;
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    box-sizing: border-box;
+    padding-top:30px;
+    margin-top: 30vh;
+}
+input{
+    width:70%;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+    border:pink solid 1px;
+    border-radius: 5px;
+}
+button{
+    width: 80px;
+    height: 30px;
+    margin-top: 10px;
+    background-color:antiquewhite;
+    border: pink solid 1px;
+}
+button:hover{
+    cursor: pointer;
+    color: black;
+    background-color: pink;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
