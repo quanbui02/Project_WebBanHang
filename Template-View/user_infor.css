@@ -1,0 +1,19 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    background-color: white;
+    text-align: center;
+}
+.header{
+    width: 100vw;
+    height: 70px;
+    background-color:red;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+span{
+    color:red;
+}
