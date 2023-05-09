@@ -18,51 +18,48 @@ $listImgs = unserialize($_SESSION['InfoImgProducts']);
 </head>
 
 <body>
-<?php if (empty($_SESSION["err_value"])) {
-      echo "";
-    } else {
-      echo "<span style='color:red;font-size:14px;'>" . $_SESSION["err_value"] . "</span>";
-    } ?>
-  <form method="post" enctype="multipart/form-data"  action="/Project_WebBanHang/Action-Controller/ProductController/EditProduct_action.php">
+  <?php if (empty($_SESSION["err_value"])) {
+    echo "";
+  } else {
+    echo "<span style='color:red;font-size:14px;'>" . $_SESSION["err_value"] . "</span>";
+  } ?>
+  <form method="post" enctype="multipart/form-data" action="/Project_WebBanHang/Action-Controller/ProductController/EditProduct_action.php">
     <label for="Cat">Danh mục sản phẩm:</label>
     <select id="category" name="GroupProduct_ID">
       <?php
+      $selectedGrID = (int)$_SESSION["InfoProduct"]->getGrID();
       for ($i = 0; $i < $lengtGroup; $i++) {
-        if ($_SESSION['InfoProduct']->getGrID == $listGroup[$i]) {
-      ?>
-          <option value="<?php echo $_SESSION["InfoProduct"]->getGrID(); ?>"> <?php echo $listGroup[$i]->getNameGroup(); ?></option>
-          ?<?php
-          }
+        $grID = $listGroup[$i]->getGrID();
+        $nameGroup = $listGroup[$i]->getNameGroup();
+        if ($selectedGrID == $grID) {
+          echo "<option value='$grID' selected>$nameGroup</option>";
+        } else {
+          echo "<option value='$grID'>$nameGroup</option>";
         }
-            ?>
-          <?php
-          for ($i = 0; $i < $lengtGroup; $i++) {
-          ?>
-            <option value="<?php echo $listGroup[$i]->getGrID() ?>"><?php echo $listGroup[$i]->getNameGroup() ?></option>
-          <?php
-          }
-          ?>
+      }
+      ?>
     </select>
+
     <br>
     <label>Tên sản phẩm</label>
     <br>
-    <input type="text" id="PrName" name="ProductName" value="<?php echo $_SESSION["InfoProduct"]->getPrName(); ?>"/>
+    <input type="text" id="PrName" name="ProductName" value="<?php echo $_SESSION["InfoProduct"]->getPrName(); ?>" />
     <br>
     <label>Giá</label>
     <br>
-    <input type="text" id="price" name="ProductPrice" value="<?php echo $_SESSION["InfoProduct"]->getPrice(); ?>"/>
+    <input type="text" id="price" name="ProductPrice" value="<?php echo $_SESSION["InfoProduct"]->getPrice(); ?>" />
     <br>
     <label>Số lượng</label>
     <br>
-    <input type="text" id="quantity"  name="ProductQuantity" value="<?php echo $_SESSION["InfoProduct"]->getQuantity(); ?>"/>
+    <input type="text" id="quantity" name="ProductQuantity" value="<?php echo $_SESSION["InfoProduct"]->getQuantity(); ?>" />
     <br>
     <label>Kích cỡ</label>
     <br>
-    <input type="text" id="size"  name="ProductSize" value="<?php echo $_SESSION["InfoProduct"]->getSize(); ?>"/>
+    <input type="text" id="size" name="ProductSize" value="<?php echo $_SESSION["InfoProduct"]->getSize(); ?>" />
     <br>
     <label>Màu sắc</label>
     <br>
-    <input type="text" id="color"  name="ProductColor" value="<?php echo $_SESSION["InfoProduct"]->getColor(); ?>"/>
+    <input type="text" id="color" name="ProductColor" value="<?php echo $_SESSION["InfoProduct"]->getColor(); ?>" />
     <br>
     <label>Mô tả (* không bắt buộc)</label>
     <br>
@@ -80,13 +77,13 @@ $listImgs = unserialize($_SESSION['InfoImgProducts']);
     <input id="inputImg" type="file" name="images[]" multiple="multiple">
     <br>
     <div id="imageContainer">
-    <?php
-        foreach ($listImgs as $imgProduct) {
-            ?>
-            <img style="width:150px;height:150px;object-fit:cover;" src="/Project_WebBanHang/Upload/imgDetail/<?php echo $imgProduct->getImg() ?>" >
-            <?php
-        }
-        ?>
+      <?php
+      foreach ($listImgs as $imgProduct) {
+      ?>
+        <img style="width:150px;height:150px;object-fit:cover;" src="/Project_WebBanHang/Upload/imgDetail/<?php echo $imgProduct->getImg() ?>">
+      <?php
+      }
+      ?>
     </div>
     <div id="load"></div>
     <br>
@@ -97,12 +94,12 @@ $listImgs = unserialize($_SESSION['InfoImgProducts']);
     Tro Lai
   </a>
   <script>
-        var loadFile = function (event) {
-        var output = document.getElementById('output');
-        output.src = URL.createObjectURL(event.target.files[0]);
-        output.onload = function () {
-            URL.revokeObjectURL(output.src)
-        }
+    var loadFile = function(event) {
+      var output = document.getElementById('output');
+      output.src = URL.createObjectURL(event.target.files[0]);
+      output.onload = function() {
+        URL.revokeObjectURL(output.src)
+      }
     };
     document.addEventListener("DOMContentLoaded", function() {
       let imageInput = document.querySelector("#inputImg");

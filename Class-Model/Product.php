@@ -24,7 +24,7 @@ class Product{
     $this->active = $act;
     $this->image = $img;
   }
-  
+
   public function getPrID(){
     return $this->prID;
   } 
@@ -34,6 +34,7 @@ class Product{
   public function getGrID(){
     return $this->grID;
   }
+
   public function getPrice(){
     return $this->price;
   }

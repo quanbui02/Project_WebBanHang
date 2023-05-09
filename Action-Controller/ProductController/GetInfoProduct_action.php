@@ -5,6 +5,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/ImgProduct.php";
 session_start();
 $ID = intval($_GET["id"]);
 $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
+// $sql = "SELECT * FROM product INNER JOIN group_product on product.grID = group_product.grID where product.proID = ".$ID;
 $sql =  "select * from product where proID = ".$ID;
 $result = $conn->query($sql);
 $getImgs = "SELECT * FROM image_products WHERE idProduct = ".$ID;
@@ -14,6 +15,7 @@ while ($row = $getImgsProduct->fetch_assoc()) {
     $imgProduct = new ImgProduct($row["id"],$row["idProduct"],$row["image"]);
     $imgProducts[] = $imgProduct;
 }
+$conn->close();
 $_SESSION['InfoImgProducts'] = serialize($imgProducts);
 if($result->num_rows>0){
     $row = $result->fetch_assoc();
