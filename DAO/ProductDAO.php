@@ -149,6 +149,18 @@ function createProduct($newProduct)
         $_SESSION["error-sql"] = $e->getMessage();
     }
 }
+// function updateImage($newFileName) {
+//     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
+//     $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
+//     try {
+//         $sql = "UPDATE product SET grName = '" . $newGroup->getNameGroup() . "' where grID = '" . $newGroup->getGrID() . "';";
+//         $conn->query($sql);
+//     } catch (Exception $e) {
+//         $_SESSION["error-sql"] = $e->getMessage();
+//     } finally {
+//         $conn->close();
+//     }
+// }
 function createDetailImg($newImgs)
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/ImgProduct.php";
@@ -167,12 +179,22 @@ function createDetailImg($newImgs)
         $conn->close();
     }
 }
-function updateGroup($newGroup)
+function updateProduct($product)
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
     $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
     try {
-        $sql = "UPDATE group_product SET grName = '" . $newGroup->getNameGroup() . "' where grID = '" . $newGroup->getGrID() . "';";
+        $sql = "UPDATE product
+            SET grID = '" . $product->getGrID() . "',
+                proName = '" . $product->getPrName() . "',
+                price = '" . $product->getPrice() . "',
+                quantity = '" . $product->getQuantity() . "',
+                size = '" . $product->getSize() . "',
+                color = '" . $product->getColor() . "',
+                description = '" . $product->getDes() . "',
+                active = '" . $product->getAct() . "',
+                image = '" . $product->getImg() . "' 
+                where proID = '" . $product->getPrID() . "';";
         $conn->query($sql);
     } catch (Exception $e) {
         $_SESSION["error-sql"] = $e->getMessage();

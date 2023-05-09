@@ -8,6 +8,7 @@ $prID = intval($_GET["id"]);
 $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
 $sql = "UPDATE product SET active = $active where proID = ".$prID;
 $result = $conn->query($sql);
+$conn->close();
 $_SESSION["err_value"] = "";
 // header("Location: /Project_WebBanHang/Template-Views/Admin/Category/Index.php?page=$pageIndex");
 header("Location: /Project_WebBanHang/Template-Views/Admin/Product/Index.php");

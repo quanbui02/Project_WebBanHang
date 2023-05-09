@@ -23,8 +23,8 @@ class Product{
     $this->des = $des;
     $this->active = $act;
     $this->image = $img;
-
   }
+  
   public function getPrID(){
     return $this->prID;
   } 
@@ -51,6 +51,9 @@ class Product{
   }
   public function getAct(){
     return $this->active;
+  }
+  public function setImg(string $img) {
+    $this->image = $img;
   }
   public function getImg(){
     return $this->image;
