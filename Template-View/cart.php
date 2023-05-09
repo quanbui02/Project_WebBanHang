@@ -69,7 +69,7 @@ finally{
                 </div>
                 <div class="sum-money">Tổng tiền: <?php echo $cartOrder->sumMoney(); ?> VND</div>
                 <div class="purchase">
-                    <button><a href="">Thanh toán</a></button>
+                    <button><a href="<?php echo "/DoAnCNW/Template-View/purchase.php?code=".$cartOrder->getUserID().$cartOrder->getOrderID()."&money=".$cartOrder->sumMoney()."&id=".$cartOrder->getOrderID(); ?>">Thanh toán</a></button>
                     <button><a href="/DoAnCNW/Template-View/trangchu.php?search=">Trở về trang chủ</a></button>
                 </div>
                 <?php

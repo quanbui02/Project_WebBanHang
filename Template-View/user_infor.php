@@ -98,7 +98,7 @@ if($_SESSION["login"]==false){
                         ?>
                           <div class="item">
                             <div class="name-order">
-                                <?php echo "Đơn hàng ".$listOrder[$i]->getUserID().$listOrder[$i]->getOrderID().$listOrder[$i]->getGiftID(); ?>
+                                <?php echo "Đơn hàng ".$listOrder[$i]->getUserID().$listOrder[$i]->getOrderID(); ?>
                             </div>
                             <div class="date">
                                 <?php echo "Ngày :".$listOrder[$i]->getDate(); ?>
