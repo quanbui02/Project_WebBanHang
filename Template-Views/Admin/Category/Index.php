@@ -3,12 +3,12 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/GroupDAO.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GroupProduct.php";
 session_start();
 $listGroup = getListGroup();
-$total_records = 10;
+// $total_records = 10;
 $total_pages = getIndexPage();
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $_SESSION['PageIndex'] = $page;
 $lengtGroup = count($listGroup);
-$_SESSION['length-row'] = $lengtGroup;
+// $_SESSION['length-row'] = $lengtGroup;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,17 +96,6 @@ $_SESSION['length-row'] = $lengtGroup;
                             </span>
                             <span class="title">QUẢN LÝ ĐƠN HÀNG</span>
                         </a>
-                        <!-- <ul class="dropdown-menu">
-                            <li>
-                                <a asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Quản lý quyền truy cập</a>
-                            </li>
-                            <li>
-                                <a asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Quản lý quyền truy cập</a>
-                            </li>
-                            <li>
-                                <a asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Quản lý quyền truy cập</a>
-                            </li>
-                        </ul> -->
                     </li>
                     <li class="nav-item logout" style="border-top:1px solid #ccc;margin-left:4px;">
                         <a href="/">

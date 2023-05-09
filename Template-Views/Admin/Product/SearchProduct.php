@@ -2,10 +2,9 @@
 include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/ProductDAO.php";
 session_start();
-$listProduct = getListProduct();
-$total_pages = getIndexPageProduct();
-$page = isset($_GET['pI']) ? $_GET['pI'] : 1;
-$lengtProduct = count($listProduct);
+$searchProduct = $_SESSION["search-product"];
+$listProductSearch = SearchProduct($searchProduct);
+$lengtProduct = count($listProductSearch);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -137,18 +136,19 @@ $lengtProduct = count($listProduct);
                             </tr>
                             <?php
                             for ($i = 0; $i < $lengtProduct; $i++) {
+                                if ($listProductSearch[$i]->getAct() == 1) {
                             ?>
                                 <tr>
-                                    <td><?php echo $listProduct[$i]->getPrID() ?></td>
-                                    <td><?php echo $listProduct[$i]->getPrName() ?></td>
-                                    <td><?php echo $listProduct[$i]->getQuantity() ?></td>
-                                    <td><?php echo $listProduct[$i]->getColor() ?></td>
-                                    <td><?php echo $listProduct[$i]->getSize() ?></td>
-                                    <td><?php echo $listProduct[$i]->getPrice() ?></td>
+                                    <td><?php echo $listProductSearch[$i]->getPrID() ?></td>
+                                    <td><?php echo $listProductSearch[$i]->getPrName() ?></td>
+                                    <td><?php echo $listProductSearch[$i]->getQuantity() ?></td>
+                                    <td><?php echo $listProductSearch[$i]->getColor() ?></td>
+                                    <td><?php echo $listProductSearch[$i]->getSize() ?></td>
+                                    <td><?php echo $listProductSearch[$i]->getPrice() ?></td>
                                     <td>
                                         <div class="icon_thaotac">
                                             <div class="item-edit">
-                                                <a href="/Project_WebBanHang/Action-Controller/ProductController/DetailProduct_action.php?id=<?php echo $listProduct[$i]->getPrID(); ?>" class="btn mx-1">
+                                                <a href="/Project_WebBanHang/Action-Controller/ProductController/DetailProduct_action.php?id=<?php echo $listProductSearch[$i]->getPrID(); ?>" class="btn mx-1">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
                                                         <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
                                                         <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z" />
@@ -156,14 +156,14 @@ $lengtProduct = count($listProduct);
                                                 </a>
                                             </div>
                                             <div class="item-edit">
-                                                <a href="/Project_WebBanHang/Action-Controller/ProductController/GetInfoProduct_action.php?id=<?php echo $listProduct[$i]->getPrID(); ?>" class="btn mx-1">
+                                                <a href="/Project_WebBanHang/Action-Controller/ProductController/GetInfoProduct_action.php?id=<?php echo $listProductSearch[$i]->getPrID(); ?>" class="btn mx-1">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
                                                         <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
                                                     </svg>
                                                 </a>
                                             </div>
                                             <div class="item-edit">
-                                                <a href="/Project_WebBanHang/Action-Controller/ProductController/DeleteProduct_action.php?id=<?php echo $listProduct[$i]->getPrID(); ?>" class="btn mx-1" style="cursor:pointer;">
+                                                <a href="/Project_WebBanHang/Action-Controller/ProductController/DeleteProduct_action.php?id=<?php echo $listProductSearch[$i]->getPrID(); ?>" class="btn mx-1" style="cursor:pointer;">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash2-fill" viewBox="0 0 16 16">
                                                         <path d="M2.037 3.225A.703.703 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2a.702.702 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671L2.037 3.225zm9.89-.69C10.966 2.214 9.578 2 8 2c-1.58 0-2.968.215-3.926.534-.477.16-.795.327-.975.466.18.14.498.307.975.466C5.032 3.786 6.42 4 8 4s2.967-.215 3.926-.534c.477-.16.795-.327.975-.466-.18-.14-.498-.307-.975-.466z" />
                                                     </svg>
@@ -174,35 +174,36 @@ $lengtProduct = count($listProduct);
                                 </tr>
                         <?php
                             }
+                        }
                         } else {
                             echo "KHÔNG CÓ SẢN PHẨM NÀO!";
                         }
                         ?>
                         </table>
                 </div>
-                <ul class="pagination">
+                <!-- <ul class="pagination">
                     <?php
                     if ($page > 1) {
                     ?>
-                        <li><a href="?pI=<?php echo ($page - 1); ?>">Trở lại</a></li>
+                        <li><a href="?page=<?php echo ($page - 1); ?>">Trở lại</a></li>
                     <?php
                     }
                     ?>
                     <?php
                         for ($i = 1; $i <= $total_pages; $i++) {
                     ?>
-                            <li <?php if ($i == $page) echo "class='active'"; ?>><a href="?pI=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                            <li <?php if ($i == $page) echo "class='active'"; ?>><a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                     <?php
                         }
                     ?>
                     <?php
                     if ($page < $total_pages) {
                     ?>
-                        <li><a href="?pI=<?php echo ($page + 1); ?>">Tiếp</a></li>
+                        <li><a href="?page=<?php echo ($page + 1); ?>">Tiếp</a></li>
                     <?php
                     }
                     ?>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </div>

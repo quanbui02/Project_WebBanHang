@@ -7,7 +7,7 @@ function getListProduct()
         $list = array();
         $count = 0;
         $per_page = 10; // số bản ghi hiển thị trên 1 trang
-        $current_page = isset($_GET['page']) ? $_GET['page'] : 1; // trang hiện tại, mặc định là trang 1
+        $current_page = isset($_GET['pI']) ? $_GET['pI'] : 1; // trang hiện tại, mặc định là trang 1
         // tính toán offset
         $offset = ($current_page - 1) * $per_page;
         // truy vấn lấy dữ liệu
@@ -72,13 +72,13 @@ function getAllListProduct()
     }
 }
 
-function getIndexPage()
+function getIndexPageProduct()
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
     $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
     try {
-        $per_page = 5;
-        $sql = "select * from group_product where active = 1";
+        $per_page = 10;
+        $sql = "select * from product where active = 1";
         $result = $conn->query($sql);
         $total_records = mysqli_num_rows($result);
         $total_pages = ceil($total_records / $per_page);
@@ -149,18 +149,6 @@ function createProduct($newProduct)
         $_SESSION["error-sql"] = $e->getMessage();
     }
 }
-// function updateImage($newFileName) {
-//     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
-//     $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
-//     try {
-//         $sql = "UPDATE product SET grName = '" . $newGroup->getNameGroup() . "' where grID = '" . $newGroup->getGrID() . "';";
-//         $conn->query($sql);
-//     } catch (Exception $e) {
-//         $_SESSION["error-sql"] = $e->getMessage();
-//     } finally {
-//         $conn->close();
-//     }
-// }
 function createDetailImg($newImgs)
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/ImgProduct.php";
@@ -202,21 +190,32 @@ function updateProduct($product)
         $conn->close();
     }
 }
-function searchGroup($nameGroup)
+function SearchProduct($nameProduct)
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
     $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
     try {
         $count = 0;
         $lists =  array();
-        if (trim($nameGroup) != "") {
-            $sql = "select * from group_product where grName like '%" . $nameGroup . "%'";
+        if (trim($nameProduct) != "") {
+            $sql = "select * from product where proName like '%" . $nameProduct . "%'";
             $result = $conn->query($sql);
         }
-        if ($result->num_rows > 0) {
+        if($result->num_rows>0){
             while ($row = $result->fetch_assoc()) {
-                $groups  = new GroupProduct($row["grID"], $row["grName"], $row["active"]);
-                $lists[$count] = $groups;
+                $product  = new Product(
+                    $row["proID"],
+                    $row["grID"],
+                    $row["proName"],
+                    $row["price"],
+                    $row["quantity"],
+                    $row["size"],
+                    $row["color"],
+                    $row["description"],
+                    $row["active"],
+                    $row["image"]
+                );
+                $lists[$count] = $product;
                 $count = $count + 1;
             }
         }
