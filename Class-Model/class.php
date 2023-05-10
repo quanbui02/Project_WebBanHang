@@ -174,6 +174,13 @@ class Order{
     }
     return $money;
   }
+  public function sumMoneyWithGift(){
+    include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+    $sumMoney = $this->sumMoney();
+    $giftValue = getGiftValue($this->giftID);
+    $money  = $sumMoney - $giftValue;
+    return $money;
+  }
 }
 //5
 class OrderDetail{

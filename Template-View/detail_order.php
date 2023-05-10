@@ -32,6 +32,7 @@ $listDetails = getOrderDetails(intval($orderID));
                 ?>
             </div>
             <div class="sum-money">Tổng tiền: <?php echo getOrderByID($orderID)->sumMoney(); ?> VND</div>
+            <div class="purchase">Số tiền thanh toán(Sau khi sử dụng mã giảm giá nếu có): <?php echo getOrderByID($orderID)->sumMoneyWithGift(); ?> VND </div>
         </div>
     </body>
  </html>

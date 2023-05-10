@@ -117,7 +117,7 @@ if($_SESSION["login"]==false){
                                  ?>
                             </div>
                             <div class="money">
-                                <?php echo "Tổng tiền: ".$listOrder[$i]->sumMoney()." VND"; ?>
+                                <?php echo "Tổng tiền: ".$listOrder[$i]->sumMoneyWithGift()." VND"; ?>
                             </div>
                             <div class="infor-order">
                                 <button><a href="<?php echo"/DoAnCNW/Template-View/detail_order.php?id_order=".$listOrder[$i]->getOrderID()."&order_date=".$listOrder[$i]->getDate()."&code=".$listOrder[$i]->getUserID().$listOrder[$i]->getOrderID().$listOrder[$i]->getGiftID()."&status=".$listOrder[$i]->getStatus(); ?>">Xem chi tiết</a></button>

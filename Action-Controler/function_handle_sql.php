@@ -195,4 +195,22 @@ function validatorQuantity($idProuct){
         $conn->close();
     }
 }
+//Giftcode funtion
+function getGiftValue($idGift){
+    include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+    $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
+    try{
+        $sql="select * from giftcode where giftID=".$idGift;
+        $result = $conn->query($sql);
+        $row=$result->fetch_assoc();
+        $value = $row["giftValue"];
+        return $value;
+    }
+    catch(Exception $e){
+        $_SESSION["error-sql"]=$e->getMessage();
+    }
+    finally{
+        $conn->close();
+    }
+}
 ?>
