@@ -48,7 +48,7 @@ $listGroup = getListGroup();
                 ?>
                  <div class="item-pr">
                    <div class="pro-image">
-                       <img src="https://ae01.alicdn.com/kf/H1d2ba95e663f47f98db0f8065d9664bdA/New-Navi-T-Shirt-Natus-Vincere-Esports-Team-T-Shirt-Game-CSGO-Pro-Player-Streetwear-Uniform.jpg_640x640.jpg" >
+                       <img src="<?php echo $listProduct[$i]->getImg(); ?>" >
                    </div>
                    <div class="pro-infor">
                        <div class="pro-name"><?php echo $listProduct[$i]->getPrName(); ?></div>

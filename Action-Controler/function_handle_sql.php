@@ -46,7 +46,7 @@ function getListProduct($proName){
         if($result->num_rows>0){
             while($row = $result->fetch_assoc()){
                 //__construct($id, $name, $grID,$price,$quantity,$size,$color,$des,$act)
-                $product  = new Product($row["proID"],$row["proName"],$row["grID"],$row["price"],$row["quantity"],$row["size"],$row["color"],$row["description"],$row["active"]);
+                $product  = new Product($row["proID"],$row["proName"],$row["grID"],$row["price"],$row["quantity"],$row["size"],$row["color"],$row["description"],$row["active"],$row["img"]);
                 $lists[$count] = $product;
                 $count=$count + 1;
             }
@@ -67,7 +67,7 @@ function getProductByID($idPro){
         $sql  = "select * from product where proID = '".$idPro."'";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
-        $product  = new Product($row["proID"],$row["proName"],$row["grID"],$row["price"],$row["quantity"],$row["size"],$row["color"],$row["description"],$row["active"]);
+        $product  = new Product($row["proID"],$row["proName"],$row["grID"],$row["price"],$row["quantity"],$row["size"],$row["color"],$row["description"],$row["active"],$row["img"]);
 
         return $product;
     }
@@ -178,7 +178,7 @@ function validatorQuantity($idProuct){
         $result = $conn->query($sql);
         if($result->num_rows>0){
             $row  = $result->fetch_assoc();
-            $product = new Product($row["proID"],$row["proName"],$row["grID"],$row["price"],$row["quantity"],$row["size"],$row["color"],$row["description"],$row["active"]);
+            $product = new Product($row["proID"],$row["proName"],$row["grID"],$row["price"],$row["quantity"],$row["size"],$row["color"],$row["description"],$row["active"],$row["img"]);
             if($product->getQuantity()>0){
                 return true;
             }else{
