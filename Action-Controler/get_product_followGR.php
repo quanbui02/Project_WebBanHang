@@ -10,7 +10,7 @@ $_SESSION["pro-group"]=array();
 $count = 0;
 if($result->num_rows>0){
     while($row = $result->fetch_assoc()){
-        $_SESSION["pro-group"][$count]= new Product($row["proID"],$row["proName"],$row["grID"],$row["price"],$row["quantity"],$row["size"],$row["color"],$row["description"],$row["active"]);
+        $_SESSION["pro-group"][$count]= new Product($row["proID"],$row["proName"],$row["grID"],$row["price"],$row["quantity"],$row["size"],$row["color"],$row["description"],$row["active"],$row["img"]);
         $count=$count +1;
     }
     header("Location: /DoAnCNW/Template-View/trangchu.php?search=");
