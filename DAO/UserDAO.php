@@ -44,7 +44,7 @@ function getAllUser()
     try {
         $list = array();
         $count = 0;
-        $sql = "SELECT * FROM user where active = 1";
+        $sql = "SELECT * FROM user where active = 0";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {

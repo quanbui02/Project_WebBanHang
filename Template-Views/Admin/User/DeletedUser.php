@@ -1,6 +1,6 @@
 <?php
-include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/GroupDAO.php";
-include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GroupProduct.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/UserDAO.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/User.php";
 session_start();
 $listUserDelete = getAllUser();
 $lengthDeleteUser = count($listUserDelete);
