@@ -2,7 +2,8 @@
 function getListProduct()
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
-    $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try {
         $list = array();
         $count = 0;
@@ -41,7 +42,8 @@ function getListProduct()
 function getAllListProduct()
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
-    $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try {
         $list = array();
         $count = 0;
@@ -75,7 +77,8 @@ function getAllListProduct()
 function getIndexPageProduct()
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
-    $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try {
         $per_page = 10;
         $sql = "select * from product where active = 1";
@@ -93,7 +96,8 @@ function getIndexPageProduct()
 function getAllListDeletedProduct()
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
-    $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try {
         $list = array();
         $count = 0;
@@ -126,7 +130,8 @@ function getAllListDeletedProduct()
 function createProduct($newProduct)
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
-    $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try {
         $sql = "INSERT INTO product (proID,grID,proName,price,quantity,size,color,description, active,image) 
         VALUES (
@@ -152,7 +157,8 @@ function createProduct($newProduct)
 function createDetailImg($newImgs)
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/ImgProduct.php";
-    $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try {
         $sql = "INSERT INTO image_products (id, idProduct,image) 
         VALUES (
@@ -170,7 +176,8 @@ function createDetailImg($newImgs)
 function updateProduct($product)
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
-    $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try {
         $sql = "UPDATE product
             SET grID = '" . $product->getGrID() . "',
@@ -193,7 +200,8 @@ function updateProduct($product)
 function SearchProduct($nameProduct)
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
-    $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try {
         $count = 0;
         $lists =  array();

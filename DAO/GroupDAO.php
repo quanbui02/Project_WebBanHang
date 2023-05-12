@@ -1,7 +1,8 @@
 <?php 
 function getListGroup(){
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GroupProduct.php";
-    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try{
         $list= array();
         $count = 0;
@@ -30,7 +31,8 @@ function getListGroup(){
 
 function getAllListGroup(){
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GroupProduct.php";
-    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try{
         $list= array();
         $count = 0;
@@ -54,7 +56,8 @@ function getAllListGroup(){
 
 function getIndexPage() {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GroupProduct.php";
-    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try {
         $per_page = 5;
         $sql = "select * from group_product where active = 1";
@@ -72,7 +75,8 @@ function getIndexPage() {
 
 function getAllListDeletedGroup() {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GroupProduct.php";
-    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try{
         $list= array();
         $count = 0;
@@ -95,7 +99,8 @@ function getAllListDeletedGroup() {
 }
 function createGroup($newGrProduct){
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GroupProduct.php";
-    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try{
         $sql = "INSERT INTO group_product (grID,grName, active) VALUES (0,'".$newGrProduct->getNameGroup()."', 1)";
         $conn->query($sql);
@@ -109,7 +114,8 @@ function createGroup($newGrProduct){
 }
 function updateGroup($newGroup){
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GroupProduct.php";
-    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try{
         $sql = "UPDATE group_product SET grName = '".$newGroup->getNameGroup()."' where grID = '".$newGroup->getGrID()."';";
         $conn->query($sql);
@@ -123,7 +129,8 @@ function updateGroup($newGroup){
 }
 function searchGroup($nameGroup) {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GroupProduct.php";
-    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try{
         $count = 0;
         $lists =  array();

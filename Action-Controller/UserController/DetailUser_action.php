@@ -1,9 +1,10 @@
 <?php
 include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/User.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/UserDAO.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
 session_start();
 $ID = intval($_GET["id"]);
-$conn = new mysqli("127.0.0.1", "root", "","csdldoan");
+$conn = connectDb();
 $sql =  "select * from user where userID = ".$ID;
 $result = $conn->query($sql);
 if($result->num_rows>0){

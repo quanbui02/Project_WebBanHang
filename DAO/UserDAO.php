@@ -2,7 +2,8 @@
 function getListUser()
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/User.php";
-    $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try {
         $list = array();
         $count = 0;
@@ -40,7 +41,8 @@ function getListUser()
 function getAllUser()
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/User.php";
-    $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try {
         $list = array();
         $count = 0;
@@ -74,7 +76,8 @@ function getAllUser()
 function getIndexPageUser()
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/User.php";
-    $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try {
         $per_page = 15;
         $sql = "select * from user where active = 1";
@@ -143,7 +146,8 @@ function getIndexPageUser()
 function SearchUser($UserName)
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/User.php";
-    $conn = new mysqli("127.0.0.1", "root", "", "csdldoan");
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
     try {
         $count = 0;
         $lists =  array();
