@@ -83,7 +83,7 @@ $lengtGroup = count($listGroup);
                                                 </a>
                                             </div>
                                             <div class="item-edit">
-                                                <a href="/Project_WebBanHang/Action-Controller/CategoryController/DeleteGroup_action.php?id=<?php echo $listGroup[$i]->getGrID(); ?>" class="btn mx-1" style="cursor:pointer;">
+                                                <a href="/Project_WebBanHang/Action-Controller/CategoryController/DeleteGroup_action.php?id=<?php echo $listGroup[$i]->getGrID(); ?>" class="btn mx-1" style="cursor:pointer;" id="btn_dl" onclick="showDeleteConfirmationPopup(event)">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash2-fill" viewBox="0 0 16 16">
                                                         <path d="M2.037 3.225A.703.703 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2a.702.702 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671L2.037 3.225zm9.89-.69C10.966 2.214 9.578 2 8 2c-1.58 0-2.968.215-3.926.534-.477.16-.795.327-.975.466.18.14.498.307.975.466C5.032 3.786 6.42 4 8 4s2.967-.215 3.926-.534c.477-.16.795-.327.975-.466-.18-.14-.498-.307-.975-.466z" />
                                                     </svg>
@@ -126,6 +126,39 @@ $lengtGroup = count($listGroup);
             </div>
         </div>
     </div>
+    <style>
+.delete-confirmation-popup {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+
+.delete-confirmation-popup h3 {
+    margin-top: 0;
+}
+
+.delete-confirmation-popup p {
+    margin-bottom: 20px;
+}
+
+.delete-confirmation-popup button {
+    margin-right: 10px;
+}
+</style>
+<div id="deleteConfirmationPopup" class="delete-confirmation-popup">
+    <h3>Xác nhận xoá</h3>
+    <p>Chắc chán xoá bài viết này!</p>
+    <button id="confirmDeleteBtn" class="btn btn-danger">Xoá</button>
+    <button id="cancelDeleteBtn" class="btn btn-secondary">Hủy</button>
+</div>
     <script>
         const searchBox = document.getElementById("search");
         searchBox.addEventListener("keypress", function(event) {
@@ -136,6 +169,24 @@ $lengtGroup = count($listGroup);
                 }
             }
         });
+
+    var getForm = document.getElementById('btn_dl');
+    function showDeleteConfirmationPopup(event) {
+        event.preventDefault();
+        var deleteConfirmationPopup = document.getElementById('deleteConfirmationPopup');
+        deleteConfirmationPopup.style.display = 'block';
+    }
+    var confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+    confirmDeleteBtn.onclick = function (event) {
+        function loadForm(e) {
+            getForm.onsubmit();
+        }
+    };
+    var cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+    cancelDeleteBtn.onclick = function (event) {
+        var deleteConfirmationPopup = document.getElementById('deleteConfirmationPopup');
+        deleteConfirmationPopup.style.display = 'none';
+    };
     </script>
     <!-- aloo -->
 </body>
