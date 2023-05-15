@@ -3,6 +3,7 @@ function getListProduct()
 {
     include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
     include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    
     $conn = connectDb();
     try {
         $list = array();
