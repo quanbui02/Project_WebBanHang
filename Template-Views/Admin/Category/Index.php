@@ -169,7 +169,7 @@ $lengtGroup = count($listGroup);
     }
 
     function deleteItem() {
-        if(productDelete) {
+        if(idDelete) {
             window.location.href = `/Project_WebBanHang/Action-Controller/CategoryController/DeleteGroup_action.php?id=${idDelete}`
         }
     }
