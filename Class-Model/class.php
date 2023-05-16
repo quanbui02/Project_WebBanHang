@@ -35,8 +35,9 @@ class Product{
   private $color;
   private $des;
   private $active;
+  private $img;
 
-  public function __construct($id, $name, $grID,$price,$quantity,$size,$color,$des,$act)
+  public function __construct($id, $name, $grID,$price,$quantity,$size,$color,$des,$act,$img)
   {
     $this->prID = $id;
     $this->prName = $name;
@@ -47,7 +48,7 @@ class Product{
     $this->color = $color;
     $this->des = $des;
     $this->active = $act;
-
+    $this->img = $img;
   }
   public function getPrID(){
     return $this->prID;
@@ -75,6 +76,9 @@ class Product{
   }
   public function getAct(){
     return $this->active;
+  }
+  public function getImg(){
+    return $this->img;
   }
 }
 //3
@@ -166,12 +170,19 @@ class Order{
     return $this->status;
   }
   public function sumMoney(){
-    include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+    include_once "C:/xampp/htdocs/GhepCode/Action-Controler/function_handle_sql.php";
     $money  = 0;
     $listOrderDetail =  getOrderDetails($this->orderID);
     for($i = 0;$i<count($listOrderDetail);$i++){
       $money = $money + $listOrderDetail[$i]->getMoney();
     }
+    return $money;
+  }
+  public function sumMoneyWithGift(){
+    include_once "C:/xampp/htdocs/GhepCode/Action-Controler/function_handle_sql.php";
+    $sumMoney = $this->sumMoney();
+    $giftValue = getGiftValue($this->giftID);
+    $money  = $sumMoney - $giftValue;
     return $money;
   }
 }
@@ -202,7 +213,7 @@ class OrderDetail{
     return $this->number;
   }
   public function getMoney(){
-    include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+    include_once "C:/xampp/htdocs/GhepCode/Action-Controler/function_handle_sql.php";
     $money = 0;
     $listProduct  = getListProduct("");
     for($i=0;$i<count($listProduct);$i++){
@@ -214,7 +225,7 @@ class OrderDetail{
     return $money;
   }
   public function getNameProduct(){
-    include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+    include_once "C:/xampp/htdocs/GhepCode/Action-Controler/function_handle_sql.php";
     $namePro = "";
     $listProduct  = getListProduct("");
     for($i=0;$i<count($listProduct);$i++){
