@@ -20,7 +20,7 @@ function sidebar()
         new ItemSidebar("Quản Lý Thành Viên", "/Project_WebBanHang/Template-Views/Admin/User/Index.php"),
         new ItemSidebar("Quản lý đơn hàng", "javascript:void(0);"),
         new ItemSidebar("Quản lý giftcode", "/Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php"),
-        new ItemSidebar("Đăng Xuất", "#")
+        new ItemSidebar("Đăng Xuất", "/Project_WebBanHang/Action-Controller/LoginController/Logout_action.php")
     ];
 
     $html = '';
