@@ -21,6 +21,7 @@ $lengthProduct = count($listProduct);
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/category.css">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/product.css">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/Popup.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -48,10 +49,10 @@ $lengthProduct = count($listProduct);
                 </div>
             </form>
             <div class="container_content">
-                <div class="content_Admin">
-                    <h3>Danh sách sản phẩm</h3>
-                    <a href="/Project_WebBanHang/Template-Views/Admin/Product/CreateProduct.php">Thêm sản phẩm mới</a>
-                    <a href="/Project_WebBanHang/Template-Views/Admin/Product/ProductDeleted.php">Sản phẩm đã xoá</a>
+                <div class="content_Admin_List">
+                    <h3 style="margin-top:15px">Danh sách sản phẩm</h3>
+                <a href="/Project_WebBanHang/Template-Views/Admin/Product/CreateProduct.php"  class="btn-add ">Thêm sản phẩm mới</a>
+                    <a href="/Project_WebBanHang/Template-Views/Admin/Product/ProductDeleted.php"  class="btn-delete">Sản phẩm đã xoá</a>
                     <?php
                     if ($lengthProduct > 0) {
                     ?>
@@ -121,7 +122,7 @@ $lengthProduct = count($listProduct);
                         ?>
                         </table>
                 </div>
-                <ul class="pagination">
+                <!-- <ul class="pagination">
                     <?php
                     if ($page > 1) {
                     ?>
@@ -143,7 +144,32 @@ $lengthProduct = count($listProduct);
                     <?php
                     }
                     ?>
-                </ul>
+                </ul> -->
+                <div class="Pagination">
+                    <ul class="pagination">
+                        <?php
+                        if ($page > 1) {
+                        ?>
+                            <li class="page-item"><a href="?page=<?php echo ($page - 1); ?> " class="page-link text-dark ">Trở lại</a></li>
+                        <?php
+                        }
+                        ?>
+                        <?php
+                        for ($i = 1; $i <= $total_pages; $i++) {
+                        ?>
+                            <li class="page-item" <?php if ($i == $page) echo "class='active'"; ?>><a href="?page=<?php echo $i; ?>"class="page-link text-dark "><?php echo $i; ?></a></li>
+                        <?php
+                        }
+                        ?>
+                        <?php
+                        if ($page < $total_pages) {
+                        ?>
+                            <li class="page-item"><a href="?page=<?php echo ($page + 1); ?>" class="page-link text-dark">Tiếp</a></li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
