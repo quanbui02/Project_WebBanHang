@@ -14,13 +14,13 @@ function sidebar()
 {
 
     $myArray = [
-        new ItemSidebar("Trang Chủ", "/Project_WebBanHang/Template-Views/Admin/Index.php"),
-        new ItemSidebar("Sản Phẩm", "/Project_WebBanHang/Template-Views/Admin/Product/Index.php"),
-        new ItemSidebar("Loại Sản Phẩm", "/Project_WebBanHang/Template-Views/Admin/Category/Index.php"),
-        new ItemSidebar("Quản Lý Thành Viên", "/Project_WebBanHang/Template-Views/Admin/User/Index.php"),
-        new ItemSidebar("Quản lý đơn hàng", "javascript:void(0);"),
-        new ItemSidebar("Quản lý giftcode", "/Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php"),
-        new ItemSidebar("Đăng Xuất", "/Project_WebBanHang/Action-Controller/LoginController/Logout_action.php")
+        new ItemSidebar("Trang chủ", "/Project_WebBanHang/Template-Views/Admin/Index.php"),
+        new ItemSidebar("Sản phẩm", "/Project_WebBanHang/Template-Views/Admin/Product/Index.php"),
+        new ItemSidebar("Danh mục sản phẩm", "/Project_WebBanHang/Template-Views/Admin/Category/Index.php"),
+        new ItemSidebar("Khách hàng", "/Project_WebBanHang/Template-Views/Admin/User/Index.php"),
+        new ItemSidebar("Đơn hàng", "javascript:void(0);"),
+        new ItemSidebar("Khuyến mãi", "/Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php"),
+        new ItemSidebar("Đăng xuất", "/Project_WebBanHang/Action-Controller/LoginController/Logout_action.php")
     ];
 
     $html = '';
