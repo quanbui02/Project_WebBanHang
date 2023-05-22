@@ -166,7 +166,8 @@ class Order{
     return $this->status;
   }
   public function sumMoney(){
-    include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+    // include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+    include_once "H:/xampp/htdocs/Project_WebBanHang/Action-Controler/function_handle_sql.php";
     $money  = 0;
     $listOrderDetail =  getOrderDetails($this->orderID);
     for($i = 0;$i<count($listOrderDetail);$i++){
@@ -202,7 +203,8 @@ class OrderDetail{
     return $this->number;
   }
   public function getMoney(){
-    include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+    // include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+    include_once "H:/xampp/htdocs/Project_WebBanHang/Action-Controler/function_handle_sql.php";
     $money = 0;
     $listProduct  = getListProduct("");
     for($i=0;$i<count($listProduct);$i++){
@@ -214,7 +216,8 @@ class OrderDetail{
     return $money;
   }
   public function getNameProduct(){
-    include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+    // include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+    include_once "H:/xampp/htdocs/Project_WebBanHang/Action-Controler/function_handle_sql.php";
     $namePro = "";
     $listProduct  = getListProduct("");
     for($i=0;$i<count($listProduct);$i++){
@@ -279,7 +282,7 @@ class Feedback{
     return $this->fbContent;
   }
   public function getNameUser(){
-    $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
+    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
     try{
       $sql = "select * from user where userID =".$this->userID;
       $result=$conn->query($sql);

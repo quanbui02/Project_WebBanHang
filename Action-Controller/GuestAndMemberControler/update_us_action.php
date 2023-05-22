@@ -1,6 +1,8 @@
 <?php
-include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
-include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+// include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+// include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+include_once "H:/xampp/htdocs/Project_WebBanHang/Class-Model/class.php";
+include_once "H:/xampp/htdocs/Project_WebBanHang/Action-Controler/function_handle_sql.php";
 session_start();
 $fullname  = $_REQUEST["full-name"];
 $birth = $_REQUEST["birth"];
@@ -10,7 +12,8 @@ $phone = $_REQUEST["phone"];
 $username  = $_REQUEST["user-name"];
 $password  = $_REQUEST["password"];
 if(strlen($password)<8){
-    header("Location: /DoAnCNW/Template-View/user_infor.php");
+    // header("Location: /DoAnCNW/Template-View/user_infor.php");
+    header("Location: /Project_WebBanHang/Template-View/user_infor.php");
     $_SESSION["error-pass"]="Độ dài mật khẩu cần ít nhất 8 ký tự !";
 }
 else{
@@ -18,6 +21,7 @@ else{
     $_SESSION["user-infor"] = $updateUser;
     updateUser($updateUser);
     $_SESSION["error-pass"]=null;
-    header("Location: /DoAnCNW/Template-View/user_infor.php");
+    // header("Location: /DoAnCNW/Template-View/user_infor.php");
+    header("Location: /Project_WebBanHang/Template-View/user_infor.php");
 }
 ?>

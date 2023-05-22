@@ -1,0 +1,168 @@
+*{
+    padding: 0;
+    margin:0;
+}
+a{
+    text-decoration: none;
+    color:black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: white;
+}
+.header{
+    width: 100vw;
+    height: 70px;
+    background-color: #ff844f;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.header .logo{
+    width:20%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+.header .logo img{
+    width: 30%;
+    height: 90%;
+}
+.header .search{
+    width:40%;
+    height:100%;
+    box-sizing: border-box;
+    padding-top: 15px;
+    display: flex;
+}
+.header .search form{
+    width: 100%;
+    height: 100%;
+}
+.header .search form input{
+    width:80%;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+.header .search form button{
+    width:calc(100% - 90%);
+    height: 40px;
+    border-radius: 5px;
+    border:black solid 1px;
+}
+.header .search form button:hover,.header .user-infor .name button:hover{
+    background-color: pink;
+    cursor: pointer;
+}
+.header .user-infor{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    box-sizing: border-box;
+    padding-top: 8px;
+    justify-content: space-around;
+}
+.header .user-infor .name{
+    width:70%;
+    height: 100%;
+    text-align: right;
+    margin-top: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.header .user-infor .name button{
+    width:100px;
+    height: 20px;
+    border:black solid 1px;
+    border-radius: 3px;
+}
+.header .user-infor .avatar{
+    width: 20%;
+    height: 100%;
+}
+.header .user-infor img{
+    width: 100%;
+    height: 90%;
+    border-radius: 50%;
+}
+.list-product{
+    margin-top: 10px;
+    margin-left: 14vw;
+    width:70vw;
+    height:80vh;
+    overflow-y: auto;
+    border: #ff844f solid 1px;
+    border-radius: 10px;
+}
+.list-product>div{
+    width: 90%;
+    height:80px;
+    background-color: antiquewhite;
+    margin-left: 5%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 5px;
+}
+.pro-image{
+    width:10%;
+    height: 100%;
+    padding-top: 5px;
+}
+.pro-image img{
+    width: 100%;
+    height:90%;
+    border-radius: 5px;
+}
+.list-product>div .pro-infor{
+    width:60%;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+.pro-name{
+    font-size: 20px;
+    font-weight: 600;
+}
+.list-product>div .handle-btn{
+    width: 20%;
+}
+.list-product>div .handle-btn button{
+    width:80%;
+    height: 30%;
+    margin-top: 10px;
+    border-radius: 5px;
+    border:black solid 1px;
+}
+.list-product>div .handle-btn button:hover{
+    background-color: pink;
+    cursor: pointer;
+}
+.list-group{
+    margin-left: 14vw;
+    margin-top: 5px;
+    width:70vw;
+    height: 40px;
+    overflow-x: auto;
+    border: #ff844f solid 1px;
+    border-radius: 10px;
+    display: flex;
+    box-sizing: border-box;
+    padding-top: 4px;
+}
+.list-group>div{
+    width: 100px;
+    height: 90%;
+    text-align: center;
+    margin-left: 30px;
+    box-sizing:border-box;
+    padding-top: 4px;
+}
+.list-group>div a:hover{
+    color: pink;
+}
