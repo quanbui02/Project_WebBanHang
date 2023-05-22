@@ -1,8 +1,10 @@
 <?php
 //User function
 function insertUser($newUser){
-    include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/connect.php";
-    include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+    // include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/connect.php";
+    // include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+    include_once "H:/xampp/htdocs/Project_WebBanHang/Action-Controler/connect.php";
+    include_once "H:/xampp/htdocs/Project_WebBanHang/Class-Model/class.php";
     try{
         $sql = "INSERT INTO user (userID, userName, pass,position,fullName,birth,address,email,phone,active) VALUES (0, '".$newUser->getUserName()."', '".$newUser->getPass()."','".$newUser->getPos()."','".$newUser->getFullName()."','".$newUser->getBirth()."','".$newUser->getAddress()."','".$newUser->getEmail()."','".$newUser->getPhone()."',".$newUser->getAct().")";
         $conn->query($sql);
@@ -15,8 +17,10 @@ function insertUser($newUser){
     }
 }
 function updateUser($newUser){
-    include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/connect.php";
-    include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+    // include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/connect.php";
+    // include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+    include_once "/Project_WebBanHang/Action-Controler/connect.php";
+     include_once "/Project_WebBanHang/Class-Model/class.php";
     try{
         $sql = "UPDATE user SET userName='".$newUser->getUserName()."',pass='".$newUser->getPass()."', fullName = '".$newUser->getFullName()."', birth = '".$newUser->getBirth()."' , address = '".$newUser->getAddress()."',email ='".$newUser->getEmail()."',phone = '".$newUser->getPhone()."'  WHERE userID = ".$newUser->getUserID().";";
         $conn->query($sql);
@@ -30,8 +34,10 @@ function updateUser($newUser){
 }
 //Product function
 function getListProduct($proName){
-    include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
-    $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
+    // include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+    include_once "/Project_WebBanHang/Class-Model/class.php";
+    // $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
+    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
     try{
         $count = 0;
         $lists =  array();
@@ -61,8 +67,9 @@ function getListProduct($proName){
     }
 }
 function getProductByID($idPro){
-    include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
-    $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
+    // include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+    include_once "/Project_WebBanHang/Class-Model/class.php";
+    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
     try{
         $sql  = "select * from product where proID = '".$idPro."'";
         $result = $conn->query($sql);
@@ -80,8 +87,9 @@ function getProductByID($idPro){
 }
 //Group function
 function getListGroup(){
-    include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
-    $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
+    // include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+    include_once "/Project_WebBanHang/Class-Model/class.php";
+    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
     try{
         $list= array();
         $count = 0;
@@ -104,8 +112,10 @@ function getListGroup(){
 }
 //Feedback function 
 function getListFB($proID){
-    include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
-    $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
+    // include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+    include_once "/Project_WebBanHang/Class-Model/class.php";
+    // $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
+    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
     try{
         $list = array();
         $count = 0;
@@ -129,8 +139,9 @@ function getListFB($proID){
 }
 //Order details function
 function getOrderDetails($orderID){
-    include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
-    $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
+    // include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+    include_once "/Project_WebBanHang/Class-Model/class.php";
+    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
     try{
         $list = array();
         $count = 0;
@@ -153,8 +164,9 @@ function getOrderDetails($orderID){
     }
 }
 function getOrderByID($id){
-    include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
-    $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
+    // include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+    include_once "Project_WebBanHang/Class-Model/class.php";
+    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
     try{
         $result = $conn->query("select * from `order` where orderID = ".intval($id));
         $row = $result->fetch_assoc();
@@ -171,14 +183,17 @@ function getOrderByID($id){
     }
 }
 function validatorQuantity($idProuct){
-    include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
-    $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
+    // include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+    include_once "/Project_WebBanHang/Class-Model/class.php";
+    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
     try{
+
         $sql = "select * from `product` where proID = ".$idProuct;
         $result = $conn->query($sql);
         if($result->num_rows>0){
             $row  = $result->fetch_assoc();
             $product = new Product($row["proID"],$row["proName"],$row["grID"],$row["price"],$row["quantity"],$row["size"],$row["color"],$row["description"],$row["active"]);
+            
             if($product->getQuantity()>0){
                 return true;
             }else{

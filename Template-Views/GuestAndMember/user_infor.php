@@ -1,13 +1,16 @@
 <?php
-include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
-include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+// include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+// include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/class.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/Action-Controler/function_handle_sql.php";
 session_start();
 if($_SESSION["login"]==false){
-    header("Location:/DoAnCNW/Template-View/login.php ");
+    // header("Location:/DoAnCNW/Template-View/login.php ");
+    header("Location:/Project_WebBanHang/Template-View/login.php ");
 }else{
     $listOrder = array();
     $count = 0;
-    $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
+    $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
     $sql = "select * from `order` where userID = ".intval($_SESSION["user-infor"]->getUserID());
     try{
         $result = $conn->query($sql);
@@ -35,7 +38,8 @@ if($_SESSION["login"]==false){
         <body>
             <div class="header">Thông tin người dùng</div>
             <div class="infor">
-                <form action="/DoAnCNW/Action-Controler/update_us_action.php">
+                <!-- <form action="/DoAnCNW/Action-Controler/update_us_action.php"> -->
+                <form action="/Project_WebBanhang/Action-Controler/update_us_action.php">
                     <div class="full-name">
                         <div class="label">Tên người dùng:</div>
                         <div class="form-input">
@@ -120,7 +124,8 @@ if($_SESSION["login"]==false){
                                 <?php echo "Tổng tiền: ".$listOrder[$i]->sumMoney()." VND"; ?>
                             </div>
                             <div class="infor-order">
-                                <button><a href="<?php echo"/DoAnCNW/Template-View/detail_order.php?id_order=".$listOrder[$i]->getOrderID()."&order_date=".$listOrder[$i]->getDate()."&code=".$listOrder[$i]->getUserID().$listOrder[$i]->getOrderID().$listOrder[$i]->getGiftID()."&status=".$listOrder[$i]->getStatus(); ?>">Xem chi tiết</a></button>
+                                <!-- <button><a href="<?php echo"/DoAnCNW/Template-View/detail_order.php?id_order=".$listOrder[$i]->getOrderID()."&order_date=".$listOrder[$i]->getDate()."&code=".$listOrder[$i]->getUserID().$listOrder[$i]->getOrderID().$listOrder[$i]->getGiftID()."&status=".$listOrder[$i]->getStatus(); ?>">Xem chi tiết</a></button> -->
+                                <button><a href="<?php echo"/Project_WebBanHang/Template-View/detail_order.php?id_order=".$listOrder[$i]->getOrderID()."&order_date=".$listOrder[$i]->getDate()."&code=".$listOrder[$i]->getUserID().$listOrder[$i]->getOrderID().$listOrder[$i]->getGiftID()."&status=".$listOrder[$i]->getStatus(); ?>">Xem chi tiết</a></button>
                             </div>
                           </div>
                         <?php
@@ -131,8 +136,8 @@ if($_SESSION["login"]==false){
                 ?>
             </div>
             <div class="back">
-                <button><a href="/DoAnCNW/Template-View/trangchu.php?search=">Trở về trang chủ</a></button>
-            </div>
+                <!-- <button><a href="/DoAnCNW/Template-View/trangchu.php?search=">Trở về trang chủ</a></button> -->
+                <button><a href="/Project_WebBanHang/Template-View/trangchu.php?search=">Trở về trang chủ</a></button>
         </body>
     </html>
     <?php

@@ -1,11 +1,14 @@
 <?php
-include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
-include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+// include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+// include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+include_once "H:/xampp/htdocs/Project_WebBanHang/Class-Model/class.php";
+include_once "H:/xampp/htdocs/Project_WebBanHang/Action-Controler/function_handle_sql.php";
 session_start();
 if($_SESSION["login"]==true){
 $proID = $_GET["id_product"];
 $proQuantity = $_GET["quantityPro"];
-$conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
+// $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
+$conn = new mysqli("127.0.0.1", "root", "","csdldoan");
 $sql = "select * from `order` where userID= ".intval($_SESSION["user-infor"]->getUserID());
 $cartOrder = null;
 $cartDetailOrder = null;
@@ -41,7 +44,8 @@ try{
             $newQuantity = $proQuantity - 1;
             $sqlUpdatePro = "update `product` set `quantity` = ".$newQuantity." where proID = ".$proID;
             $conn->query($sqlUpdatePro);
-            header("Location: /DoAnCNW/Template-View/trangchu.php?search=");
+            // header("Location: /DoAnCNW/Template-View/trangchu.php?search=");
+            header("Location: /Project_WebBanHang/Template-View/trangchu.php?search=");
         }else{//Da co gio hang
             $check = false;
             for($i = 0;$i<count($cartDetailOrder);$i++){
@@ -53,7 +57,8 @@ try{
                     $newQuantity = $proQuantity - 1;
                     $sqlUpdatePro = "update `product` set `quantity` = ".$newQuantity." where proID = ".$proID;
                     $conn->query($sqlUpdatePro);
-                    header("Location: /DoAnCNW/Template-View/trangchu.php?search=");
+                    // header("Location: /DoAnCNW/Template-View/trangchu.php?search=");
+                    header("Location: /Project_WebBanHang/Template-View/trangchu.php?search=");
                     break;
                 }
             }
@@ -63,7 +68,8 @@ try{
                 $newQuantity = $proQuantity - 1;
                 $sqlUpdatePro = "update `product` set `quantity` = ".$newQuantity." where proID = ".$proID;
                 $conn->query($sqlUpdatePro);
-                header("Location: /DoAnCNW/Template-View/trangchu.php?search=");
+                // header("Location: /DoAnCNW/Template-View/trangchu.php?search=");
+                header("Location: /Project_WebBanHang/Template-View/trangchu.php?search=");
             }
         }
     }else{
@@ -80,7 +86,8 @@ try{
         $newQuantity = $proQuantity - 1;
         $sqlUpdatePro = "update `product` set `quantity` = ".$newQuantity." where proID = ".$proID;
         $conn->query($sqlUpdatePro);
-        header("Location: /DoAnCNW/Template-View/trangchu.php?search=");
+        // header("Location: /DoAnCNW/Template-View/trangchu.php?search=");
+        header("Location: /Project_WebBanHang/Template-View/trangchu.php?search=");
     }
 }
 catch(Exception $e){
@@ -90,6 +97,7 @@ finally{
     $conn->close();
 }
 }else{
-    header("Location: /DoAnCNW/Template-View/login.php");
+    // header("Location: /DoAnCNW/Template-View/login.php");
+    header("Location: /Project_WebBanHang/Template-View/login.php");
 }
 ?>

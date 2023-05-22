@@ -1,9 +1,11 @@
 <?php 
-include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
-include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+// include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+// include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/class.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/Action-Controler/function_handle_sql.php";
 session_start();
 if($_SESSION["login"]==true){
-$conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
+$conn = new mysqli("127.0.0t", "root", "","csdldoan");
 $sql = "select * from `order` where userID= ".intval($_SESSION["user-infor"]->getUserID());
 $cartOrder = null;
 $cartDetailOrder = null;
@@ -56,10 +58,15 @@ finally{
                             <div class="name">Tên sản phẩm: <?php echo $cartDetailOrder[$i]->getNameProduct(); ?></div>
                             <div class="quantity">
                                  Số lượng:
-                                <button><a href="<?php echo "/DoAnCNW/Action-Controler/stonk_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">+</a></button>
+                                <!-- <button><a href="<?php echo "/DoAnCNW/Action-Controler/stonk_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">+</a></button> -->
+                                
+                                <button><a href="<?php echo "ProJect_WebBanHang/Action-Controler/stonk_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">+</a></button>
                                 <?php echo $cartDetailOrder[$i]->getNumber(); ?>
-                                <button><a href="<?php echo "/DoAnCNW/Action-Controler/notStonk_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">-</a></button>
-                                <button><a href="<?php echo "/DoAnCNW/Action-Controler/destroy_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">x</a></button>
+                                <!-- <button><a href="<?php echo "/DoAnCNW/Action-Controler/notStonk_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">-</a></button>
+                                <button><a href="<?php echo "/DoAnCNW/Action-Controler/destroy_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">x</a></button> -->
+                                
+                                <button><a href="<?php echo "/Project_WebBanHang/Action-Controler/notStonk_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">-</a></button>
+                                <button><a href="<?php echo "/Project_WebBanHang/Action-Controler/destroy_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">x</a></button>
                             </div>
                             <div class="money">Thành tiền: <?php echo $cartDetailOrder[$i]->getMoney(); ?> VND</div>
                         </div>
@@ -70,7 +77,8 @@ finally{
                 <div class="sum-money">Tổng tiền: <?php echo $cartOrder->sumMoney(); ?> VND</div>
                 <div class="purchase">
                     <button><a href="">Thanh toán</a></button>
-                    <button><a href="/DoAnCNW/Template-View/trangchu.php?search=">Trở về trang chủ</a></button>
+                    <!-- <button><a href="/DoAnCNW/Template-View/trangchu.php?search=">Trở về trang chủ</a></button> -->
+                    <button><a href="/Project_WebBanHang/Template-View/trangchu.php?search=">Trở về trang chủ</a></button>
                 </div>
                 <?php
             }else{
@@ -82,6 +90,8 @@ finally{
 </html>
 <?php
 }else{
-    header("Location: /DoAnCNW/Template-View/login.php");
+    // header("Location: /DoAnCNW/Template-View/login.php");
+    header("Location: /Project_WebBanHang/Template-View/login.php");
+    
 }
 ?>

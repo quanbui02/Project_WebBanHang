@@ -117,7 +117,7 @@ $lengtProduct = count($listProductSearch);
                 </div>
             </form>
             <div class="container_content">
-                <div class="content_Admin">
+                <div class="content_Admin content_width_100">
                     <h3>Danh sách sản phẩm</h3>
                     <a href="/Project_WebBanHang/Template-Views/Admin/Product/CreateProduct.php">Thêm sản phẩm mới</a>
                     <a href="/Project_WebBanHang/Template-Views/Admin/Product/ProductDeleted.php">Sản phẩm đã xoá</a>

@@ -1,6 +1,8 @@
 <?php
-include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
-include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+// include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+// include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/class.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/Action-Controler/function_handle_sql.php";
 $orderID=$_GET["id_order"];
 $code = $_GET["code"];
 $date = $_GET["order_date"];

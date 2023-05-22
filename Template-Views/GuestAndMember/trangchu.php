@@ -1,6 +1,8 @@
 <?php
-include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
-include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+// include_once "H:/xampp/htdocs/DoAnCNW/Class-Model/class.php";
+// include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/class.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/Action-Controler/function_handle_sql.php";
 session_start();
 if(empty( $_SESSION["group-mode"]) || $_SESSION["group-mode"]==false ){
 $searchQS=$_GET["search"];
@@ -18,26 +20,34 @@ $listGroup = getListGroup();
         <div class="header">
             <div class="logo"><img src="https://1000logos.net/wp-content/uploads/2020/09/Navi-logo.png"></div>
             <div class="search">
-                <form action="/DoAnCNW/Action-Controler/search_action.php">
+                <!-- <form action="/DoAnCNW/Action-Controler/search_action.php"> -->
+                <form action="/Project_WebBanHang/Action-Controler/search_action.php">
                     <input type="text" name="search-product" placeholder = "Nhập tên sản phẩm bạn muốn tìm kiếm..." value="<?php echo $_GET["search"]; ?>">
                     <button>Tìm</button>
                 </form>
             </div>
             <div class="user-infor">
                 <div class="name">
-                    <div><a href="/DoAnCNW/Template-View/user_infor.php"><?php if($_SESSION["login"]==false){echo "Khách";}else{echo  $_SESSION["user-infor"]->getUserName();} ?></a></div>
-                    <button><a href="/DoAnCNW/Template-View/cart.php">Giỏ hàng</a></button>
-                    <?php if($_SESSION["login"]==false){echo "<button><a href='/DoAnCNW/Template-View/login.php'>Đăng nhập</a></button>";}else{echo "<button><a href='/DoAnCNW/Action-Controler/logout_action.php'>Đăng xuất</a></button>";} ?>
+                    <!-- <div><a href="/DoAnCNW/Template-View/user_infor.php"><?php if($_SESSION["login"]==false){echo "Khách";}else{echo  $_SESSION["user-infor"]->getUserName();} ?></a></div>
+                    <button><a href="/DoAnCNW/Template-View/cart.php">Giỏ hàng</a></button> -->
+                    
+                    <div><a href="/Project_WebBanHang/Template-View/user_infor.php"><?php if($_SESSION["login"]==false){echo "Khách";}else{echo  $_SESSION["user-infor"]->getUserName();} ?></a></div>
+                    <button><a href="/Project_WebBanHang/Template-View/cart.php">Giỏ hàng</a></button>
+                    
+                    <!-- <?php if($_SESSION["login"]==false){echo "<button><a href='/DoAnCNW/Template-View/login.php'>Đăng nhập</a></button>";}else{echo "<button><a href='/DoAnCNW/Action-Controler/logout_action.php'>Đăng xuất</a></button>";} ?> -->
+                    <?php if($_SESSION["login"]==false){echo "<button><a href='/Project_WebBanHang/Template-View/login.php'>Đăng nhập</a></button>";}else{echo "<button><a href='/Project_WebBanHang/Action-Controler/logout_action.php'>Đăng xuất</a></button>";} ?>
                 </div>
                 <div class="avatar"><img src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=2000" ></div>
             </div>
         </div>
         <div class="list-group">
-            <div class="item-gr"><a href="/DoAnCNW/Action-Controler/search_action.php">Tất cả</a></div>
+            <!-- <div class="item-gr"><a href="/DoAnCNW/Action-Controler/search_action.php">Tất cả</a></div> -->
+            <div class="item-gr"><a href="/Project_WebBanHang/Action-Controler/search_action.php">Tất cả</a></div>
             <?php 
             for($i = 0;$i<count($listGroup);$i++){
-                ?>
-                     <div class="item-gr"><a href="<?php echo "/DoAnCNW/Action-Controler/get_product_followGR.php?id_group=".$listGroup[$i]->getGrID(); ?>"><?php echo $listGroup[$i]->getNameGroup(); ?></a></div>
+                ?> <!-- <div class="item-gr"><a href="<?php echo "/DoAnCNW/Action-Controler/get_product_followGR.php?id_group=".$listGroup[$i]->getGrID(); ?>"><?php echo $listGroup[$i]->getNameGroup(); ?></a></div> -->
+                    
+                    <div class="item-gr"><a href="<?php echo "/Project_WebBanHang/Action-Controler/get_product_followGR.php?id_group=".$listGroup[$i]->getGrID(); ?>"><?php echo $listGroup[$i]->getNameGroup(); ?></a></div>
                 <?php
             }
             ?>
@@ -56,11 +66,16 @@ $listGroup = getListGroup();
                        <div class="pro-color">-Màu sắc: <?php echo $listProduct[$i]->getColor(); ?></div>
                    </div>
                    <div class="handle-btn">
-                       <button><a href="/DoAnCNW/Action-Controler/get_inforPR.php?id_product=<?php echo $listProduct[$i]->getPrID(); ?>">Chi tiết sản phẩm</a></button><br>
+                       <!-- <button><a href="/DoAnCNW/Action-Controler/get_inforPR.php?id_product=<?php echo $listProduct[$i]->getPrID(); ?>">Chi tiết sản phẩm</a></button><br>
+                        -->
+                        <button><a href="/Project_WebBanHang/Action-Controler/get_inforPR.php?id_product=<?php echo $listProduct[$i]->getPrID(); ?>">Chi tiết sản phẩm</a></button><br>
+                       
                        <button>
                           <?php if(validatorQuantity($listProduct[$i]->getPrID())){
                             ?>
-                             <a href="<?php echo "/DoAnCNW/Action-Controler/add_cart_action.php?id_product=".$listProduct[$i]->getPrID()."&quantityPro=".$listProduct[$i]->getQuantity(); ?>">Thêm vào giỏ hàng</a>
+                             <!-- <a href="<?php echo "/DoAnCNW/Action-Controler/add_cart_action.php?id_product=".$listProduct[$i]->getPrID()."&quantityPro=".$listProduct[$i]->getQuantity(); ?>">Thêm vào giỏ hàng</a> -->
+                            
+                             <a href="<?php echo "/Project_WebBanHang/Action-Controler/add_cart_action.php?id_product=".$listProduct[$i]->getPrID()."&quantityPro=".$listProduct[$i]->getQuantity(); ?>">Thêm vào giỏ hàng</a>
                             <?php
                           } else{
                             ?>
