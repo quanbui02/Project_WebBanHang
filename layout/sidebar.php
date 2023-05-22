@@ -37,4 +37,3 @@ function sidebar()
 
     return $html;
 }
-// href="' . $item->href . '"

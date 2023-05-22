@@ -37,22 +37,22 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
     //             $(".content_Admin").load(page);
     //         });
     //     });
-    $(document).ready(function() {
-      $('.nav-link').click(function(e) {
-        e.preventDefault();
-        var page = $(this).data('page');
-        $.ajax({
-          url: page,
-          success: function(data) {
-            $('.content_Admin').html(data);
-            history.pushState(null, '', page);
-          },
-          error: function() {
-            alert('Đã xảy ra lỗi khi tải trang.');
-          }
-        });
-      });
-    });
+    // $(document).ready(function() {
+    //   $('.nav-link').click(function(e) {
+    //     e.preventDefault();
+    //     var page = $(this).data('page');
+    //     $.ajax({
+    //       url: page,
+    //       success: function(data) {
+    //         $('.content_Admin').html(data);
+    //         history.pushState(null, '', page);
+    //       },
+    //       error: function() {
+    //         alert('Đã xảy ra lỗi khi tải trang.');
+    //       }
+    //     });
+    //   });
+    // });
   </script>
 </body>
 </html>
