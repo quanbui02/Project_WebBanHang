@@ -6,7 +6,6 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
 session_start();
 $listProduct = getListProduct();
 $total_pages = getIndexPageProduct();
-$sidebar_html = sidebar();
 $page = isset($_GET['pI']) ? $_GET['pI'] : 1;
 $lengthProduct = count($listProduct);
 ?>

@@ -20,7 +20,7 @@ function sidebar()
         new ItemSidebar("Page2","Sản phẩm", "/Project_WebBanHang/Template-Views/Admin/Product/Index.php"),
         new ItemSidebar("Page3","Danh mục sản phẩm", "/Project_WebBanHang/Template-Views/Admin/Category/Index.php"),
         new ItemSidebar("Page4","Khách hàng", "/Project_WebBanHang/Template-Views/Admin/User/Index.php"),
-        new ItemSidebar("Page5","Đơn hàng", "javascript:void(0);"),
+        new ItemSidebar("Page5","Đơn hàng", "/Project_WebBanHang/Template-Views/Admin/Order/Index.php"),
         new ItemSidebar("Page6","Khuyến mãi", "/Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php"),
         new ItemSidebar("Page7","Đăng xuất", "/Project_WebBanHang/Action-Controller/LoginController/Logout_action.php")
     ];
