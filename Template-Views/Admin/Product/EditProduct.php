@@ -78,8 +78,8 @@ $listImgs = unserialize($_SESSION['InfoImgProducts']);
       <div class="Ima">
         <div class="label"> <label for="image">Chỉnh sửa ảnh đại diện:</label></div>
         <div class="content1"> <input type="file" name="ProductImage" onchange="loadFile(event)"></div>
-        <!-- <div class="content"> <img id="output" style="width:300px;height:300px;object-fit:cover;"
-            src="/Project_WebBanHang/Upload/img/<?php echo $_SESSION["InfoProduct"]->getImg() ?>" /></div> -->
+        <div class="content"> <img id="output" style="width:300px;height:300px;object-fit:cover;"
+            src="/Project_WebBanHang/Upload/img/<?php echo $_SESSION["InfoProduct"]->getImg() ?>" /></div>
       </div>
       <div class="ImaDes">
         <div class="label"> <label for="image">Thêm ảnh mô tả:</label></div>

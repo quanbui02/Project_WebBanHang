@@ -33,7 +33,6 @@ $lengtUser = count($listUser);
                     <?php
                     echo sidebar();
                     ?>
-
                 </ul>
             </div>
         </div>
@@ -146,17 +145,18 @@ $lengtUser = count($listUser);
 
 </body>
 
-    <script>
-        const searchBox = document.getElementById("search");
-        searchBox.addEventListener("keypress", function(event) {
-            if (event.keyCode === 13) {
-                if (searchBox.value.trim() == "") {
-                    event.preventDefault();
-                    alert("Vui Lòng điền thông tin cần tìm kiếm")
-                }
+<script>
+    const searchBox = document.getElementById("search");
+    searchBox.addEventListener("keypress", function(event) {
+        if (event.keyCode === 13) {
+            if (searchBox.value.trim() == "") {
+                event.preventDefault();
+                alert("Vui Lòng điền thông tin cần tìm kiếm")
             }
-        });
-        function openModal(id) {
+        }
+    });
+
+    function openModal(id) {
         var modal = document.getElementById("myModal");
         modal.classList.add("show");
         idDelete = id;
@@ -170,9 +170,10 @@ $lengtUser = count($listUser);
     }
 
     function deleteItem() {
-        if(idDelete) {
+        if (idDelete) {
             window.location.href = `/Project_WebBanHang/Action-Controller/UserController/DeleteUser_action.php?id=${idDelete}`
         }
     }
-    </script>
+</script>
+
 </html>
