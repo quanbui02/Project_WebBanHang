@@ -5,7 +5,7 @@ class Order{
     private $userID;
     private $giftID;
     private $status;
-  
+
     public function __construct($orID,$date,$uID,$gID,$status){
       $this->orderID = $orID;
       $this->date = $date;
@@ -13,6 +13,7 @@ class Order{
       $this->giftID = $gID;
       $this->status = $status;
     }
+
     public function getOrderID(){
       return $this->orderID;
     }
