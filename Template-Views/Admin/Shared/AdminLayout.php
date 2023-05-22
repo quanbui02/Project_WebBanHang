@@ -23,11 +23,11 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
                     <?php
                     echo sidebar();
                     ?>
+                    <li class="nav-item dropdown"><a href="/Project_WebBanHang/Action-Controller/LoginController/Logout_action.php">Đăng xuất</a></li>
                 </ul>
             </div>
         </div>
         <div class="content_Admin">
-            <h1>Chào mừng Admin</h1>
         </div>
 </div>
 <script>
@@ -38,6 +38,15 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
     //         });
     //     });
     $(document).ready(function() {
+        //   if (sessionStorage.getItem('sidebar')) {
+        //     $('.side-nav-menu').html(sessionStorage.getItem('sidebar'));
+        // } else {
+        //     var sidebarHtml =     <?php
+        //             echo sidebar();
+        //             ?>;
+        //     sessionStorage.setItem('sidebar', sidebarHtml);
+        //     $('.side-nav-menu').html(sidebarHtml);
+        // }
       $('.nav-link').click(function(e) {
         e.preventDefault();
         var page = $(this).data('page');
@@ -45,7 +54,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
           url: page,
           success: function(data) {
             $('.content_Admin').html(data);
-            history.pushState(null, '', page);
+            // history.pushState(null, '', page);
           },
           error: function() {
             alert('Đã xảy ra lỗi khi tải trang.');

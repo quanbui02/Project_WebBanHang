@@ -17,7 +17,7 @@ if($result->num_rows>0){
     $_SESSION["user-infor"]= $user;
     if($row["position"] == "Admin" && $row["active"] == 1){
         $_SESSION["login"]=true;
-        header("Location: /Project_WebBanHang/Template-Views/Admin/Index.php");
+        header("Location: /Project_WebBanHang/Template-Views/Admin/Shared/Index.php");
     }
     else{
         $_SESSION["login-err"] = "Tên người dùng không tồn tại !";

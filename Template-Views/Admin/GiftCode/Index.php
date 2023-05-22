@@ -40,7 +40,7 @@ $lengtGift = count($listGift);
         <div class="content_Admin">
             <div class="container_content">
                 <div class="content_Admin">
-                    <h3>Danh mục sản phẩm</h3>
+                    <h3>Danh sách mã giảm giá</h3>
                     <a href="/Project_WebBanHang/Template-Views/Admin/GiftCode/CreateGift.php">Thêm mã giảm giá</a>
                     <?php
                     if ($lengtGift > 0) {
@@ -97,7 +97,7 @@ $lengtGift = count($listGift);
                                                 <?php
                                                 }
                                                 ?>
-                                              
+                                                
                                         </div>
                                     </td>
                                 </tr>
