@@ -162,34 +162,9 @@ $lengtGroup = count($listGroup);
             <div class="container_content">
                 <div class="content_Admin">
                     <h3>Danh mục sản phẩm</h3>
-<<<<<<< HEAD
-                    <!-- href="/Project_WebBanHang/Template-Views/Admin/Category/CreateCategory.php" -->
-                    <a onclick=openModelAdd() class="loadAdd">Thêm mới danh mục</a>
-                    <a href="/Project_WebBanHang/Template-Views/Admin/Category/listCategoryDeleted.php">Danh mục đã xoá</a>
-
-                    <div class="ModelAdd" style="display:none">
-                        <form method="post" action="/Project_WebBanHang/Action-Controller/CategoryController/CreateGroup_action.php">
-                            <label>Tên danh mục</label>
-                            <br>
-                            <input type="text" id="CatName" type="text" name="CategoryName" required />
-                            <br>
-                            <?php if (empty($_SESSION["err_value"])) {
-                                echo "";
-                            } else {
-                                echo "<span style='color:red;font-size:14px;'>" . $_SESSION["err_value"] . "</span>";
-                            } ?>
-                            <button class="Addbtn" type="submit">Thêm</button>
-                        </form>
-                        <a href="/Project_WebBanHang/Template-Views/Admin/Category/Index.php">
-                            <?php $_SESSION["err_value"] = ""; ?>
-                            Tro Lai
-                        </a>
-                    </div>
-=======
                     <button class="add-product-js">Thêm mới danh mục</button>
                     <a href="/Project_WebBanHang/Template-Views/Admin/Category/listCategoryDeleted.php">Danh mục đã
                         xoá</a>
->>>>>>> ba591f29870a15237fe026e3580a44ead61acf79
                     <?php
                     if ($lengtGroup > 0) {
                         ?>
@@ -352,12 +327,6 @@ $lengtGroup = count($listGroup);
         }
     }
 
-<<<<<<< HEAD
-    function openModelAdd() {
-        var openModel = document.getElementsByClassName("ModelAdd")
-        openModel.classList.add("active");
-    }
-=======
     // modal 
     const addGroupButton = document.querySelectorAll('.add-product-js')
     const modal = document.querySelector('.modal-addGroup')
@@ -383,7 +352,6 @@ $lengtGroup = count($listGroup);
     modalContainer.addEventListener('click', (event) => {
         event.stopPropagation()
     })
->>>>>>> ba591f29870a15237fe026e3580a44ead61acf79
 </script>
 
 
