@@ -39,38 +39,55 @@ finally{
 ?>
 <html>
     <head>
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="cart.css">
     </head>
     <body>
-       <div class="header"><p>Thông tin giỏ hàng</p></div>
-       <div class="details">
+       <div class="header">
+            <div class="back"><button><a href="/DoAnCNW/Template-View/trangchu.php?search="> <-Trở về</a></button></div>
+            <div class="tag"><h2><?php echo "Thông tin giỏ hàng "; ?></h2></div>
+       </div>
+       <div class="infor">
         <?php
             if(empty($error)){
                 ?>
-                <div class="date">Ngày khởi tạo: <?php echo $cartOrder->getDate(); ?></div>
-                <div class="order-details">
+                <div class="date">
+                    <div class="label">Ngày khởi tạo:</div>
+                    <div class="content"><?php echo $cartOrder->getDate(); ?></div>   
+                </div>
+                <div class="details">
+                    <p>Danh sách sản phẩm</p>
                     <?php
                     for($i =0;$i<count($cartDetailOrder);$i++){
                         ?>
                         <div class="item">
-                            <div class="name">Tên sản phẩm: <?php echo $cartDetailOrder[$i]->getNameProduct(); ?></div>
-                            <div class="quantity">
-                                 Số lượng:
-                                <button><a href="<?php echo "/DoAnCNW/Action-Controler/stonk_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">+</a></button>
-                                <?php echo $cartDetailOrder[$i]->getNumber(); ?>
-                                <button><a href="<?php echo "/DoAnCNW/Action-Controler/notStonk_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">-</a></button>
-                                <button><a href="<?php echo "/DoAnCNW/Action-Controler/destroy_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">x</a></button>
+                            <div class="name">
+                                <div class="label">Tên sản phẩm: </div>
+                                <div class="content"> <?php echo $cartDetailOrder[$i]->getNameProduct(); ?></div>
                             </div>
-                            <div class="money">Thành tiền: <?php echo $cartDetailOrder[$i]->getMoney(); ?> VND</div>
+                            <div class="number-money">
+                                <div class="number">
+                                    <div class="label" style="font-style:italic;font-weight:14px">->Số lượng:</div>
+                                    <div class="plus"><button><a href="<?php echo "/DoAnCNW/Action-Controler/stonk_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">+</a></button></div>
+                                    <div class="content" >x <?php echo $cartDetailOrder[$i]->getNumber(); ?></div>
+                                    <div class="except"><button><a href="<?php echo "/DoAnCNW/Action-Controler/notStonk_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">-</a></button></div>
+                                    <div class="delete"><button><a href="<?php echo "/DoAnCNW/Action-Controler/destroy_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">x</a></button></div>
+                                </div>
+                                <div class="money">
+                                    <div class="label" style="font-style:italic;font-weight:14px">Thành tiền:</div>
+                                    <div class="content" ><?php echo $cartDetailOrder[$i]->getMoney(); ?> VND</div>
+                                </div>
+                            </div>
                         </div>
                         <?php
                     }
                      ?>
                 </div>
-                <div class="sum-money">Tổng tiền: <?php echo $cartOrder->sumMoney(); ?> VND</div>
-                <div class="purchase">
+                <div class="sum-money">
+                    <div class="content"><?php echo $cartOrder->sumMoney(); ?> VND</div>
+                    <div class="label" style="font-style:italic;font-weight:14px">Tổng tiền: </div>
+                </div>
+                <div class="purchase-btn">
                     <button><a href="<?php echo "/DoAnCNW/Template-View/purchase.php?code=".$cartOrder->getUserID().$cartOrder->getOrderID()."&money=".$cartOrder->sumMoney()."&id=".$cartOrder->getOrderID(); ?>">Thanh toán</a></button>
-                    <button><a href="/DoAnCNW/Template-View/trangchu.php?search=">Trở về trang chủ</a></button>
                 </div>
                 <?php
             }else{
