@@ -69,8 +69,8 @@ finally{
                                     <div class="label" style="font-style:italic;font-weight:14px">->Số lượng:</div>
                                     <div class="plus"><button><a href="<?php echo "/DoAnCNW/Action-Controler/stonk_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">+</a></button></div>
                                     <div class="content" >x <?php echo $cartDetailOrder[$i]->getNumber(); ?></div>
-                                    <div class="except"><button><a href="<?php echo "/DoAnCNW/Action-Controler/notStonk_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">-</a></button></div>
-                                    <div class="delete"><button><a href="<?php echo "/DoAnCNW/Action-Controler/destroy_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber(); ?>">x</a></button></div>
+                                    <div class="except"><button><a href="<?php echo "/DoAnCNW/Action-Controler/notStonk_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber()."&order_id=".$cartOrder->getOrderID(); ?>">-</a></button></div>
+                                    <div class="delete"><button><a href="<?php echo "/DoAnCNW/Action-Controler/destroy_order_detail.php?id_product=".$cartDetailOrder[$i]->getProID()."&id_detail=".$cartDetailOrder[$i]->getDetailID()."&number=".$cartDetailOrder[$i]->getNumber()."&order_id=".$cartOrder->getOrderID(); ?>">x</a></button></div>
                                 </div>
                                 <div class="money">
                                     <div class="label" style="font-style:italic;font-weight:14px">Thành tiền:</div>

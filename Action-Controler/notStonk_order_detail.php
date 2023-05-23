@@ -6,11 +6,12 @@ $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
 $proID  = $_GET["id_product"];
 $number = $_GET["number"];
 $detailID = $_GET["id_detail"];
+$orderID = $_GET["order_id"];
     try{
         //Update so luong cua chi tiet hoa don
         $newNumber = $number - 1;
         if($newNumber<=0){
-            header("Location: /DoAnCNW/Action-Controler/destroy_order_detail.php?id_product=".$proID."&id_detail=".$detailID."&number=".$number."");
+            header("Location: /DoAnCNW/Action-Controler/destroy_order_detail.php?id_product=".$proID."&id_detail=".$detailID."&number=".$number."&order_id=".$orderID);
         }else{
         $sqlUpdateDetail = "update `order_detail` set `number` = ".$newNumber." where detailID= ".$detailID ."";
         $conn->query($sqlUpdateDetail);

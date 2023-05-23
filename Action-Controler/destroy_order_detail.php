@@ -6,6 +6,7 @@ $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
 $proID  = $_GET["id_product"];
 $number = $_GET["number"];
 $detailID = $_GET["id_detail"];
+$orderID = $_GET["order_id"];
     try{
         //Update so luong cua chi tiet hoa don
         $sqlUpdateDetail = "delete from order_detail where detailID = ".$detailID;
@@ -15,7 +16,15 @@ $detailID = $_GET["id_detail"];
         $newQuantity = $product->getQuantity() + $number;
         $sqlUpdatePro  = "update `product` set `quantity` = ".$newQuantity." where proID = ".$proID;
         $conn->query($sqlUpdatePro);
-        header("Location: /DoAnCNW/Template-View/cart.php");
+        $sqlCheckListDetails = "select * from order_detail where orderID = ".$orderID;
+        $rs = $conn->query($sqlCheckListDetails);
+        if($rs->num_rows>0){
+            header("Location: /DoAnCNW/Template-View/cart.php");
+        }else{
+            $sqlDeleteOrder = "delete from `order` where orderID = ".$orderID;
+            $conn->query($sqlDeleteOrder);
+            header("Location: /DoAnCNW/Template-View/cart.php");
+        }
     }
     catch(Exception $e){
         $_SESSION["error-sql"] = $e->getMessage();
