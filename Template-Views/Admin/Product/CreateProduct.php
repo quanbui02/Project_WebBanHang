@@ -16,8 +16,7 @@ $lengtGroup = count($listGroup);
 </head>
 
 <body>
-  <form method="post" enctype="multipart/form-data"
-    action="/Project_WebBanHang/Action-Controller/ProductController/CreateProduct_action.php">
+  <form method="post" enctype="multipart/form-data" action="/Project_WebBanHang/Action-Controller/ProductController/CreateProduct_action.php">
     <div class="details">
       <div class="Cate">
         <div class="label"> <label for="Cat">Danh mục sản phẩm:</label></div>
@@ -60,22 +59,22 @@ $lengtGroup = count($listGroup);
       <div class="Ima">
         <div class="label"> <label for="image">Thêm ảnh đại diện:</label></div>
         <div class="content1"> <input type="file" name="ProductImage" onchange="loadFile(event)"></div>
-        <!-- <div class="content"> <img id="output" style="width:300px;height:300px;object-fit:cover;" /></div> -->
+        <div class="content"> <img id="output" style="width:300px;height:300px;object-fit:cover;" /></div>
       </div>
       <div class="ImaDes">
         <div class="label"> <label for="image">Thêm ảnh mô tả:</label></div>
         <div class="content"><input id="inputImg" type="file" name="images[]" multiple="multiple"></div>
       </div>
-      <!-- <div id="imageContainer">
-      <?php
+      <div id="imageContainer">
+      <!-- <?php
       foreach ($listImgs as $imgProduct) {
         ?>
           <img style="width:150px;height:150px;object-fit:cover;"
             src="/Project_WebBanHang/Upload/imgDetail/<?php echo $imgProduct->getImg() ?>">
           <?php
       }
-      ?>
-      </div> -->
+      ?> -->
+      </div>
 
       <div class="loadback">
         <div class="load"><button type="submit">Thêm</button></div>
@@ -88,51 +87,6 @@ $lengtGroup = count($listGroup);
     </div>
     </div>
   </form>
-  <!-- 
-        <br>
-        <label>Tên sản phẩm</label>
-        <br>
-        <input type="text" id="PrName" type="text" name="ProductName" required />
-        <br>
-        <label>Giá</label>
-        <br>
-        <input type="text" id="price" type="text" name="ProductPrice" required />
-        <br>
-        <label>Số lượng</label>
-        <br>
-        <input type="text" id="quantity" type="text" name="ProductQuantity" required />
-        <br>
-        <label>Kích cỡ</label>
-        <br>
-        <input type="text" id="size" type="text" name="ProductSize" required />
-        <br>
-        <label>Màu sắc</label>
-        <br>
-        <input type="text" id="color" type="text" name="ProductColor" required />
-        <br>
-        <label>Mô tả (* không bắt buộc)</label>
-        <br>
-        <textarea type="text" id="description" type="text" name="ProductDescription" placeholder="Mô tả sản phẩm..."></textarea>
-        <br>
-        <br>
-        <label for="image">Thêm ảnh đại diện:</label>
-        <br>
-        <input type="file" name="ProductImage" onchange="loadFile(event)">
-        <br>
-        <img id="output" style="width:300px;height:300px;object-fit:cover;" />
-        <br>
-        <label for="image">Thêm ảnh mô tả:</label>
-        <br>
-        <input id="inputImg" type="file" name="images[]" multiple="multiple">
-        <br>
-        <div id="imageContainer"></div>
-        <br>
-        <button type="submit">Thêm</button>
-    </form>
-    <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">
-        <?php $_SESSION["err_value"] = ""; ?>
-        Tro Lai
-    </a>  -->
   <script>
     var loadFile = function (event) {
       var output = document.getElementById('output');
@@ -174,7 +128,6 @@ $lengtGroup = count($listGroup);
         }
       });
     });
-  </script>
   </script>
 </body>
 
