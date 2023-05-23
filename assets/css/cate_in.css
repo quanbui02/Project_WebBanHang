@@ -11,7 +11,7 @@
 }
 .content_Admin>h3 {
     margin-top: 20px;
-   
+
 }
 .content_Admin{
     width: 90%;
@@ -89,3 +89,29 @@ ul, li {
     list-style: none;
   }
 
+  form>label{
+    font-weight: bolder;
+    margin-top: 10%;
+    margin-right: 20px;
+    margin-left: 10%;
+    font-size: 17px;
+
+  }
+  #CatName{
+    border-radius: 6px;
+    margin-left: 3px;
+  }
+
+  .Addbtn{
+    margin-left: 75%;
+    margin-top: 8px;
+    padding: 5px 7px;
+    border-radius: 6px;
+    background-color: white;
+    color: black;
+    border: 3px solid pink;
+  }
+  .Addbtn:hover{
+    background-color: pink;
+    color: black;
+  }

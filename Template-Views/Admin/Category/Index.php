@@ -21,7 +21,7 @@ $lengtGroup = count($listGroup);
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/main.css">
     <!-- <link rel="stylesheet" href="/Project_WebBanHang/assets/css/category.css"> -->
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/Popup.css">
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/cate_index.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/cate_in.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -51,8 +51,8 @@ $lengtGroup = count($listGroup);
 
         .modal-addGroup .modal-container {
             background-color: #fff;
-            min-height: 200px;
-            width: 900px;
+            min-height: 150px;
+            width: 500px;
             position: relative;
             max-width: calc(100% - 32px);
             animation: modalFadeIn ease 0.5s;
@@ -258,9 +258,8 @@ $lengtGroup = count($listGroup);
     <div class="modal-addGroup">
         <div class="modal-container js-modal-container">
             <p class="modal-close js-modal-close">X</p>
-            <form method="post" action="/Project_WebBanHang/Action-Controller/CategoryController/CreateGroup_action.php">
+            <form id = "add_cate" method="post" action="/Project_WebBanHang/Action-Controller/CategoryController/CreateGroup_action.php">
                 <label>Tên danh mục</label>
-                <br>
                 <input type="text" id="CatName" type="text" name="CategoryName" required />
                 <br>
                 <?php if (empty($_SESSION["err_value"])) {
