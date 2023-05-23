@@ -262,21 +262,21 @@ $lengthProduct = count($listProduct);
                         <?php
                         if ($page > 1) {
                         ?>
-                            <li class="page-item"><a href="?page=<?php echo ($page - 1); ?> " class="page-link text-dark ">Trở lại</a></li>
+                            <li class="page-item"><a href="?pI=<?php echo ($page - 1); ?> " class="page-link text-dark ">Trở lại</a></li>
                         <?php
                         }
                         ?>
                         <?php
                         for ($i = 1; $i <= $total_pages; $i++) {
                         ?>
-                            <li class="page-item" <?php if ($i == $page) echo "class='active'"; ?>><a href="?page=<?php echo $i; ?>" class="page-link text-dark "><?php echo $i; ?></a></li>
+                            <li class="page-item" <?php if ($i == $page) echo "class='active'"; ?>><a href="?pI=<?php echo $i; ?>" class="page-link text-dark "><?php echo $i; ?></a></li>
                         <?php
                         }
                         ?>
                         <?php
                         if ($page < $total_pages) {
                         ?>
-                            <li class="page-item"><a href="?page=<?php echo ($page + 1); ?>" class="page-link text-dark">Tiếp</a></li>
+                            <li class="page-item"><a href="?pI=<?php echo ($page + 1); ?>" class="page-link text-dark">Tiếp</a></li>
                         <?php
                         }
                         ?>
