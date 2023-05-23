@@ -48,7 +48,7 @@ if(empty($_SESSION["feedback"])){
                     <?php 
                       if($_SESSION["product"]->getQuantity()>0){
                         ?>
-                        <a href="<?php echo "/DoAnCNW/Action-Controler/add_cart_action.php?id_product=".$_SESSION["product"]->getPrID(); ?>">Thêm vào giỏ hàng</a>
+                        <a href="<?php echo "/DoAnCNW/Action-Controler/add_cart_action.php?id_product=".$_SESSION["product"]->getPrID()."&quantityPro=".$_SESSION["product"]->getQuantity(); ?>">Thêm vào giỏ hàng</a>
                         <?php
                       }else{
                         ?>
