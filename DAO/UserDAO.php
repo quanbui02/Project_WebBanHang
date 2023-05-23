@@ -152,7 +152,7 @@ function SearchUser($UserName)
         $count = 0;
         $lists =  array();
         if (trim($UserName) != "") {
-            $sql = "select * from user where userName like '%" . $UserName . "%'";
+            $sql = "select * from user where userName like '%" . $UserName . "%' or fullName like '%" . $UserName . "%'";
             $result = $conn->query($sql);
         }
         if($result->num_rows>0){
@@ -180,7 +180,3 @@ function SearchUser($UserName)
         $conn->close();
     }
 }
-
-
-// test commit
-// test commit 

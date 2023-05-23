@@ -25,6 +25,114 @@ $lengtGroup = count($listGroup);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Loại sản phẩm</title>
+
+    <style>
+        /* modal  */
+        .modal-addGroup {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-addGroup.open {
+            display: flex;
+        }
+
+        .flex-box {
+            display: flex;
+        }
+
+        .modal-addGroup .modal-container {
+            background-color: #fff;
+            min-height: 200px;
+            width: 900px;
+            position: relative;
+            max-width: calc(100% - 32px);
+            animation: modalFadeIn ease 0.5s;
+        }
+
+        .modal-addGroup .modal-header {
+            background-color: #009688;
+            height: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        .modal-addGroup .modal-close {
+            position: absolute;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            right: 0;
+            top: 0;
+            color: #fff;
+            padding: 12px;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 16px;
+        }
+
+        .modal-label {
+            display: block;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .modal-input {
+            border: 1px solid #ccc;
+            width: 100%;
+            padding: 10px;
+            font-size: 15px;
+            margin-bottom: 12px;
+            padding-right: 0px;
+        }
+
+        #buyTickets {
+            background-color: #009688;
+            border: none;
+            color: #fff;
+            width: 100%;
+            font-size: 15px;
+            padding: 18px;
+            cursor: pointer;
+        }
+
+        #buyTickets:hover {
+            opacity: 0.8;
+        }
+
+        .modal-footer {
+            padding: 16px;
+            text-align: right;
+        }
+
+        .modal-footer a {
+            color: #2196f3
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
 </head>
 
 <body>
@@ -50,8 +158,9 @@ $lengtGroup = count($listGroup);
             <div class="container_content">
                 <div class="content_Admin">
                     <h3>Danh mục sản phẩm</h3>
-                    <a href="/Project_WebBanHang/Template-Views/Admin/Category/CreateCategory.php">Thêm mới danh mục</a>
-                    <a href="/Project_WebBanHang/Template-Views/Admin/Category/listCategoryDeleted.php">Danh mục đã xoá</a>
+                    <button class="add-product-js">Thêm mới danh mục</button>
+                    <a href="/Project_WebBanHang/Template-Views/Admin/Category/listCategoryDeleted.php">Danh mục đã
+                        xoá</a>
                     <?php
                     if ($lengtGroup > 0) {
                     ?>
@@ -65,8 +174,12 @@ $lengtGroup = count($listGroup);
                             for ($i = 0; $i < $lengtGroup; $i++) {
                             ?>
                                 <tr>
-                                    <td><?php echo $listGroup[$i]->getGrID() ?></td>
-                                    <td><?php echo $listGroup[$i]->getNameGroup() ?></td>
+                                    <td>
+                                        <?php echo $listGroup[$i]->getGrID() ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $listGroup[$i]->getNameGroup() ?>
+                                    </td>
                                     <td>
                                         <div class="icon_thaotac">
                                             <div class="item-edit">
@@ -113,7 +226,8 @@ $lengtGroup = count($listGroup);
                     <?php
                     for ($i = 1; $i <= $total_pages; $i++) {
                     ?>
-                        <li <?php if ($i == $page) echo "class='active'"; ?>><a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                        <li <?php if ($i == $page)
+                                echo "class='active'"; ?>><a href="?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                     <?php
                     }
                     ?>
@@ -137,6 +251,25 @@ $lengtGroup = count($listGroup);
                 <button class="button" onclick="closeModal()">Hủy</button>
             </div>
         </div>
+    </div>
+
+    <div class="modal-addGroup">
+        <div class="modal-container js-modal-container">
+            <p class="modal-close js-modal-close">X</p>
+            <form method="post" action="/Project_WebBanHang/Action-Controller/CategoryController/CreateGroup_action.php">
+                <label>Tên danh mục</label>
+                <br>
+                <input type="text" id="CatName" type="text" name="CategoryName" required />
+                <br>
+                <?php if (empty($_SESSION["err_value"])) {
+                    echo "";
+                } else {
+                    echo "<span style='color:red;font-size:14px;'>" . $_SESSION["err_value"] . "</span>";
+                } ?>
+                <button class="Addbtn" type="submit">Thêm</button>
+            </form>
+        </div>
+    </div>
     </div>
 
 </body>
@@ -169,10 +302,39 @@ $lengtGroup = count($listGroup);
     }
 
     function deleteItem() {
-        if(idDelete) {
+        if (idDelete) {
             window.location.href = `/Project_WebBanHang/Action-Controller/CategoryController/DeleteGroup_action.php?id=${idDelete}`
         }
     }
+
+    // modal 
+    const addGroupButton = document.querySelectorAll('.add-product-js')
+    const modal = document.querySelector('.modal-addGroup')
+    const modalClose = document.querySelector('.js-modal-close')
+    const modalContainer = document.querySelector('.js-modal-container')
+
+    function showBuyTicket() {
+        modal.classList.add('open')
+    }
+
+    function hideBuyTicket() {
+        modal.classList.remove('open')
+    }
+
+
+    addGroupButton[0].addEventListener('click', showBuyTicket)
+
+
+    modalClose.addEventListener('click', hideBuyTicket)
+
+    modal.addEventListener('click', hideBuyTicket)
+
+    modalContainer.addEventListener('click', (event) => {
+        event.stopPropagation()
+    })
 </script>
+
+
+
 
 </html>

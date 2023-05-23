@@ -27,6 +27,112 @@ $lengtGift = count($listGift);
 </head>
 
 <body>
+<style>
+        /* modal  */
+        .modal-addGroup {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-addGroup.open {
+            display: flex;
+        }
+
+        .flex-box {
+            display: flex;
+        }
+
+        .modal-addGroup .modal-container {
+            background-color: #fff;
+            min-height: 200px;
+            width: 900px;
+            position: relative;
+            max-width: calc(100% - 32px);
+            animation: modalFadeIn ease 0.5s;
+        }
+
+        .modal-addGroup .modal-header {
+            background-color: #009688;
+            height: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        .modal-addGroup .modal-close {
+            position: absolute;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            right: 0;
+            top: 0;
+            color: #fff;
+            padding: 12px;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 16px;
+        }
+
+        .modal-label {
+            display: block;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .modal-input {
+            border: 1px solid #ccc;
+            width: 100%;
+            padding: 10px;
+            font-size: 15px;
+            margin-bottom: 12px;
+            padding-right: 0px;
+        }
+
+        #buyTickets {
+            background-color: #009688;
+            border: none;
+            color: #fff;
+            width: 100%;
+            font-size: 15px;
+            padding: 18px;
+            cursor: pointer;
+        }
+
+        #buyTickets:hover {
+            opacity: 0.8;
+        }
+
+        .modal-footer {
+            padding: 16px;
+            text-align: right;
+        }
+
+        .modal-footer a {
+            color: #2196f3
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
     <div class="container_flex">
         <div class="side-nav">
             <div class="side-nav-inner">
@@ -40,8 +146,9 @@ $lengtGift = count($listGift);
         <div class="content_Admin">
             <div class="container_content">
                 <div class="content_Admin">
-                    <h3>Danh mục sản phẩm</h3>
-                    <a href="/Project_WebBanHang/Template-Views/Admin/GiftCode/CreateGift.php">Thêm mã giảm giá</a>
+                    <h3>Danh sách mã giảm giá</h3>
+                    <button class="add-product-js">Thêm mới mã giảm giá</button>
+                    <!-- <a href="/Project_WebBanHang/Template-Views/Admin/GiftCode/CreateGift.php">Thêm mã giảm giá</a> -->
                     <?php
                     if ($lengtGift > 0) {
                     ?>
@@ -62,42 +169,40 @@ $lengtGift = count($listGift);
                                     <td><?php echo $listGift[$i]->getGiftContent() ?></td>
                                     <td><?php echo $listGift[$i]->getGiftValue() ?></td>
                                     <td><?php echo $listGift[$i]->getGiftQuantity() ?></td>
-                                    <td><?php if($listGift[$i]->getGiftActive() == 1) {
-                                        echo "Hoạt động";
-                                    }
-                                    else {
-                                        echo "<p>Đã Huỷ</p>";
-                                    }
-                                    ?>
+                                    <td><?php if ($listGift[$i]->getGiftActive() == 1) {
+                                            echo "Hoạt động";
+                                        } else {
+                                            echo "<p>Đã Huỷ</p>";
+                                        }
+                                        ?>
                                     </td>
                                     <td>
                                         <div class="icon_thaotac">
-                                           
-                                                <?php
-                                                if($listGift[$i]->getGiftActive() == 1) {
 
-                                                    ?>
-                                            <div class="item-edit">
-                                                <a href="/Project_WebBanHang/Action-Controller/GiftCodeController/GetInfoGift_action.php?id=<?php echo $listGift[$i]->getGiftID(); ?>" class="btn mx-1">
-                                                    Sửa
-                                                </a>
-                                            </div>
-                                            <div class="item-edit">
-                                                <a onclick="openModal(<?php echo $listGift[$i]->getGiftID(); ?>)" class="btn mx-1" style="cursor:pointer;">
-                                                    Xoá
-                                                </a>
-                                            </div>
-                                                    <?php
-                                                }
-                                                else {
-                                                    ?>
-                                                    <a onclick="openModal(<?php echo $listGift[$i]->getGiftID(); ?>,<?php echo $listGift[$i]->getGiftActive(); ?>)" style="cursor:pointer;" class="btn mx-1">
+                                            <?php
+                                            if ($listGift[$i]->getGiftActive() == 1) {
+
+                                            ?>
+                                                <div class="item-edit">
+                                                    <a href="/Project_WebBanHang/Action-Controller/GiftCodeController/GetInfoGift_action.php?id=<?php echo $listGift[$i]->getGiftID(); ?>" class="btn mx-1">
+                                                        Sửa
+                                                    </a>
+                                                </div>
+                                                <div class="item-edit">
+                                                    <a onclick="openModal(<?php echo $listGift[$i]->getGiftID(); ?>)" class="btn mx-1" style="cursor:pointer;">
+                                                        Xoá
+                                                    </a>
+                                                </div>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <a onclick="openModal(<?php echo $listGift[$i]->getGiftID(); ?>,<?php echo $listGift[$i]->getGiftActive(); ?>)" style="cursor:pointer;" class="btn mx-1">
                                                     Kích hoạt
                                                 </a>
-                                                <?php
-                                                }
-                                                ?>
-                                              
+                                            <?php
+                                            }
+                                            ?>
+
                                         </div>
                                     </td>
                                 </tr>
@@ -145,12 +250,28 @@ $lengtGift = count($listGift);
             </div>
         </div>
     </div>
-
+    <div class="modal-addGroup">
+        <div class="modal-container js-modal-container">
+            <p class="modal-close js-modal-close">X</p>
+            <form method="post" action="/Project_WebBanHang/Action-Controller/GiftCodeController/CreateGift_action.php">
+                <label>Số tiền giảm</label>
+                <br>
+                <input type="text" id="GiftValue" type="text" name="GiftValue" required />
+                <br>
+                <label>Số lượng mã gift</label>
+                <br>
+                <input type="text" id="GiftQuantity" type="text" name="GiftQuantity" required />
+                <br>
+                <button class="Addbtn" type="submit">Thêm</button>
+            </form>
+        </div>
+    </div>
 </body>
 
 <script>
     let active;
     let idDelete;
+
     function openModal(id, active) {
         var modal = document.getElementById("myModal");
         modal.classList.add("show");
@@ -166,13 +287,38 @@ $lengtGift = count($listGift);
     }
 
     function deleteItem() {
-        if(idDelete && state == 0) {
-           window.location.href= `/Project_WebBanHang/Action-Controller/GiftCodeController/EditGift_action.php?active=${idDelete}`
-        }
-        else {
+        if (idDelete && state == 0) {
+            window.location.href = `/Project_WebBanHang/Action-Controller/GiftCodeController/EditGift_action.php?active=${idDelete}`
+        } else {
             window.location.href = `/Project_WebBanHang/Action-Controller/GiftCodeController/DeleteGift_action.php?id=${idDelete}`
         }
     }
+    // model
+
+    const addGroupButton = document.querySelectorAll('.add-product-js')
+    const modal = document.querySelector('.modal-addGroup')
+    const modalClose = document.querySelector('.js-modal-close')
+    const modalContainer = document.querySelector('.js-modal-container')
+
+    function showBuyTicket() {
+        modal.classList.add('open')
+    }
+
+    function hideBuyTicket() {
+        modal.classList.remove('open')
+    }
+
+
+    addGroupButton[0].addEventListener('click', showBuyTicket)
+
+
+    modalClose.addEventListener('click', hideBuyTicket)
+
+    modal.addEventListener('click', hideBuyTicket)
+
+    modalContainer.addEventListener('click', (event) => {
+        event.stopPropagation()
+    })
 </script>
 
 </html>

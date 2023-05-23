@@ -67,6 +67,9 @@ $lengtUser = count($listUser);
                             </tr>
                             <?php
                             for ($i = 0; $i < $lengtUser; $i++) {
+                                if($listUser[$i]->getPos() == "Thành viên") {
+
+                                
                             ?>
                                 <tr>
                                     <td><?php echo $listUser[$i]->getUserID() ?></td>
@@ -100,6 +103,7 @@ $lengtUser = count($listUser);
                                 </tr>
                         <?php
                             }
+                        }
                         } else {
                             echo "Không có thành viên nào";
                         }
