@@ -99,6 +99,9 @@ $length = count($listGroupSeacrh);
             </div>
         </div>
     </div>
+
+    
+
     <script>
         const searchBox = document.getElementById("search");
         searchBox.addEventListener("keypress", function(event) {
