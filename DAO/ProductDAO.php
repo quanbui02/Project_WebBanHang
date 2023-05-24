@@ -222,7 +222,7 @@ function SearchProduct($nameProduct)
         $count = 0;
         $lists =  array();
         if (trim($nameProduct) != "") {
-            $sql = "select * from product where proName like '%" . $nameProduct . "%'";
+            $sql = "select * from product where proName like '%" . $nameProduct . "%' and active = 1";
             $result = $conn->query($sql);
         }
         if($result->num_rows>0){

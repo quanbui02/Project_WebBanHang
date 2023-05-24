@@ -30,7 +30,7 @@ $lengthProduct = count($listProduct);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Admin</title>
+    <title>Sản phẩm</title>
 </head>
 
 <body>
@@ -156,7 +156,7 @@ $lengthProduct = count($listProduct);
                     <svg style="color:#ccc;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                     </svg>
-                    <input name="search-product" id="search" placeholder="Tìm kiếm..." value />
+                    <input name="search-product" id="search" placeholder="Tìm kiếm..." />
                 </div>
             </form>
             <div class="container_content">
@@ -234,29 +234,6 @@ $lengthProduct = count($listProduct);
                         ?>
                         </table>
                 </div>
-                <!-- <ul class="pagination">
-                    <?php
-                    if ($page > 1) {
-                    ?>
-                        <li><a href="?pI=<?php echo ($page - 1); ?>">Trở lại</a></li>
-                    <?php
-                    }
-                    ?>
-                    <?php
-                    for ($i = 1; $i <= $total_pages; $i++) {
-                    ?>
-                        <li <?php if ($i == $page) echo "class='active'"; ?>><a href="?pI=<?php echo $i; ?>"><?php echo $i; ?></a></li>
-                    <?php
-                    }
-                    ?>
-                    <?php
-                    if ($page < $total_pages) {
-                    ?>
-                        <li><a href="?pI=<?php echo ($page + 1); ?>">Tiếp</a></li>
-                    <?php
-                    }
-                    ?>
-                </ul> -->
                 <div class="Pagination">
                     <ul class="pagination">
                         <?php
