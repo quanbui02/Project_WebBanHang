@@ -13,7 +13,7 @@ $listDetails = getOrderDetails(intval($orderID));
     </head>
     <body>
         <div class="header">
-            <div class="back"><button><a href="/DoAnCNW/Template-View/trangchu.php?search="> <-Trở về</a></button></div>
+            <div class="back"><button><a href="/DoAnCNW/Template-View/user_infor.php"> <-Trở về</a></button></div>
             <div class="tag"><h2><?php echo "Thông tin đơn hàng ".$code; ?></h2></div>
         </div>
         <div class="infor">
@@ -26,12 +26,16 @@ $listDetails = getOrderDetails(intval($orderID));
                 <div class="content">
                     <?php 
                         if($status == "payed"){
-                        echo " Đang giao";
+                        echo " Đang chờ xác nhận";
                         }else{
                         if($status == "completed"){
-                        echo " Đã giao"; 
+                        echo "Đã giao và nhận hàng"; 
                         }else{
-                        echo " Chưa thanh toán";
+                        if($status == "cart"){
+                            echo "Đang trong giỏ hàng";
+                        }else{
+                            echo "Đã xác nhận và đang giao";
+                        }
                         }
                       } 
                     ?>

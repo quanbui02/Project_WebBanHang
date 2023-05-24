@@ -125,7 +125,8 @@ p{
 .order-history>div .infor-order{
     width: calc(100% - 80%);
     height: 70px;
-    padding-top: 30px;
+    padding-top: 10px;
+    padding-bottom: 15px;
 }
 .infor-order button{
     width:100%;
@@ -133,4 +134,7 @@ p{
     outline: none;
     border: gray solid 1px;
     border-radius: 4px;
+}
+.confirm-btn{
+    margin-top:5px ;
 }
