@@ -18,8 +18,9 @@ $lengtGift = count($listGift);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/main.css">
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/category.css">
+    <!-- <link rel="stylesheet" href="/Project_WebBanHang/assets/css/category.css"> -->
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/Popup.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/giftcode_index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -51,8 +52,8 @@ $lengtGift = count($listGift);
 
         .modal-addGroup .modal-container {
             background-color: #fff;
-            min-height: 200px;
-            width: 900px;
+            min-height: 150px;
+            width: 620px;
             position: relative;
             max-width: calc(100% - 32px);
             animation: modalFadeIn ease 0.5s;
@@ -147,7 +148,7 @@ $lengtGift = count($listGift);
             <div class="container_content">
                 <div class="content_Admin">
                     <h3>Danh sách mã giảm giá</h3>
-                    <button class="add-product-js">Thêm mới mã giảm giá</button>
+                    <button class="add-product-js btn_add">Thêm mới mã giảm giá</button>
                     <!-- <a href="/Project_WebBanHang/Template-Views/Admin/GiftCode/CreateGift.php">Thêm mã giảm giá</a> -->
                     <?php
                     if ($lengtGift > 0) {
@@ -172,7 +173,7 @@ $lengtGift = count($listGift);
                                     <td><?php if ($listGift[$i]->getGiftActive() == 1) {
                                             echo "Hoạt động";
                                         } else {
-                                            echo "<p>Đã Huỷ</p>";
+                                            echo "Đã huỷ";
                                         }
                                         ?>
                                     </td>
@@ -184,19 +185,19 @@ $lengtGift = count($listGift);
 
                                             ?>
                                                 <div class="item-edit">
-                                                    <a href="/Project_WebBanHang/Action-Controller/GiftCodeController/GetInfoGift_action.php?id=<?php echo $listGift[$i]->getGiftID(); ?>" class="btn mx-1">
+                                                    <a href="/Project_WebBanHang/Action-Controller/GiftCodeController/GetInfoGift_action.php?id=<?php echo $listGift[$i]->getGiftID(); ?>" class="btn mx-1 btn_edit">
                                                         Sửa
                                                     </a>
                                                 </div>
                                                 <div class="item-edit">
-                                                    <a onclick="openModal(<?php echo $listGift[$i]->getGiftID(); ?>)" class="btn mx-1" style="cursor:pointer;">
+                                                    <a onclick="openModal(<?php echo $listGift[$i]->getGiftID(); ?>)" class="btn mx-1 btn_del" style="cursor:pointer;">
                                                         Xoá
                                                     </a>
                                                 </div>
                                             <?php
                                             } else {
                                             ?>
-                                                <a onclick="openModal(<?php echo $listGift[$i]->getGiftID(); ?>,<?php echo $listGift[$i]->getGiftActive(); ?>)" style="cursor:pointer;" class="btn mx-1">
+                                                <a onclick="openModal(<?php echo $listGift[$i]->getGiftID(); ?>,<?php echo $listGift[$i]->getGiftActive(); ?>)" style="cursor:pointer;" class="btn mx-1 btn_active">
                                                     Kích hoạt
                                                 </a>
                                             <?php
@@ -214,29 +215,32 @@ $lengtGift = count($listGift);
                         ?>
                         </table>
                 </div>
+                <div class="Pagination">
                 <ul class="pagination">
                     <?php
                     if ($page > 1) {
                     ?>
-                        <li><a href="?pg=<?php echo ($page - 1); ?>">Trở lại</a></li>
+                        <li class="page-item"><a href="?pg=<?php echo ($page - 1); ?>" class="page-link text-dark ">Trở lại</a></li>
                     <?php
                     }
                     ?>
                     <?php
                     for ($i = 1; $i <= $total_pages; $i++) {
                     ?>
-                        <li <?php if ($i == $page) echo "class='active'"; ?>><a href="?pg=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                        <li class="page-item"<?php if ($i == $page) echo "class='active'"; ?>><a href="?pg=<?php echo $i; ?>" class="page-link text-dark "><?php echo $i; ?></a></li>
                     <?php
                     }
                     ?>
                     <?php
                     if ($page < $total_pages) {
                     ?>
-                        <li><a href="?pg=<?php echo ($page + 1); ?>">Tiếp</a></li>
+                        <li class="page-item"><a href="?pg=<?php echo ($page + 1); ?>"class="page-link text-dark ">Tiếp</a></li>
                     <?php
                     }
                     ?>
                 </ul>
+
+                </div>
             </div>
         </div>
     </div>
@@ -255,11 +259,10 @@ $lengtGift = count($listGift);
             <p class="modal-close js-modal-close">X</p>
             <form method="post" action="/Project_WebBanHang/Action-Controller/GiftCodeController/CreateGift_action.php">
                 <label>Số tiền giảm</label>
-                <br>
                 <input type="text" id="GiftValue" type="text" name="GiftValue" required />
                 <br>
                 <label>Số lượng mã gift</label>
-                <br>
+
                 <input type="text" id="GiftQuantity" type="text" name="GiftQuantity" required />
                 <br>
                 <button class="Addbtn" type="submit">Thêm</button>
