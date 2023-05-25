@@ -221,7 +221,7 @@ $lengtGroup = count($listGroup);
                             <?php
                             if ($page > 1) {
                             ?>
-                                <li class="page-item"><a href="?page=<?php echo ($page - 1); ?> " class="page-link text-dark ">Trở lại</a></li>
+                                <li class="page-item"><a href="?page=<?php echo ($page - 1); ?> " class="page-link text-dark">Trở lại</a></li>
                             <?php
                             }
                             ?>
