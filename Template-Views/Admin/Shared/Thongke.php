@@ -52,6 +52,12 @@ session_start();
                     <button style="border:1px solid #ccc;border-radius:3px;" type="submit">Thống kê</button>
                 </form>
                 <?php
+                if (isset($_SESSION['tongTien'])) {
+                    $tongTien = $_SESSION['tongTien'];
+                    echo "<p>Tổng tiền: " . $tongTien . "</p>";
+                    unset($_SESSION['tongTien']);
+                }
+
                 if (isset($_SESSION['error-date'])) {
                     $errorDate = $_SESSION['error-date'];
                     echo "<p>Lỗi: " . $errorDate . "</p>";
@@ -60,9 +66,7 @@ session_start();
                 ?>
             </div>
         </div>
-
     </div>
-
 </body>
 
 </html>
