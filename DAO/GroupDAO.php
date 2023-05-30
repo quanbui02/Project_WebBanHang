@@ -135,7 +135,7 @@ function searchGroup($nameGroup) {
         $count = 0;
         $lists =  array();
         if(trim($nameGroup) != ""){
-            $sql = "select * from group_product where grName like '%".$nameGroup."%'";
+            $sql = "select * from group_product where grName like '%".$nameGroup."%' and active = 1";
             $result = $conn->query($sql);
         }
         if($result->num_rows>0){
