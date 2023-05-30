@@ -14,7 +14,7 @@ $listImgs = unserialize($_SESSION['imgProducts']);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/detailproduct.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_detail.css">
     <title>Chi tiết sản phẩm</title>
 </head>
 
