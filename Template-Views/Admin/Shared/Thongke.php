@@ -1,6 +1,8 @@
 <?php
 include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
 session_start();
+$date1 = $_SESSION['Ngaydau'];
+$date2 = $_SESSION['NgaySau'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,9 +46,9 @@ session_start();
                 <form action="/Project_WebBanHang/Action-Controller/ThongKeController/ThongKe_action.php" method="post">
                     <label for="DOANHTHU">DOANH THU:</label>
                     <p>Từ:</p>
-                    <input type="datetime-local" id="DOANHTHU1" name="DOANHTHU1">
+                    <input type="datetime-local" id="DOANHTHU1" name="DOANHTHU1" value="<?php echo $date1 ?>">
                     <p>Đến:</p>
-                    <input type="datetime-local" id="DOANHTHU2" name="DOANHTHU2">
+                    <input type="datetime-local" id="DOANHTHU2" name="DOANHTHU2" value="<?php echo $date2 ?>">
                     <br>
                     <br>
                     <button style="border:1px solid #ccc;border-radius:3px;" type="submit">Thống kê</button>
@@ -56,6 +58,9 @@ session_start();
                     $tongTien = $_SESSION['tongTien'];
                     echo "<p>Tổng tiền: " . $tongTien . "</p>";
                     unset($_SESSION['tongTien']);
+                }
+                else {
+                    echo "<p> Không có dữ liệu trong thời gian này</p>";
                 }
 
                 if (isset($_SESSION['error-date'])) {

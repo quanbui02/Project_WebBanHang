@@ -21,6 +21,8 @@ if (!empty($_POST["DOANHTHU1"]) && !empty($_POST["DOANHTHU2"])) {
                 $row = $result->fetch_assoc();
                 $tongTien = $row['tongtien'];
                 $_SESSION['tongTien'] = $tongTien;
+                $_SESSION['Ngaydau'] = $ngayTu;
+                $_SESSION['NgaySau'] = $ngayDen;
                 header("Location: /Project_WebBanHang/Template-Views/Admin/Shared/Thongke.php");
             } else {
                 throw new Exception("Không có kết quả.");
