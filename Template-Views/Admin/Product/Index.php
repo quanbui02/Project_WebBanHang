@@ -26,7 +26,7 @@ $lengthProduct = count($listProduct);
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/category.css">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/product.css">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/Popup.css">
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/index.css">
+<link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -162,7 +162,7 @@ $lengthProduct = count($listProduct);
             <div class="container_content">
                 <div class="content_Admin_List">
                     <h3 style="margin-top:15px">Danh sách sản phẩm</h3>
-                    <button class="add-product-js">Thêm mới sản phẩm</button>
+                    <button class="add-product-js btn-add">Thêm mới sản phẩm</button>
                     <!-- <a href="/Project_WebBanHang/Template-Views/Admin/Product/CreateProduct.php"  class="btn-add ">Thêm sản phẩm mới</a> -->
                     <a href="/Project_WebBanHang/Template-Views/Admin/Product/ProductDeleted.php" class="btn-delete">Sản phẩm đã xoá</a>
                     <?php

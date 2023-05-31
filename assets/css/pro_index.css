@@ -9,8 +9,7 @@
     margin-top: 15px;
 }
 
-.btn-add:link,
-.btn-add:visited,
+.btn-add:link,.btn-add:visited,
 .btn-delete:link,
 .btn-delete:visited {
     background-color: white;
@@ -50,6 +49,6 @@
     position: relative;
 }
 .btn:hover{
-    border: black solid 2px;
+   background-color: #a09f9f; 
 
 }

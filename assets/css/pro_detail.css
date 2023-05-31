@@ -12,11 +12,29 @@ body {
     height: 100vh;
 }
 
-.details {
-
+.header {
     width: 100%;
-    margin-top: 10%;
-    margin-left: 25%;
+    height: 70px;
+    text-align: center;
+    background-color: pink;
+}
+
+.infor {
+    display: flex;
+    /* justify-content: left; */
+    margin-top: 20px;
+    margin-left: 20%;
+}
+
+.image {
+    margin-right: 20px;
+    width: 20%;
+}
+
+.details {
+    width: 100%;
+    margin-top: 8px;
+    margin-left: 10%;
     /* border:#ff844f solid 2px */
 }
 
@@ -35,14 +53,9 @@ body {
 .details>div .content {
     width: 70%;
 }
-.Input,
-#category {
-    padding: 8px 200px 8px 10px;
-    box-shadow: rgba(0.2, 0.2, 0.2, 0.2) 0px 5px 15px;
-    border: none;
-}
+
 .back button {
-    /* margin-left: 10%; */
+    margin-left: 10%;
     margin-top: 12px;
     border-radius: 6px;
     border: pink solid 3px;
@@ -55,23 +68,3 @@ body {
     background-color: pink;
     box-shadow: rgba(0.3, 0.3, 0.3, 0.3) 0px 5px 15px;
 }
-.load button{
-    /* margin-left: 70%; */
-    margin-top: 12px;
-    border-radius: 6px;
-    border: pink solid 3px;
-    padding: 10px 20px 10px 20px;
-    background-color: white;
-    
-}
-.load button:hover {
-    background-color: pink;
-    box-shadow: rgba(0.3, 0.3, 0.3, 0.3) 0px 5px 15px;
-}
-.loadback{
-    display: flex;
-}
-.back,.load{
-    width: 50%;
-}
-

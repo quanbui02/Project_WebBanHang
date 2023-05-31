@@ -14,7 +14,7 @@ $listImgs = unserialize($_SESSION['imgProducts']);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/detailproduct.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_detail.css">
     <title>Chi tiết sản phẩm</title>
 </head>
 
@@ -28,7 +28,7 @@ $listImgs = unserialize($_SESSION['imgProducts']);
         <div class="image">
             <p style="font-style: italic; text-align:left; margin-bottom:3px">Ảnh đại diện sản phẩm</p>
             <div class="images1">
-                <img src="/Project_WebBanHang/Upload/img/hinh-anh-giay-vans-9.jpg <?php echo $_SESSION["product"]->getImg(); ?>"
+                <img src="/Project_WebBanHang/Upload/img/<?php echo $_SESSION["product"]->getImg(); ?>"
                     alt="Product Image" style="width:300px;height:300px;object-fit:cover;">
             </div>
             <br>
@@ -38,7 +38,7 @@ $listImgs = unserialize($_SESSION['imgProducts']);
                 foreach ($listImgs as $imgProduct) {
                     ?>
                     <img style="width:150px;height:150px;object-fit:cover;"
-                        src="/Project_WebBanHang/Upload/imgDetail/adam-1.jpg<?php echo $imgProduct->getImg() ?>">
+                        src="/Project_WebBanHang/Upload/imgDetail/<?php echo $imgProduct->getImg() ?>">
                     <?php
                 }
                 ?>
