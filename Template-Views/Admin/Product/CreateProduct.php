@@ -12,7 +12,7 @@ $lengtGroup = count($listGroup);
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/Project_WebBanHang/assets/css/product.css">
-  <link rel="stylesheet" href="/Project_WebBanHang/assets/css/Pro_edit.css">
+  <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_edit.css">
 </head>
 
 <body>
