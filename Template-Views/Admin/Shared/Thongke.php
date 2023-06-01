@@ -3,10 +3,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
 session_start();
 $date1 = $_SESSION['Ngaydau'];
 $date2 = $_SESSION['NgaySau'];
-$_SESSION['ChoXacNhan'];
-$_SESSION['DangGiao'];
-$_SESSION['DaGiao'];
-$_SESSION['DaHuy'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,13 +40,33 @@ $_SESSION['DaHuy'];
             <div class="content">
             <ul>
                     <li><p>Đơn hàng đang chờ xác nhận</p>
-                    <p><?php echo $_SESSION['ChoXacNhan']; ?></p></li>
+                    <p><?php if(isset($_SESSION['ChoXacNhan'])) {
+                        echo $_SESSION['ChoXacNhan'];
+                    }
+                    else {
+                        echo "0";
+                    }  ?></p></li>
                     <li><p>Đơn hàng đang giao</p>
-                    <p><?php echo $_SESSION['DangGiao']; ?></p></li>
-                    <li><p>Đơn hàng đã giao</p>
-                    <p><?php echo $_SESSION['DaGiao']; ?></p></li>
-                    <li><p>Đơn hàng đã huỷ</p>
-                    <p><?php echo $_SESSION['DaGiao']; ?></p></li>
+                    <p><?php if(isset($_SESSION['DangGiao'])) {
+                        echo $_SESSION['DangGiao'];
+                    }
+                    else {
+                        echo "0";
+                    }  ?></p></li>
+                     <li><p>Đơn hàng đã giao</p>
+                    <p><?php if(isset($_SESSION['DaGiao'])) {
+                        echo $_SESSION['DaGiao'];
+                    }
+                    else {
+                        echo "0";
+                    }  ?></p></li>
+                     <li><p>Đơn hàng đã huỷ</p>
+                    <p><?php if(isset($_SESSION['DaHuy'])) {
+                        echo $_SESSION['DaHuy'];
+                    }
+                    else {
+                        echo "0";
+                    }  ?></p></li>
                 </ul>
                 <!-- <div class="item">
                     <div class="item-detail">
