@@ -4,7 +4,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
 session_start();
 $orderID = intval($_GET["id"]);
 $conn = connectDb();
-$sql = "UPDATE `order` SET `status` = 'CONFIRM' WHERE `orderID` = ".$orderID;
+$sql = "UPDATE `order` SET `status` = 'confirm' WHERE `orderID` = ".$orderID;
 $result = $conn->query($sql);
 $conn->close();
 $_SESSION["err_value"] = "";
