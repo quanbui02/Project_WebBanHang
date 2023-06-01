@@ -9,7 +9,7 @@ function getIndexPageOrder()
         $sql = "select * from order";
         $result = $conn->query($sql);
         $total_records = mysqli_num_rows($result);
-        $total_pages = ceil($total_records / $per_page);
+        $total_pages = ceil($total_records / $per_page);    
         return $total_pages;
     } catch (Exception $e) {
         $_SESSION["error-sql"] = $e->getMessage();

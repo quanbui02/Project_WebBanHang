@@ -3,6 +3,10 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
 session_start();
 $date1 = $_SESSION['Ngaydau'];
 $date2 = $_SESSION['NgaySau'];
+$_SESSION['ChoXacNhan'];
+$_SESSION['DangGiao'];
+$_SESSION['DaGiao'];
+$_SESSION['DaHuy'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +41,16 @@ $date2 = $_SESSION['NgaySau'];
                 <span>TRANG CHỦ QUẢN TRỊ</span>
             </div>
             <div class="content">
+            <ul>
+                    <li><p>Đơn hàng đang chờ xác nhận</p>
+                    <p><?php echo $_SESSION['ChoXacNhan']; ?></p></li>
+                    <li><p>Đơn hàng đang giao</p>
+                    <p><?php echo $_SESSION['DangGiao']; ?></p></li>
+                    <li><p>Đơn hàng đã giao</p>
+                    <p><?php echo $_SESSION['DaGiao']; ?></p></li>
+                    <li><p>Đơn hàng đã huỷ</p>
+                    <p><?php echo $_SESSION['DaGiao']; ?></p></li>
+                </ul>
                 <!-- <div class="item">
                     <div class="item-detail">
                         <span>Đơn hàng hôm nay</span>

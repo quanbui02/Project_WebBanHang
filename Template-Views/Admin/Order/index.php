@@ -172,7 +172,7 @@ $lengthOrders = count($listOrders);
                     ?>
                     </table>
                 </div>
-                <ul class="pagination">
+                <!-- <ul class="pagination">
                     <?php
                     if ($page > 1) {
                         ?>
@@ -195,13 +195,13 @@ $lengthOrders = count($listOrders);
                         <?php
                     }
                     ?>
-                </ul>
+                </ul> -->
                 <div class="Pagination">
                     <ul class="pagination">
                         <?php
                         if ($page > 1) {
                             ?>
-                            <li class="page-item"><a href="?page=<?php echo ($page - 1); ?> "
+                            <li class="page-item"><a href="?pI=<?php echo ($page - 1); ?> "
                                     class="page-link text-dark ">Trở lại</a></li>
                             <?php
                         }
@@ -210,15 +210,15 @@ $lengthOrders = count($listOrders);
                         for ($i = 1; $i <= $total_pages; $i++) {
                             ?>
                             <li class="page-item" <?php if ($i == $page)
-                                echo "class='active'"; ?>><a
-                                    href="?page=<?php echo $i; ?>" class="page-link text-dark "><?php echo $i; ?></a></li>
+                                echo "class='active'"; ?>>
+                                <a href="?pI=<?php echo $i; ?>" class="page-link text-dark "><?php echo $i; ?></a></li>
                             <?php
                         }
                         ?>
                         <?php
                         if ($page < $total_pages) {
                             ?>
-                            <li class="page-item"><a href="?page=<?php echo ($page + 1); ?>"
+                            <li class="page-item"><a href="?pI=<?php echo ($page + 1); ?>"
                                     class="page-link text-dark">Tiếp</a></li>
                             <?php
                         }
