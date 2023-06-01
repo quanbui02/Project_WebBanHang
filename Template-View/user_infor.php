@@ -121,7 +121,11 @@ if($_SESSION["login"]==false){
                                         if($listOrder[$i]->getStatus() == "cart"){
                                             echo "->Trạng thái : Đang trong giỏ hàng";
                                         }else{
-                                            echo "->Trạng thái : Đã xác nhận và đang giao";
+                                            if($listOrder[$i]->getStatus() == "destroy"){
+                                                echo "->Trạng thái : Đã huỷ";
+                                            }else{
+                                                echo "->Trạng thái : Đã xác nhận và đang giao";
+                                            }
                                         }
                                      }
                                    }
@@ -138,9 +142,14 @@ if($_SESSION["login"]==false){
                                     if($status == "confirm"){
                                         ?>
                                         <button class="confirm-btn"><a href="<?php echo"http://localhost:8080/DoAnCNW/Action-Controler/confirm_action.php?order_id=".$listOrder[$i]->getOrderID(); ?>">Đã nhận</a></button>
+                                        <button class="confirm-btn"><a href="<?php echo"http://localhost:8080/DoAnCNW/Action-Controler/destroy_order_action.php?order_id=".$listOrder[$i]->getOrderID(); ?>">Huỷ đơn</a></button>
                                         <?php
                                     }else{
-                                        echo "";
+                                        if($status == "payed"){
+                                            ?>
+                                            <button class="confirm-btn"><a href="<?php echo"http://localhost:8080/DoAnCNW/Action-Controler/destroy_order_action.php?order_id=".$listOrder[$i]->getOrderID(); ?>">Huỷ đơn</a></button>
+                                            <?php
+                                        }
                                     }
                                 ?>
                             </div>
@@ -161,4 +170,5 @@ if($_SESSION["login"]==false){
 //payed ->Đã ấn thanh toán(chưa xác nhận)(bên khách)
 //confirm ->Đã xác nhận(bên admin)
 //completed -> đã nhân hàng(sau khi ấn confirm)(bên khách)
+//destroy -> đã huỷ đơn hàng
 ?>
