@@ -77,10 +77,10 @@ th{
 } */
 
 .btn_edit:hover, .btn_del:hover, .btn_active:hover{
-    border: 2px solid black;
+    background-color: #a09f9f; 
     border-radius: 6px;
-
 }
+
 form{
     line-height: 2;
 }

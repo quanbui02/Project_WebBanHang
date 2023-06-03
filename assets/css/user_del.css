@@ -22,36 +22,35 @@ p{
 }
 .btn_detail{
     color: black;
-    padding: 2px 6px;
+    padding: 5px 10px;
+    float: left;
 }
-/* 
-.btn_detail:hover{
-    border: 2px solid black;
-    border-radius: 6px;
-} */ 
 .btn_khoiphuc{
-    margin-left: 10px;
     color: black;
+    padding: 5px 10px;
 }
-
 .btn_detail:hover, .btn_khoiphuc:hover{
     background-color: #a09f9f; 
     border-radius: 6px;
-}
+} 
+
 table, td, th {  
     justify-content: center;
     padding: 10px;
 }
 
+td,th{
+    
+}
+
 #customers{
-    width: 70%;
+    width: 95%;
     margin: 0 auto;
     text-align: center;
     margin-bottom: 10px;
     border-collapse: collapse;
     font-size: 18px; 
-    margin-top: 35px;
-    
+    margin-top: 4%;
     
 }
 tr:nth-child(even) {background-color: #f2f2f2;}
@@ -60,6 +59,7 @@ tr:hover {background-color: #ddd;}
 th{
     background-color: white;
 }
+
 
 .icon_thaotac {
     display: flex;
@@ -71,7 +71,7 @@ th{
     position: fixed;
     bottom: 0;
     right: 0;
-    margin-right: 10px;
+    margin-right: 15px;
     padding: 5px 12px;
     background-color: white;
     text-decoration: none;

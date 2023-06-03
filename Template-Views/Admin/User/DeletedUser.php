@@ -12,7 +12,7 @@ $lengthDeleteUser = count($listUserDelete);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/user_delete.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/user_del.css">
     <title>Thành viên đã hủy</title>
 </head>
 
@@ -59,8 +59,11 @@ $lengthDeleteUser = count($listUserDelete);
                                     </a>
                                 </div>
                                 <div class="item-edit">
-                                    <a href="/Project_WebBanHang/Action-Controller/UserController/UndoUser_action.php?id=<?php echo $listUserDelete[$i]->getUserID(); ?>" class="btn mx-1 btn_khoiphuc">
-                                        Khôi phục
+                                    <a title="Khôi phục" href="/Project_WebBanHang/Action-Controller/UserController/UndoUser_action.php?id=<?php echo $listUserDelete[$i]->getUserID(); ?>" class="btn mx-1 btn_khoiphuc">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+                                            <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+                                         </svg>
                                     </a>
                                 </div>
                             </div>
