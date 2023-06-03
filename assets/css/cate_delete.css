@@ -33,6 +33,11 @@ p{
     margin-left: 10px;
     color: black;
 }
+
+.btn_detail:hover, .btn_khoiphuc:hover{
+    background-color: #a09f9f; 
+    border-radius: 6px;
+}
 table, td, th {  
     justify-content: center;
     padding: 10px;
