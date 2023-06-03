@@ -21,6 +21,7 @@ if (isset($_GET['pl'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/main.css">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/category.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_delete.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -85,12 +86,13 @@ if (isset($_GET['pl'])) {
                         ?>
                         </table>
                 </div>
+                <div class="button">
                 <div class="back">
-                    <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">Tro Lai</a>
+              <button><a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php" style="color:black;text-decoration: none;">Tro Lai</a></button>
                 </div>
-                <ul class="pagination">
-                        <li><a href="?pl=<?php echo $page; ?>">Xem thêm</a></li>                
-                </ul>
+                <div class="pagination">
+                   <button>     <a href="?pl=<?php echo $page; ?>" style="color:black;text-decoration: none;">Xem thêm</a>  </button>             
+                    </div></div>
             </div>
         </div>
     </div>
