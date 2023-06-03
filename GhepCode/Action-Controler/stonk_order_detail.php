@@ -10,7 +10,6 @@ if(validatorQuantity($proID)){
     try{
         //Update so luong cua chi tiet hoa don
         $newNumber = $number + 1;
-        
         $sqlUpdateDetail = "update `order_detail` set `number` = ".$newNumber." where detailID= ".$detailID ."";
         $conn->query($sqlUpdateDetail);
         //Update so luong san pham
@@ -18,7 +17,7 @@ if(validatorQuantity($proID)){
         $newQuantity = $product->getQuantity() - 1;
         $sqlUpdatePro  = "update `product` set `quantity` = ".$newQuantity." where proID = ".$proID;
         $conn->query($sqlUpdatePro);
-        header("Location: /Project_WebBanHang/GhepCode/Template-View/cart.php");
+        header("Location: Project_WebBanHang/GhepCode/Template-View/cart.php");
     }
     catch(Exception $e){
         $_SESSION["error-sql"] = $e->getMessage();
@@ -27,6 +26,6 @@ if(validatorQuantity($proID)){
         $conn->close();
     }
 }else{
-    header("Location: /Project_WebBanHang/GhepCode/Template-View/cart.php");
+    header("Location: Project_WebBanHang/GhepCode/Template-View/cart.php");
 }
 ?>

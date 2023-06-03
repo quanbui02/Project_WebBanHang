@@ -16,7 +16,7 @@ $listGroup = getListGroup();
     </head>
     <body>
         <div class="header">
-             <div class="logo"><img src="https://1000logos.net/wp-content/uploads/2020/09/Navi-logo.png"></div> 
+            <div class="logo"><img src="https://1000logos.net/wp-content/uploads/2020/09/Navi-logo.png"></div>
             <div class="search">
                 <form action="/Project_WebBanHang/GhepCode/Action-Controler/search_action.php">
                     <input type="text" name="search-product" placeholder = "Nhập tên sản phẩm bạn muốn tìm kiếm..." value="<?php echo $_GET["search"]; ?>">

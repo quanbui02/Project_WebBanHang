@@ -1,5 +1,5 @@
 <?php 
-include_once "/Project_WebBanHang/GhepCode/Action-Controler/function_handle_sql.php";
+include_once "H:/xampp/htdocs/DoAnCNW/Action-Controler/function_handle_sql.php";
 echo  getGiftValue(2);
 if(empty($_POST["options"])){
     $valueOption = "Not choosen";

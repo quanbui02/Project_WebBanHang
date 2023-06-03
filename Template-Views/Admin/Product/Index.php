@@ -6,7 +6,9 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/GroupDAO.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GroupProduct.php";
 
 session_start();
-
+if($_SESSION["login"] == false) {
+    header("Location: /Project_WebBanHang/Template-Views/Admin/LoginAdmin/Index.php");
+}
 $listGroup = getAllListGroup();
 $lengtGroup = count($listGroup);
 

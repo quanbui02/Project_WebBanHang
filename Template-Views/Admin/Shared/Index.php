@@ -4,6 +4,9 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
 
 session_start();
+if($_SESSION["login"] == false) {
+    header("Location: /Project_WebBanHang/Template-Views/Admin/LoginAdmin/Index.php");
+}
 $conn = connectDb();
 try {
     $query = "SELECT 
@@ -25,7 +28,7 @@ try {
 } catch (Exception $e) {
     $_SESSION['error-date'] = $e->getMessage();
 } finally {
-   $conn->close();
+    $conn->close();
 }
 
 ?>
@@ -63,14 +66,22 @@ try {
             </div>
             <div class="content">
                 <ul>
-                    <li><p>Đơn hàng đang chờ xác nhận</p>
-                    <p><?php echo $soDonDangChoXacNhan; ?></p></li>
-                    <li><p>Đơn hàng đang giao</p>
-                    <p><?php echo $soDonDangGiao; ?></p></li>
-                    <li><p>Đơn hàng đã giao</p>
-                    <p><?php echo $soDonDaGiao; ?></p></li>
-                    <li><p>Đơn hàng đã huỷ</p>
-                    <p><?php echo $soDonDaHuy; ?></p></li>
+                    <li>
+                        <p>Đơn hàng đang chờ xác nhận</p>
+                        <p><?php echo $soDonDangChoXacNhan; ?></p>
+                    </li>
+                    <li>
+                        <p>Đơn hàng đang giao</p>
+                        <p><?php echo $soDonDangGiao; ?></p>
+                    </li>
+                    <li>
+                        <p>Đơn hàng đã giao</p>
+                        <p><?php echo $soDonDaGiao; ?></p>
+                    </li>
+                    <li>
+                        <p>Đơn hàng đã huỷ</p>
+                        <p><?php echo $soDonDaHuy; ?></p>
+                    </li>
                 </ul>
                 <!-- <div class="order-complete">
                     <p>Đơn hàng đã hoàn thành</p>

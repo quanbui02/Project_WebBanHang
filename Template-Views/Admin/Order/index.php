@@ -6,6 +6,11 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/ultis/time.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/ultis/state.php";
 
 session_start();
+
+if($_SESSION["login"] == false) {
+    header("Location: /Project_WebBanHang/Template-Views/Admin/LoginAdmin/Index.php");
+}
+
 $listOrders = getListOrder();
 $total_pages = getIndexPageOrder();
 $page = isset($_GET['pI']) ? $_GET['pI'] : 1;

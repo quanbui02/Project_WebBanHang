@@ -4,6 +4,11 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GiftCode.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
 
 session_start();
+
+if($_SESSION["login"] == false) {
+    header("Location: /Project_WebBanHang/Template-Views/Admin/LoginAdmin/Index.php");
+}
+
 $listGift = getListGift();
 $total_pages = getIndexPage();
 $page = isset($_GET['pg']) ? $_GET['pg'] : 1;
@@ -259,11 +264,11 @@ $lengtGift = count($listGift);
             <p class="modal-close js-modal-close">X</p>
             <form method="post" action="/Project_WebBanHang/Action-Controller/GiftCodeController/CreateGift_action.php">
                 <label>Số tiền giảm</label>
-                <input type="text" id="GiftValue" type="text" name="GiftValue" required />
+                <input id="GiftValue" type="number" name="GiftValue" required />
                 <br>
                 <label>Số lượng mã gift</label>
 
-                <input type="text" id="GiftQuantity" type="text" name="GiftQuantity" required />
+                <input id="GiftQuantity" type="number" name="GiftQuantity" required />
                 <br>
                 <button class="Addbtn" type="submit">Thêm</button>
             </form>

@@ -16,15 +16,12 @@ if($result->num_rows>0){
     $_SESSION["user-infor"]= $user;
     if($row["position"] == "Thành viên" && $row["active"] == 1){
         header("Location: /Project_WebBanHang/GhepCode/Template-View/trangchu.php?search=");
-    }else if($row["position"] == "Admin" && $row["active"] == 1) {
-        header("Location: /Project_WebBanHang/Template-Views/Admin/Category/Index.php");
-    }
-    else{
+    }else{
         header("Location: /Project_WebBanHang/GhepCode/Template-View/login.php");
     }
 }else{
     $_SESSION["login-err"] = "Sai tên đăng nhập hoặc mật khẩu !";
-   header("Location: /Project_WebBanHang/GhepCode/Template-View/login.php");
+    header("Location: /Project_WebBanHang/GhepCode/Template-View/login.php");
 }
 $conn->close();
 ?>

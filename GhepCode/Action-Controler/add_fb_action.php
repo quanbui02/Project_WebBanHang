@@ -1,8 +1,6 @@
 <?php 
-// include_once "C:/xampp/htdocs/GhepCode/Class-Model/class.php";
-// include_once "C:/xampp/htdocs/GhepCode/Action-Controler/function_handle_sql.php";
-include_once "/Project_WebBanHang/GhepCode/Class-Model/class.php";
-include_once "/Project_WebBanHang/GhepCode/Action-Controler/function_handle_sql.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/GhepCode/Class-Model/class.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/GhepCode/Action-Controler/function_handle_sql.php";
 
 session_start();
 $content = $_REQUEST["fb-content"];

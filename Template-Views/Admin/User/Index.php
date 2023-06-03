@@ -4,6 +4,11 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/UserDAO.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
 
 session_start();
+
+if($_SESSION["login"] == false) {
+    header("Location: /Project_WebBanHang/Template-Views/Admin/LoginAdmin/Index.php");
+}
+
 $listUser = getListUser();
 $total_pages = getIndexPageUser();
 $page = isset($_GET['p']) ? $_GET['p'] : 1;

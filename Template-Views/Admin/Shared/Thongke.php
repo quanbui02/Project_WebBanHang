@@ -1,6 +1,9 @@
 <?php
 include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
 session_start();
+if($_SESSION["login"] == false) {
+    header("Location: /Project_WebBanHang/Template-Views/Admin/LoginAdmin/Index.php");
+}
 $date1 = $_SESSION['Ngaydau'];
 $date2 = $_SESSION['NgaySau'];
 

@@ -1,8 +1,7 @@
 <?php
- include_once "C:/xampp/htdocs/Project_WebBanHang/GhepCode/Class-Model/class.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/GhepCode/Class-Model/class.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/GhepCode/Action-Controler/function_handle_sql.php";
-// include_once "/Project_WebBanHang/GhepCode/Class-Model/class.php";
-// include_once "/Project_WebBanHang/GhepCode/Action-Controler/function_handle_sql.php";
+session_start();
 if($_SESSION["login"]==false){
     header("Location:/Project_WebBanHang/GhepCode/Template-View/login.php ");
 }else{
@@ -114,12 +113,20 @@ if($_SESSION["login"]==false){
                             <div class="status" style="font-style:italic">
                                  <?php 
                                    if($listOrder[$i]->getStatus() == "payed"){
-                                     echo "->Trạng thái : Đang giao";
+                                     echo "->Trạng thái : Đang chờ xác nhận";
                                    }else{
                                      if($listOrder[$i]->getStatus() == "completed"){
-                                     echo "->Trạng thái : Đã giao"; 
+                                     echo "->Trạng thái : Đã giao và nhận hàng"; 
                                      }else{
-                                        echo "->Trạng thái : Chưa thanh toán";
+                                        if($listOrder[$i]->getStatus() == "cart"){
+                                            echo "->Trạng thái : Đang trong giỏ hàng";
+                                        }else{
+                                            if($listOrder[$i]->getStatus() == "destroy"){
+                                                echo "->Trạng thái : Đã huỷ";
+                                            }else{
+                                                echo "->Trạng thái : Đã xác nhận và đang giao";
+                                            }
+                                        }
                                      }
                                    }
                                  ?>
@@ -130,6 +137,21 @@ if($_SESSION["login"]==false){
                            </div>
                            <div class="infor-order">
                                 <button><a href="<?php echo"/Project_WebBanHang/GhepCode/Template-View/detail_order.php?id_order=".$listOrder[$i]->getOrderID()."&order_date=".$listOrder[$i]->getDate()."&code=".$listOrder[$i]->getUserID().$listOrder[$i]->getOrderID().$listOrder[$i]->getGiftID()."&status=".$listOrder[$i]->getStatus(); ?>">Xem chi tiết</a></button>
+                                <?php 
+                                    $status=$listOrder[$i]->getStatus();
+                                    if($status == "confirm"){
+                                        ?>
+                                        <button class="confirm-btn"><a href="<?php echo"http://localhost:8080/Project_WebBanHang/GhepCode/Action-Controler/confirm_action.php?order_id=".$listOrder[$i]->getOrderID(); ?>">Đã nhận</a></button>
+                                        <button class="confirm-btn"><a href="<?php echo"http://localhost:8080/Project_WebBanHang/GhepCode/Action-Controler/destroy_order_action.php?order_id=".$listOrder[$i]->getOrderID(); ?>">Huỷ đơn</a></button>
+                                        <?php
+                                    }else{
+                                        if($status == "payed"){
+                                            ?>
+                                            <button class="confirm-btn"><a href="<?php echo"http://localhost:8080/Project_WebBanHang/GhepCode/Action-Controler/destroy_order_action.php?order_id=".$listOrder[$i]->getOrderID(); ?>">Huỷ đơn</a></button>
+                                            <?php
+                                        }
+                                    }
+                                ?>
                             </div>
                            </div>
                         <?php
@@ -144,4 +166,9 @@ if($_SESSION["login"]==false){
     </html>
     <?php
 }
+//cart ->trong giỏ hàng ( chưa ấn thanh toán)(bên khách)
+//payed ->Đã ấn thanh toán(chưa xác nhận)(bên khách)
+//confirm ->Đã xác nhận(bên admin)
+//completed -> đã nhân hàng(sau khi ấn confirm)(bên khách)
+//destroy -> đã huỷ đơn hàng
 ?>

@@ -4,6 +4,11 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GroupProduct.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
 
 session_start();
+
+if($_SESSION["login"] == false) {
+    header("Location: /Project_WebBanHang/Template-Views/Admin/LoginAdmin/Index.php");
+}
+
 $listGroup = getListGroup();
 $total_pages = getIndexPage();
 $page = isset($_GET['page']) ? $_GET['page'] : 1;

@@ -243,10 +243,12 @@ class GiftCode{
   private $giftContent;
   private $giftValue;
 
-  public function __construct($gID,$giftContent,$giftValue){
+  public function __construct($gID,$giftContent,$giftValue,$quantity,$active){
     $this->giftID = $gID;
     $this->giftContent = $giftContent;
     $this->giftValue = $giftValue;
+    $this->quantity = $quantity;
+    $this->active  = $active;
   }
 
   public function getGiftID(){
@@ -257,6 +259,12 @@ class GiftCode{
   }
   public function getGiftValue(){
     return $this->giftValue;
+  }
+  public function getQuantity(){
+    return $this->quantity;
+  }
+  public function getActive(){
+    return $this->active;
   }
 }
 //7
@@ -290,7 +298,6 @@ class Feedback{
     return $this->fbContent;
   }
   public function getNameUser(){
-    // $conn = new mysqli("localhost", "bexuanmailonto", "170602cf","csdldoan");
     $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
     try{
       $sql = "select * from user where userID =".$this->userID;
