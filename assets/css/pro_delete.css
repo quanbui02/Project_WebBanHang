@@ -1,0 +1,58 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+#customers th {
+    background-color: white;
+
+    color: black;
+
+}
+#customers td,
+#customers th {
+ border: 1px solid #ddd;
+    padding: 15px; 
+}
+#customers {
+    margin-top: 14%;
+    margin-left: 75%;
+}
+.btn:hover{
+    background-color: #a09f9f; 
+ 
+ }
+  .back button, .pagination button
+  {
+    /* margin-left: 10%; */
+    margin-top: 12px;
+    border-radius: 6px;
+    border: pink solid 3px;
+    padding: 10px 20px 10px 20px;
+    background-color: white;
+
+}
+.back{
+    width: 50%;
+}
+.pagination{
+width: 50%;
+}
+ .back button:hover,.pagination button:hover
+{
+    background-color: pink;
+    box-shadow: rgba(0.3, 0.3, 0.3, 0.3) 0px 5px 15px;
+    
+}
+
+ .button{
+    display: flex; 
+} 
