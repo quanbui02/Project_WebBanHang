@@ -1,15 +1,80 @@
-#customers th {
-    background-color: white;
+.details {
 
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 45px;
+  float: left;
+    /* border:#ff844f solid 2px */
+} 
+
+
+.details>div {
+    width: 100%;
+     display: flex; 
+    margin-top: 8px;
+    /* margin-left: 45px; */
+    
+   
+}
+
+ .details>div .label {
+     width: 25%; 
+    font-weight: 500;
+}
+
+.details>div .content {
+    width: 70%;
+} 
+
+.Input,
+#category {
+    width: 100%;
+    padding: 13px 22px;
+    border-radius: 5px;
+    border: 1px solid #dde3ec;
+    background: #ffffff;
+    /* font-weight: 500; */
+    font-size: 16px;
+    color: #07074d;
+    outline: none;
+    resize: none;
+    max-width: 570px;
+    /* padding: 40px; */
+}
+
+.load button{
+    /* margin-left: 70%; */
+    margin-top: 12px;
+    border-radius: 6px;
+    border: pink solid 3px;
+    padding: 10px 20px 10px 20px;
+    background-color: white;
+    font-weight: 500;
+    font-size: 18px;
+    
+}
+.load button:hover {
+    background-color: pink;
+    box-shadow: rgba(0.3, 0.3, 0.3, 0.3) 0px 5px 15px;
+}
+.loadback{
+    display: flex;
+}
+.load{
+    width: 50%;
+}
+#customers th {
+    background-color: white;    
     color: black;
 
 }
 
 #customers {
     margin-top: 15px;
+    width: 100%;
 }
 
-.btn-add:link,.btn-add:visited,
+.btn-add,.btn-add:visited,
 .btn-delete:link,
 .btn-delete:visited {
     background-color: white;

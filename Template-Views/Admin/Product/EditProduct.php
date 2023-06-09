@@ -15,10 +15,11 @@ $listImgs = unserialize($_SESSION['InfoImgProducts']);
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/Project_WebBanHang/assets/css/product.css">
-  <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_edit.css">
+  <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_EDIT.css">
 </head>
 
 <body>
+ 
   <?php if (empty($_SESSION["err_value"])) {
     echo "";
   } else {
@@ -83,8 +84,8 @@ $listImgs = unserialize($_SESSION['InfoImgProducts']);
       </div>
       <div class="ImaDes">
         <div class="label"> <label for="image">Thêm ảnh mô tả:</label></div>
-        <div class="content"><input id="inputImg" type="file" name="images[]" multiple="multiple"></div>
-      </div>
+        <div class="content1"><input id="inputImg" type="file" name="images[]" multiple="multiple"></div>
+      <!-- </div> -->
       <div id="imageContainer">
         <?php
         foreach ($listImgs as $imgProduct) {
@@ -94,7 +95,7 @@ $listImgs = unserialize($_SESSION['InfoImgProducts']);
           <?php
         }
         ?>
-      </div>
+      </div></div>
       <!-- <button type="submit">Cập nhật</button> -->
       <div class="loadback">
       <div class="load"><button type="submit">Cập nhật</button></div>
@@ -103,6 +104,7 @@ $listImgs = unserialize($_SESSION['InfoImgProducts']);
             <?php $_SESSION["err_value"] = ""; ?> Tro Lai</a></button> </div>
       </div>
     </div>
+     
  </form>
 
 
