@@ -8,27 +8,24 @@
 }
 
 p{
-    background-color: pink;
-    text-align: center;
+    /* text-align: center; */
     padding-top: 10px;
-    font-size: 25px;
-    font-weight: bolder;
+    font-size: 1.75rem;
+    font-weight: 500;
     height: 50px;
-    position: fixed;
+    /* position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    
+    right: 0; */
+    margin-left: 15%;
+    border-bottom: 2px solid #ddd;
+
 }
 .btn_detail{
     color: black;
     padding: 5px 10px;
 }
-/* 
-.btn_detail:hover{
-    border: 2px solid black;
-    border-radius: 6px;
-} */ 
+
 .btn_khoiphuc{
     color: black;
     padding: 5px 10px;
@@ -38,6 +35,7 @@ p{
     background-color: #a09f9f; 
     border-radius: 6px;
 }
+
 table, td, th {  
     justify-content: center;
     padding: 10px;
@@ -50,8 +48,6 @@ table, td, th {
     margin-bottom: 10px;
     border-collapse: collapse;
     font-size: 18px; 
-    margin-top: 35px;
-    
     
 }
 tr:nth-child(even) {background-color: #f2f2f2;}
