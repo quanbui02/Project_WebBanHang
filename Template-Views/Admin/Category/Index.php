@@ -23,7 +23,7 @@ $lengtGroup = count($listGroup);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/main.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/Main.css">
     <!-- <link rel="stylesheet" href="/Project_WebBanHang/assets/css/category.css"> -->
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/Popup.css">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/cate_ind.css">
