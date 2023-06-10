@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Thông tin người dùng và sản phẩm</title>
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/order_detail.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/Order_detail.css">
 </head>
 <body>
     <h1>Thông tin người dùng và sản phẩm</h1>
