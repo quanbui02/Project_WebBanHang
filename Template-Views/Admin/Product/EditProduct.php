@@ -15,7 +15,7 @@ $listImgs = unserialize($_SESSION['InfoImgProducts']);
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/Project_WebBanHang/assets/css/product.css">
-  <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_EDIT.css">
+  <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_Edit.css">
 </head>
 
 <body>
@@ -101,7 +101,7 @@ $listImgs = unserialize($_SESSION['InfoImgProducts']);
       <div class="load"><button type="submit">Cập nhật</button></div>
       <div class="back">
         <button> <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">
-            <?php $_SESSION["err_value"] = ""; ?> Tro Lai</a></button> </div>
+            <?php $_SESSION["err_value"] = ""; ?> Trở lại</a></button> </div>
       </div>
     </div>
      

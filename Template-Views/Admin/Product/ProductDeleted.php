@@ -19,9 +19,9 @@ if (isset($_GET['pl'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/main.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/Main.css">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/category.css">
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_del.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_Del.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -110,7 +110,7 @@ if (isset($_GET['pl'])) {
                 </div>
                 <div class="loadback">
                     <div class="back">
-                        <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">Tro Lai</a>
+                        <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">Trở lại</a>
                     </div>
                     <div class="load">
                         <ul class="pagination">

@@ -89,7 +89,14 @@ body {
 .loadback{
     display: flex;
 }
-.back,.load{
-    width: 50%;
+.back{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+.load{
+    position: fixed;
+    right: 0;
+    bottom: 0;
 }
 

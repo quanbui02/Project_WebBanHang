@@ -14,7 +14,7 @@ $listImgs = unserialize($_SESSION['imgProducts']);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_Detail.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_DEtail.css">
     <title>Chi tiết sản phẩm</title>
 </head>
 
@@ -117,7 +117,7 @@ $listImgs = unserialize($_SESSION['imgProducts']);
     </div>
     <div class="back">
         <button> <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">
-                Tro Lai</button>
+                Trở lại</button>
         </a>
     </div>
 </body>
