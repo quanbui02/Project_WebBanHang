@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+#order{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 98%;
+    margin-top: 20px;
+}
+#order td, #order th {
+    padding: 8px;
+  }
+  
+  #order tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #order tr:hover {background-color: #ddd;}
+  .btn:hover{
+    background-color: #a09f9f; 
+    color: #ea815e;
+ }
