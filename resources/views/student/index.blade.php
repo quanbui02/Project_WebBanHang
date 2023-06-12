@@ -22,6 +22,26 @@
         <div class="header">
             <h1>List Student</h1>
         </div>
+        <div class="search">
+            <form action="/student/search" method="post">
+                @csrf
+                @if(empty($valueInput) || empty($type))
+                    <input type="text" name="search" >
+                    <select name="search-type">
+                        <option value="Name">Name</option>
+                        <option value="Hometown">Hometown</option>
+                    </select>
+                @else
+                    <input type="text" name="search" value="{{ $valueInput }}">
+                    <select name="search-type" >
+                        <option value="{{ $type }}">{{ $type }}</option>
+                        <option value="Name">Name</option>
+                        <option value="Hometown">Hometown</option>
+                    </select>
+                @endif
+                <button type="submit">Search</button>
+            </form>
+        </div>
         <div class="table-list">
             <table>
                 <tr>

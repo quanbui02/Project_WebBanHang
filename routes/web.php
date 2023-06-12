@@ -21,6 +21,8 @@ Route::post("/student/create",[StudentController::class,"add"]);
 Route::get("/student/edit/{id}",[StudentController::class,"edit"]);
 Route::post("/student/edit/{id}",[StudentController::class,"update"]);
 Route::get("/student/delete/{id}",[StudentController::class,"delete"]);
+Route::post("/student/search",[StudentController::class,"search"]);
+Route::post("/student/{students}",[StudentController::class,"sorted"]);
 /*
 Route::get('/', function () {
     return view('home');

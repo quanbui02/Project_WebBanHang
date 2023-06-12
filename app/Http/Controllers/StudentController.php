@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Http\Controllers\DB;
 
 class StudentController extends Controller
 {
@@ -35,5 +36,19 @@ class StudentController extends Controller
         $student = Student::findOrFail($id);
         $student->delete();
         return redirect('/student');
+    }
+    public function search(Request $request){
+        $type = $request->get("search-type");
+        $valueInput  = $request->get("search");
+        if($type=="Hometown" && strlen($valueInput)>0){
+            $students  = Student::where("hometown","like","%".$valueInput."%")->get();
+        }else{
+            if($type=="Name" && strlen($valueInput)>0){
+                $students  = Student::where("name","like","%".$valueInput."%")->get();
+            }else{
+                $students = Student::all();
+            }
+        }
+        return view("student.index",compact("students","type","valueInput"));
     }
 }
