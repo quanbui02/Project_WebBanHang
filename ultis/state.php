@@ -2,15 +2,16 @@
 function statusOrder($statusOrder)
 {
     if ($statusOrder == "cart") {
-        return '<div style="padding: 4px 12px; background-color: yellow; color: white; border-radius: 8px;">Trong gio hang</div>';
+        return '<div style="padding: 4px 12px; background-color: #ea815e; color: white; border-radius: 8px;">Trong giỏ hàng </div>';
     } else if ($statusOrder == "payed") {
-        return '<div style="padding: 4px 12px; background-color: blue; color: black; border-radius: 8px;">Da thanh toan</div>';
+        return '<div style="padding: 4px 12px; background-color: #F7375D; color: white; border-radius: 8px;">Đã thanh toán </div>';
     } else if ($statusOrder == "confirm") {
-        return '<div style="padding: 4px 12px; background-color: orange; color: white; border-radius: 8px;">Da xac nhan</div>';
+        return '<div style="padding: 4px 12px; background-color: #D448FF; color: white; border-radius: 8px;">Đã xác nhận </div>';
     } else if ($statusOrder == "completed") {
-        return '<div style="padding: 4px 12px; background-color: green; color: white; border-radius: 8px;">Hoan thanh don hang</div>';
+        return '<div style="padding: 4px 12px; background-color: #248CF3; color: white; border-radius: 8px;">Hoàn thành đơn đặt hàng</div>';
     } else {
         return '<div style="padding: 4px 12px; background-color: red; color: white; border-radius: 8px;>Lỗi</div>';
     }
 }
 ?>
+

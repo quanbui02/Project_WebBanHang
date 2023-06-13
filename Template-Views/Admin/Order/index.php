@@ -25,12 +25,13 @@ $lengthhOrders = count($listOrders);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/main.css">
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/category.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/Category.css">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/product.css">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/Popup.css">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/index.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/order_index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Admin</title>

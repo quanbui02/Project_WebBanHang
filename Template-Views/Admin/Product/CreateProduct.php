@@ -80,7 +80,7 @@ $lengthGroup = count($listGroup);
         <div class="load"><button type="submit">Thêm</button></div>
         <div class="back">
           <button> <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">
-              <?php $_SESSION["err_value"] = ""; ?> Tro Lai
+              <?php $_SESSION["err_value"] = ""; ?> Trở lại
             </a></button>
         </div>
       </div>

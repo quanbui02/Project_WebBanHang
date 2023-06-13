@@ -20,10 +20,12 @@ if (isset($_GET['pl'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/main.css">
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/category.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/Category.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_Del.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Sản phẩm đã xoá</title>
 </head>
 
@@ -34,8 +36,13 @@ if (isset($_GET['pl'])) {
                 <div class="content_Admin">
                     <h3>Danh sách sản phẩm đã xoá</h3>
                     <?php
+<<<<<<< HEAD
                     if (count($lengthProduct) > 0) {
                     ?>
+=======
+                    if (count($lengtProduct) > 0) {
+                        ?>
+>>>>>>> 423b14e6abe1bf1377d586590176a951148c6aec
                         <table id="customers">
                             <tr>
                                 <th>Mã Sản phẩm</th>
@@ -47,6 +54,7 @@ if (isset($_GET['pl'])) {
                                 <th>Thao tác</th>
                             </tr>
                             <?php
+<<<<<<< HEAD
                             for ($i = 0; $i < count($lengthProduct); $i++) {
                             ?>
                                 <tr>
@@ -63,40 +71,90 @@ if (isset($_GET['pl'])) {
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
                                                         <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
                                                         <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z" />
+=======
+                            for ($i = 0; $i < count($lengtProduct); $i++) {
+                                ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $lengtProduct[$i]->getPrID() ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $lengtProduct[$i]->getPrName() ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $lengtProduct[$i]->getQuantity() ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $lengtProduct[$i]->getColor() ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $lengtProduct[$i]->getSize() ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $lengtProduct[$i]->getPrice() ?>
+                                    </td>
+                                    <td>
+                                        <div class="icon_thaotac">
+                                            <div class="item-edit">
+                                                <a href="/Project_WebBanHang/Action-Controller/ProductController/DetailProduct_action.php?id=<?php echo $lengtProduct[$i]->getPrID(); ?>"
+                                                    class="btn mx-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                                        <path
+                                                            d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z" />
+>>>>>>> 423b14e6abe1bf1377d586590176a951148c6aec
                                                     </svg>
                                                 </a>
                                             </div>
                                             <div class="item-edit">
+<<<<<<< HEAD
                                                 <a href="/Project_WebBanHang/Action-Controller/ProductController/UndoProduct_action.php?id=<?php echo $lengthProduct[$i]->getPrID(); ?>" class="btn mx-1">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
                                                         <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
                                                         <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+=======
+                                                <a href="/Project_WebBanHang/Action-Controller/ProductController/UndoProduct_action.php?id=<?php echo $lengtProduct[$i]->getPrID(); ?>"
+                                                    class="btn mx-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                        fill="currentColor" class="bi bi-arrow-counterclockwise"
+                                                        viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd"
+                                                            d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+                                                        <path
+                                                            d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+>>>>>>> 423b14e6abe1bf1377d586590176a951148c6aec
                                                     </svg>
                                                 </a>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
-                        <?php
+                                <?php
                             }
-                        } else {
-                            echo "KHÔNG CÓ SẢN PHẨM NÀO!";
-                        }
-                        ?>
-                        </table>
+                    } else {
+                        echo "KHÔNG CÓ SẢN PHẨM NÀO!";
+                    }
+                    ?>
+                    </table>
                 </div>
-                <div class="back">
-                    <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">Tro Lai</a>
+                <div class="loadback">
+                    <div class="back">
+                        <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">Trở lại</a>
+                    </div>
+                    <div class="load">
+                        <ul class="pagination">
+                            <li><a href="?pl=<?php echo $page; ?>">Xem thêm</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <ul class="pagination">
-                        <li><a href="?pl=<?php echo $page; ?>">Xem thêm</a></li>                
-                </ul>
             </div>
         </div>
     </div>
     <script>
         const searchBox = document.getElementById("search");
-        searchBox.addEventListener("keypress", function(event) {
+        searchBox.addEventListener("keypress", function (event) {
             if (event.keyCode === 13) {
                 if (searchBox.value.trim() == "") {
                     event.preventDefault();

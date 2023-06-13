@@ -4,58 +4,30 @@
     text-decoration: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: border-box;
-    
+
 }
+
 body {
     width: 100vw;
     height: 100vh;
 }
-
- .details {
-
+h3 {
     width: 100%;
-    margin-top: 10px;
-
-    /* border:#ff844f solid 2px */
-} 
-
-
-.details>div {
-    width: 100%;
-     display: flex; 
-    margin-top: 8px;
-    margin-left: 50px;
-
+    height: 70px;
+    text-align: center;
+    /* background-color: pink; */
+    font-weight: 600px;
+    font-size: 20px;
+}
+#customers th{
+    background-color: white;    
+    color: black;
+}
+#customers th, #customers td{
+border: none;
+}
+.back a {
    
-}
-
- .details>div .label {
-     width: 18%; 
-    font-weight: 500;
-}
-
-.details>div .content {
-    width: 70%;
-   
-} 
-
-.Input,
-#category {
-    width: 100%;
-    padding: 13px 22px;
-    border-radius: 5px;
-    border: 1px solid #dde3ec;
-    background: #ffffff;
-    /* font-weight: 500; */
-    font-size: 16px;
-    color: #07074d;
-    outline: none;
-    resize: none;
-    max-width: 570px;
-    /* padding: 40px; */
-}
-.back button {
-    /* margin-left: 10%; */
     margin-top: 12px;
     border-radius: 6px;
     border: pink solid 3px;
@@ -63,14 +35,17 @@ body {
     background-color: white;
     font-weight: 500;
     font-size: 18px;
+    color: black;
 
 }
 
-.back button:hover {
+.back a:hover,.back a:active {
     background-color: pink;
     box-shadow: rgba(0.3, 0.3, 0.3, 0.3) 0px 5px 15px;
+    text-decoration: none;
+    color: black;
 }
-.load button{
+.pagination a{
     /* margin-left: 70%; */
     margin-top: 12px;
     border-radius: 6px;
@@ -79,24 +54,40 @@ body {
     background-color: white;
     font-weight: 500;
     font-size: 18px;
+    color:black;
     
 }
-.load button:hover {
+.pagination a:hover {
     background-color: pink;
     /* background-color: black; */
     box-shadow: rgba(0.3, 0.3, 0.3, 0.3) 0px 5px 15px;
+    text-decoration: none;
+    color: black;
 }
 .loadback{
     display: flex;
+    
 }
-.back{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-}
+/* .back,.load{
+    width: 50%;
+    
+} */
 .load{
     position: fixed;
     right: 0;
     bottom: 0;
 }
-
+.back{
+    position: fixed;
+    left: 0;
+    bottom: 2px;
+    margin-bottom: 12px;
+}
+.btn:hover{
+    background-color: #a09f9f; 
+ 
+ }
+ .content_Admin{
+    margin-bottom: 28px;
+ }
+ 
