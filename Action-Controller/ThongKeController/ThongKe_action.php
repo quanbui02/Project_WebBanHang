@@ -9,6 +9,7 @@ if (!empty($_POST["DOANHTHU1"]) && !empty($_POST["DOANHTHU2"])) {
     $ngayTu = date("Y-m-d", $timestampTu);
     $ngayDen = date("Y-m-d", $timestampDen);
     if ($timestampTu <= $timestampDen) {
+
         try {
             $query = "SELECT 
             SUM(CASE WHEN `order`.status = 'completed' THEN order_detail.number * product.price - giftcode.giftValue ELSE 0 END) AS tongtien,
@@ -20,8 +21,45 @@ if (!empty($_POST["DOANHTHU1"]) && !empty($_POST["DOANHTHU2"])) {
             INNER JOIN order_detail ON `order`.orderID = order_detail.orderID
             INNER JOIN product ON order_detail.prID = product.proID
             INNER JOIN giftcode ON `order`.`giftID` = giftcode.giftID
-            WHERE `order`.`orderDate` >= '$ngayTu' AND `order`.`orderDate` <= '$ngayDen';
-            GROUP BY YEAR(`order`.`orderDate`), MONTH(`order`.`orderDate`)";
+            WHERE `order`.`orderDate` >= '$ngayTu' AND `order`.`orderDate` <= '$ngayDen'";
+        // Thong ke theo cac thang//
+            $thongKeTheoCacThang = "SELECT 
+            YEAR(`order`.`orderDate`) AS Nam,
+            MONTH(`order`.`orderDate`) AS Thang,
+            SUM(CASE 
+                WHEN `order`.status = 'completed' 
+                THEN order_detail.number * product.price - giftcode.giftValue 
+                ELSE 0 
+            END) AS TienHangThang 
+        FROM 
+            `order` 
+            INNER JOIN order_detail ON `order`.orderID = order_detail.orderID 
+            INNER JOIN product ON order_detail.prID = product.proID 
+            INNER JOIN giftcode ON `order`.`giftID` = giftcode.giftID 
+        WHERE 
+            `order`.`orderDate` >= '$ngayTu' 
+            AND `order`.`orderDate` <= '$ngayDen' 
+            AND `order`.status = 'completed' 
+        GROUP BY 
+            YEAR(`order`.`orderDate`), 
+            MONTH(`order`.`orderDate`);";
+
+            $thongkeThang = $conn->query($thongKeTheoCacThang);
+
+            $thang = array();
+            $flag = 0;
+            if ($thongkeThang->num_rows > 0) {
+                while ($cacThang = $thongkeThang->fetch_assoc()) {
+                    $thang[$flag] = [
+                        'thang' => $cacThang['Thang'],
+                        'nam' => $cacThang['Nam'],
+                        'tongTien' => $cacThang["TienHangThang"]
+                    ];
+                    $flag = $flag + 1;
+                }
+            }
+            $_SESSION['listThangThongKe'] = $thang;
+            // END
 
             $result = $conn->query($query);
             if ($result && $result->num_rows > 0) {
@@ -42,8 +80,10 @@ if (!empty($_POST["DOANHTHU1"]) && !empty($_POST["DOANHTHU2"])) {
             $_SESSION['error-date'] = $e->getMessage();
             header("Location: /Project_WebBanHang/Template-Views/Admin/Shared/Index.php");
         } finally {
-            if ($result) {
+            if ($result || $thongkeThang) {
                 $result->free_result();
+                $thongkeThang->free_result();
+                $conn->close();
             }
         }
     } else {
