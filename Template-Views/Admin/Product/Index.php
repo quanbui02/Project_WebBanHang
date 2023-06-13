@@ -247,8 +247,6 @@ $lengthProduct = count($listProduct);
                                                     </svg>
                                                 </a>
                                             </div>
-<<<<<<< HEAD
-=======
                                             <div class="item-edit">
                                                 <a title="Xem phản hồi"
                                                     href="/Project_WebBanHang/Action-Controller/ProductController/Feedback_action.php?id=<?php echo $listProduct[$i]->getPrID(); ?>"
@@ -262,7 +260,6 @@ $lengthProduct = count($listProduct);
                                                     </svg>
                                                 </a>
                                             </div>
->>>>>>> 423b14e6abe1bf1377d586590176a951148c6aec
                                         </div>
                                     </td>
                                 </tr>
@@ -328,13 +325,8 @@ $lengthProduct = count($listProduct);
                         <div class="content"> <select id="category" name="GroupProduct_ID">
                                 <option value="">-- Chọn danh mục --</option>
                                 <?php
-<<<<<<< HEAD
                                 for ($i = 0; $i < $lengthGroup; $i++) {
                                 ?>
-=======
-                                for ($i = 0; $i < $lengtGroup; $i++) {
-                                    ?>
->>>>>>> 423b14e6abe1bf1377d586590176a951148c6aec
                                     <option value="<?php echo $listGroup[$i]->getGrID() ?>"><?php echo $listGroup[$i]->getNameGroup() ?></option>
                                     <?php
                                 }
