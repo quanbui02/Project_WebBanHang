@@ -3,7 +3,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/GroupDAO.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GroupProduct.php";
 session_start();
 $listGroup = getAllListGroup();
-$lengtGroup = count($listGroup);
+$lengthGroup = count($listGroup);
 ?>
 <html lang="en">
 
@@ -23,7 +23,7 @@ $lengtGroup = count($listGroup);
         <div class="content"> <select id="category" name="GroupProduct_ID">
             <option value="">-- Chọn danh mục --</option>
             <?php
-            for ($i = 0; $i < $lengtGroup; $i++) {
+            for ($i = 0; $i < $lengthGroup; $i++) {
               ?>
               <option value="<?php echo $listGroup[$i]->getGrID() ?>"><?php echo $listGroup[$i]->getNameGroup() ?></option>
               <?php
@@ -103,7 +103,7 @@ $lengtGroup = count($listGroup);
         imageContainer.innerHTML = ""; // Xóa hết ảnh trước đó trong #imageContainer
 
         // Lặp qua từng file được chọn
-        for (let i = 0; i < this.files.length; i++) {
+        for (let i = 0; i < this.files.lengthh; i++) {
           let file = this.files[i];
 
           // Kiểm tra nếu file không phải là ảnh thì bỏ qua

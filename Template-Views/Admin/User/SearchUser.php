@@ -7,7 +7,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
 session_start();
 $searchUser = $_SESSION["search-userName"];
 $listUserSeacrh = SearchUser($searchUser);
-$length = count($listUserSeacrh);
+$lengthh = count($listUserSeacrh);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +49,7 @@ $length = count($listUserSeacrh);
                     <h3>Danh sách thành viên</h3>
                     <a href="/Project_WebBanHang/Template-Views/Admin/User/DeletedUser.php">Danh sách thành viên bị huỷ</a>
                     <?php
-                    if ($length > 0) {
+                    if ($lengthh > 0) {
                     ?>
                         <table id="customers">
                             <tr>
@@ -65,7 +65,7 @@ $length = count($listUserSeacrh);
                                 <th>Thao tác</th>
                             </tr>
                             <?php
-                            for ($i = 0; $i < $length; $i++) {
+                            for ($i = 0; $i < $lengthh; $i++) {
                             ?>
                                 <tr>
                                     <td><?php echo $listUserSeacrh[$i]->getUserID() ?></td>

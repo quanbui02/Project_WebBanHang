@@ -6,7 +6,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
 session_start();
 $searchGroup = $_SESSION["search-input"];
 $listGroupSeacrh = searchGroup($searchGroup);
-$length = count($listGroupSeacrh);
+$lengthh = count($listGroupSeacrh);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -155,7 +155,7 @@ $length = count($listGroupSeacrh);
             <button class="add-product-js btn-add ">Thêm mới danh mục</button>
             <a class="btn-del" href="/Project_WebBanHang/Template-Views/Admin/Category/listCategoryDeleted.php">Danh mục đã xoá</a>
             <?php
-            if ($length > 0) {
+            if ($lengthh > 0) {
                 ?>
                 <table id="customers">
                     <tr>
@@ -164,7 +164,7 @@ $length = count($listGroupSeacrh);
                         <th>Thao tác</th>
                     </tr>
                     <?php
-                    for ($i = 0; $i <$length; $i++) {
+                    for ($i = 0; $i <$lengthh; $i++) {
                         if ($listGroupSeacrh[$i]->getAct() == 1) {
                     ?>
                             <tr>

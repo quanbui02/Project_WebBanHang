@@ -5,7 +5,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
 session_start();
 $searchProduct = $_SESSION["search-product"];
 $listProductSearch = SearchProduct($searchProduct);
-$lengtProduct = count($listProductSearch);
+$lengthProduct = count($listProductSearch);
 
 ?>
 <!DOCTYPE html>
@@ -156,7 +156,7 @@ $lengtProduct = count($listProductSearch);
                     <button class="add-product-js">Thêm mới sản phẩm</button>
                     <a href="/Project_WebBanHang/Template-Views/Admin/Product/ProductDeleted.php">Sản phẩm đã xoá</a>
                     <?php
-                    if ($lengtProduct > 0) {
+                    if ($lengthProduct > 0) {
                     ?>
                         <table id="customers">
                             <tr>
@@ -169,7 +169,7 @@ $lengtProduct = count($listProductSearch);
                                 <th>Thao tác</th>
                             </tr>
                             <?php
-                            for ($i = 0; $i < $lengtProduct; $i++) {
+                            for ($i = 0; $i < $lengthProduct; $i++) {
                                 if ($listProductSearch[$i]->getAct() == 1) {
                             ?>
                                 <tr>
@@ -239,7 +239,7 @@ $lengtProduct = count($listProductSearch);
                         <div class="content"> <select id="category" name="GroupProduct_ID">
                                 <option value="">-- Chọn danh mục --</option>
                                 <?php
-                                for ($i = 0; $i < $lengtGroup; $i++) {
+                                for ($i = 0; $i < $lengthGroup; $i++) {
                                 ?>
                                     <option value="<?php echo $listGroup[$i]->getGrID() ?>"><?php echo $listGroup[$i]->getNameGroup() ?></option>
                                 <?php
@@ -363,7 +363,7 @@ $lengtProduct = count($listProductSearch);
             imageContainer.innerHTML = ""; // Xóa hết ảnh trước đó trong #imageContainer
 
             // Lặp qua từng file được chọn
-            for (let i = 0; i < this.files.length; i++) {
+            for (let i = 0; i < this.files.lengthh; i++) {
                 let file = this.files[i];
 
                 // Kiểm tra nếu file không phải là ảnh thì bỏ qua

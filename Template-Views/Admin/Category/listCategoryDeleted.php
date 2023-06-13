@@ -3,7 +3,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/GroupDAO.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GroupProduct.php";
 session_start();
 $listGroup = getAllListDeletedGroup();
-$lengtGroup = count($listGroup);
+$lengthGroup = count($listGroup);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,7 @@ $lengtGroup = count($listGroup);
         <p>Danh mục đã xóa</p>
         <table>
             <?php
-                if ($lengtGroup > 0) {
+                if ($lengthGroup > 0) {
                     ?>
                     <table id="customers">
                         <tr>
@@ -28,7 +28,7 @@ $lengtGroup = count($listGroup);
                             <th>Thao tác</th>
                         </tr>
                         <?php
-                        for ($i = 0; $i <$lengtGroup; $i++) {
+                        for ($i = 0; $i <$lengthGroup; $i++) {
                             if ($listGroup[$i]->getAct() == 0) {
                         ?>
                                 <tr>

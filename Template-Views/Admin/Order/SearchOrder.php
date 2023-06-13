@@ -15,7 +15,7 @@ $nameUserSearch = $_SESSION["search-order"];
 $listOrders = searchOrders($nameUserSearch);
 $total_pages = getIndexPageOrder();
 $page = isset($_GET['pI']) ? $_GET['pI'] : 1;
-$lengthOrders = count($listOrders);
+$lengthhOrders = count($listOrders);
 
 ?>
 <!DOCTYPE html>
@@ -64,7 +64,7 @@ $lengthOrders = count($listOrders);
                     <h3 style="margin-top:15px">Danh sách hóa đơn</h3>
 
                     <?php
-                    if ($lengthOrders > 0) {
+                    if ($lengthhOrders > 0) {
 
                         ?>
                         <table id="order">

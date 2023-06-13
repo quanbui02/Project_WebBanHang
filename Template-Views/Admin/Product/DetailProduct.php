@@ -2,10 +2,12 @@
 include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/ImgProduct.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/GroupDAO.php";
+
 session_start();
 $listGroup = getAllListGroup();
-$lengtGroup = count($listGroup);
+$lengthGroup = count($listGroup);
 $listImgs = unserialize($_SESSION['imgProducts']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +15,7 @@ $listImgs = unserialize($_SESSION['imgProducts']);
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_detail.css">
     <title>Chi tiết sản phẩm</title>
 </head>
@@ -60,7 +62,7 @@ $listImgs = unserialize($_SESSION['imgProducts']);
             <div class="groupName">
                 <div class="label">Thuộc danh mục: </div>
                 <div class="content">
-                    <?php for ($i = 0; $i < $lengtGroup; $i++) {
+                    <?php for ($i = 0; $i < $lengthGroup; $i++) {
                         if ($_SESSION["product"]->getGrID() == $listGroup[$i]->getGrID()) {
                             echo $listGroup[$i]->getNameGroup();
                         }
@@ -95,22 +97,51 @@ $listImgs = unserialize($_SESSION['imgProducts']);
                         echo $_SESSION["product"]->getDes();
                     } ?> VND
                 </div>
-                
+
             </div>
 
             <div class="Active_gr">
                 <div class="label">Hoạt động: </div>
-               <div class="content"> <?php if ($_SESSION["product"]->getAct() == 1) {
-                    ?> <span>đang hoạt động</span>
-                    <?php
-                } else {
+                <div class="content">
+                    <?php if ($_SESSION["product"]->getAct() == 1) {
+                        ?> <span>đang hoạt động</span>
+                        <?php
+                    } else {
+                        ?>
+                        <span>không hoạt động</span>
+                        <?php
+                    }
                     ?>
-                    <span>không hoạt động</span>
-                    <?php
-                }
-                ?></div>
+                </div>
             </div>
         </div>
+        <div>
+
+            <?php
+            var_dump($_SESSION["listFeedBacks"]);
+
+            if (isset($_SESSION["listFeedBacks"])) {
+                // Lấy giá trị của biến listFeedBacks từ phiên làm việc
+                $listFeedBacks = $_SESSION["listFeedBacks"];
+            
+                // Hiển thị thông tin phản hồi
+                foreach ($listFeedBacks as $feedbackData) {
+                    $feedback = $feedbackData["feedback"];
+                    $user = $feedbackData["user"];
+            
+                    echo "Người dùng: " . $user->getUserName() . "<br>";
+                    echo "Thời gian: " . $feedback->getFeedbackTime() . "<br>";
+                    echo "Nội dung: " . $feedback->getFeedbackContent() . "<br>";
+                    echo "<hr>";
+                }
+            } else {
+                echo "Không có phản hồi.";
+            }
+
+            ?>
+
+        </div>
+
     </div>
     <div class="back">
         <button> <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">

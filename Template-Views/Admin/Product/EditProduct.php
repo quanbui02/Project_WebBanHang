@@ -5,7 +5,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/ImgProduct.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/GroupDAO.php";
 session_start();
 $listGroup = getAllListGroup();
-$lengtGroup = count($listGroup);
+$lengthGroup = count($listGroup);
 $listImgs = unserialize($_SESSION['InfoImgProducts']);
 ?>
 <html lang="en">
@@ -32,7 +32,7 @@ $listImgs = unserialize($_SESSION['InfoImgProducts']);
         <div class="content"> <select id="category" name="GroupProduct_ID">
             <?php
             $selectedGrID = (int) $_SESSION["InfoProduct"]->getGrID();
-            for ($i = 0; $i < $lengtGroup; $i++) {
+            for ($i = 0; $i < $lengthGroup; $i++) {
               $grID = $listGroup[$i]->getGrID();
               $nameGroup = $listGroup[$i]->getNameGroup();
               if ($selectedGrID == $grID) {
@@ -122,7 +122,7 @@ $listImgs = unserialize($_SESSION['InfoImgProducts']);
         imageContainer.innerHTML = ""; // Xóa hết ảnh trước đó trong #imageContainer
 
         // Lặp qua từng file được chọn
-        for (let i = 0; i < this.files.length; i++) {
+        for (let i = 0; i < this.files.lengthh; i++) {
           let file = this.files[i];
 
           // Kiểm tra nếu file không phải là ảnh thì bỏ qua

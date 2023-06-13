@@ -13,7 +13,7 @@ $listGroup = getListGroup();
 $total_pages = getIndexPage();
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $_SESSION['PageIndex'] = $page;
-$lengtGroup = count($listGroup);
+$lengthGroup = count($listGroup);
 
 ?>
 <!DOCTYPE html>
@@ -168,7 +168,7 @@ $lengtGroup = count($listGroup);
                     <a class="btn-del" href="/Project_WebBanHang/Template-Views/Admin/Category/listCategoryDeleted.php">Danh mục đã
                         xoá</a>
                     <?php
-                    if ($lengtGroup > 0) {
+                    if ($lengthGroup > 0) {
                     ?>
                         <table id="customers">
                             <tr>
@@ -177,7 +177,7 @@ $lengtGroup = count($listGroup);
                                 <th>Thao tác</th>
                             </tr>
                             <?php
-                            for ($i = 0; $i < $lengtGroup; $i++) {
+                            for ($i = 0; $i < $lengthGroup; $i++) {
                             ?>
                                 <tr>
                                     <td>

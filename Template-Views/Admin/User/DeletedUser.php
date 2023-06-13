@@ -3,7 +3,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/UserDAO.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/User.php";
 session_start();
 $listUserDelete = getAllUser();
-$lengthDeleteUser = count($listUserDelete);
+$lengthhDeleteUser = count($listUserDelete);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,7 @@ $lengthDeleteUser = count($listUserDelete);
 <body>
     <p>Danh sách thành viên đã xóa</p>
     <?php
-    if ($lengthDeleteUser > 0) {
+    if ($lengthhDeleteUser > 0) {
     ?>
         <table id="customers">
             <tr>
@@ -35,7 +35,7 @@ $lengthDeleteUser = count($listUserDelete);
                 <th>Thao tác</th>
             </tr>
             <?php
-            for ($i = 0; $i < $lengthDeleteUser; $i++) {
+            for ($i = 0; $i < $lengthhDeleteUser; $i++) {
                 if ($listUserDelete[$i]->getAct() == 0) {
             ?>
                     <tr>

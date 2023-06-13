@@ -12,7 +12,7 @@ if($_SESSION["login"] == false) {
 $listUser = getListUser();
 $total_pages = getIndexPageUser();
 $page = isset($_GET['p']) ? $_GET['p'] : 1;
-$lengtUser = count($listUser);
+$lengthUser = count($listUser);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +56,7 @@ $lengtUser = count($listUser);
                     <h3>Danh sách thành viên</h3>
                     <a class="btn-del" href="/Project_WebBanHang/Template-Views/Admin/User/DeletedUser.php">Danh sách thành viên bị huỷ</a>
                     <?php
-                    if ($lengtUser > 0) {
+                    if ($lengthUser > 0) {
                     ?>
                         <table id="customers">
                             <tr>
@@ -72,7 +72,7 @@ $lengtUser = count($listUser);
                                 <th>Thao tác</th>
                             </tr>
                             <?php
-                            for ($i = 0; $i < $lengtUser; $i++) {
+                            for ($i = 0; $i < $lengthUser; $i++) {
                                 if($listUser[$i]->getPos() == "Thành viên") {
 
                                 

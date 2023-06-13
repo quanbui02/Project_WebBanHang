@@ -13,7 +13,7 @@ $listGift = getListGift();
 $total_pages = getIndexPage();
 $page = isset($_GET['pg']) ? $_GET['pg'] : 1;
 $_SESSION['index'] = $page;
-$lengtGift = count($listGift);
+$lengthGift = count($listGift);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -156,7 +156,7 @@ $lengtGift = count($listGift);
                     <button class="add-product-js btn_add">Thêm mới mã giảm giá</button>
                     <!-- <a href="/Project_WebBanHang/Template-Views/Admin/GiftCode/CreateGift.php">Thêm mã giảm giá</a> -->
                     <?php
-                    if ($lengtGift > 0) {
+                    if ($lengthGift > 0) {
                     ?>
                         <table id="customers">
                             <tr>
@@ -168,7 +168,7 @@ $lengtGift = count($listGift);
                                 <th>Thao tác</th>
                             </tr>
                             <?php
-                            for ($i = 0; $i < $lengtGift; $i++) {
+                            for ($i = 0; $i < $lengthGift; $i++) {
                             ?>
                                 <tr>
                                     <td><?php echo $listGift[$i]->getGiftID() ?></td>
