@@ -14,7 +14,6 @@ class ItemSidebar
 
 function sidebar()
 {
-
     $myArray = [
         new ItemSidebar("Page1","Tổng quan", "/Project_WebBanHang/Template-Views/Admin/Shared/Index.php"),
         new ItemSidebar("Page2","Sản phẩm", "/Project_WebBanHang/Template-Views/Admin/Product/Index.php"),
@@ -34,5 +33,15 @@ function sidebar()
             </li>
         ';
     }
-    return $html;
+    
+    $sidebarHtml = '  
+        <div class="side-nav">
+            <div class="side-nav-inner">
+                <ul class="side-nav-menu scrollable" style="list-style-type: none;">
+                    ' . $html . '
+                </ul>
+            </div>
+        </div>';
+    
+    return $sidebarHtml;
 }

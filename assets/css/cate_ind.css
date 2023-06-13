@@ -16,7 +16,6 @@
 .content_Admin{
     width: 90%;
     margin-left: 30px;
-
 }
 .btn_detail:hover, .btn_edit:hover, .btn_delete:hover{
     background-color: #a09f9f; 

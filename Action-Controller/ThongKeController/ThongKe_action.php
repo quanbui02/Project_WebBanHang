@@ -16,11 +16,12 @@ if (!empty($_POST["DOANHTHU1"]) && !empty($_POST["DOANHTHU2"])) {
             COUNT(CASE WHEN `order`.status = 'confirm' THEN 1 END) as soDonDangGiao,
             COUNT(CASE WHEN `order`.status = 'completed' THEN 1 END) as soDonDaGiao,
             COUNT(CASE WHEN `order`.status = 'destroyed' THEN 1 END) as soDonDaHuy
-        FROM `order`
-        INNER JOIN order_detail ON `order`.orderID = order_detail.orderID
-        INNER JOIN product ON order_detail.prID = product.proID
-        INNER JOIN giftcode ON `order`.`giftID` = giftcode.giftID
-        WHERE `order`.`orderDate` >= '$ngayTu' AND `order`.`orderDate` <= '$ngayDen'";
+            FROM `order`
+            INNER JOIN order_detail ON `order`.orderID = order_detail.orderID
+            INNER JOIN product ON order_detail.prID = product.proID
+            INNER JOIN giftcode ON `order`.`giftID` = giftcode.giftID
+            WHERE `order`.`orderDate` >= '$ngayTu' AND `order`.`orderDate` <= '$ngayDen';
+            GROUP BY YEAR(`order`.`orderDate`), MONTH(`order`.`orderDate`)";
 
             $result = $conn->query($query);
             if ($result && $result->num_rows > 0) {

@@ -4,7 +4,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
 
 session_start();
-if($_SESSION["login"] == false) {
+if ($_SESSION["login"] == false) {
     header("Location: /Project_WebBanHang/Template-Views/Admin/LoginAdmin/Index.php");
 }
 $conn = connectDb();
@@ -40,12 +40,13 @@ try {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/main.css">
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/Category.css">
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/Popup.css">
+    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/Home/index.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="Index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Trang chủ Admin</title>
 </head>
 
@@ -53,56 +54,78 @@ try {
     <div class="container_flex">
         <div class="side-nav">
             <div class="side-nav-inner">
-                <ul class="side-nav-menu scrollable">
-                    <?php
-                    echo sidebar();
-                    ?>
-                </ul>
+                <?php
+                echo sidebar();
+                ?>
             </div>
         </div>
         <div class="container_admin">
             <div class="content_Admin">
-                <span>TRANG CHỦ QUẢN TRỊ</span>
+                TRANG CHỦ QUẢN TRỊ
             </div>
             <div class="content">
-                <ul>
-                    <li>
-                        <p>Đơn hàng đang chờ xác nhận</p>
-                        <p><?php echo $soDonDangChoXacNhan; ?></p>
+                <ul class="list-orders">
+                    <li class="item-order" style="background-color: #ea815e;">
+                        <p class="title">Đơn hàng đang chờ xác nhận</p>
+                        <p class="quantity">
+                            <?php echo $soDonDangChoXacNhan; ?>
+                        </p>
                     </li>
-                    <li>
-                        <p>Đơn hàng đang giao</p>
-                        <p><?php echo $soDonDangGiao; ?></p>
+                    <li class="item-order" style="background-color:#F7375D;">
+                        <p class="title">Đơn hàng đang giao</p>
+                        <p class="quantity">
+                            <?php echo $soDonDangGiao; ?>
+                        </p>
                     </li>
-                    <li>
-                        <p>Đơn hàng đã giao</p>
-                        <p><?php echo $soDonDaGiao; ?></p>
+                    <li class="item-order" style="background-color:#D448FF;">
+                        <p class="title">Đơn hàng đã giao</p>
+                        <p class="quantity">
+                            <?php echo $soDonDaGiao; ?>
+                        </p>
                     </li>
-                    <li>
-                        <p>Đơn hàng đã huỷ</p>
-                        <p><?php echo $soDonDaHuy; ?></p>
+                    <li class="item-order" style="background-color:red;">
+                        <p class="title">Đơn hàng đã huỷ</p>
+                        <p class="quantity">
+                            <?php echo $soDonDaHuy; ?>
+                        </p>
                     </li>
                 </ul>
-                <!-- <div class="order-complete">
-                    <p>Đơn hàng đã hoàn thành</p>
-                    <p><?php echo $soDonDaThanhToan; ?></p>
-                </div> -->
-                <!-- <div class="item">
-                    <div class="item-detail">
-                        <span>Đơn hàng hôm nay</span>
-
+                <div class="form-date">
+                    <div>
+                        <form action="/Project_WebBanHang/Action-Controller/ThongKeController/ThongKe_action.php"
+                            method="post">
+                            <label class="title-form" for="DOANHTHU">DOANH THU:</label>
+                            <p>Từ:</p>
+                            <input type="datetime-local" id="DOANHTHU1" name="DOANHTHU1">
+                            <p>Đến:</p>
+                            <input type="datetime-local" id="DOANHTHU2" name="DOANHTHU2">
+                            <br>
+                            <br>
+                            <button style="border:1px solid #ccc;border-radius:3px;" type="submit">Thống kê</button>
+                        </form>
                     </div>
-                </div> -->
-                <form action="/Project_WebBanHang/Action-Controller/ThongKeController/ThongKe_action.php" method="post">
-                    <label for="DOANHTHU">DOANH THU:</label>
-                    <p>Từ:</p>
-                    <input type="datetime-local" id="DOANHTHU1" name="DOANHTHU1">
-                    <p>Đến:</p>
-                    <input type="datetime-local" id="DOANHTHU2" name="DOANHTHU2">
-                    <br>
-                    <br>
-                    <button style="border:1px solid #ccc;border-radius:3px;" type="submit">Thống kê</button>
-                </form>
+                    <div class="chart-container">
+                        <div class="chart-title">Biểu đồ thống kê</div>
+                        <div class="chart">
+                            <?php
+                            // Lấy dữ liệu thống kê từ session
+                            $thongKe = $_SESSION['thongKe'];
+
+                            // Tạo các cột biểu đồ dựa trên dữ liệu thống kê
+                            foreach ($thongKe as $item) {
+                                $month = $item['month'];
+                                $tongTien = $item['tongTien'];
+
+                                // Tính chiều cao của cột dựa trên tổng tiền
+                                $height = $tongTien / 100; // Giả sử mỗi đơn vị là 100
+                            
+                                echo '<div class="bar" style="height: ' . $height . '%;"></div>';
+                                echo '<div class="label">' . $month . '</div>';
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
                 <?php
                 if (isset($_SESSION['error-date'])) {
                     $errorDate = $_SESSION['error-date'];
@@ -114,11 +137,6 @@ try {
         </div>
 
     </div>
-
 </body>
 
 </html>
-//cart ->trong giỏ hàng ( chưa ấn thanh toán)(bên khách)
-//payed ->Đã ấn thanh toán(chưa xác nhận)(bên khách)
-//confirm ->Đã xác nhận(bên admin)
-//completed -> đã nhân hàng(sau khi ấn confirm)(bên khách)

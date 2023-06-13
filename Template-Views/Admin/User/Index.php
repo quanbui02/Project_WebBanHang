@@ -35,11 +35,9 @@ $lengthUser = count($listUser);
     <div class="container_flex">
         <div class="side-nav">
             <div class="side-nav-inner">
-                <ul class="side-nav-menu scrollable" style="list-style-type: none;">
-                    <?php
+            <?php
                     echo sidebar();
                     ?>
-                </ul>
             </div>
         </div>
         <div class="content_Admin">

@@ -135,7 +135,7 @@ $lengthProduct = count($listProductSearch);
     <div class="container_flex">
         <div class="side-nav">
             <div class="side-nav-inner">
-                <ul class="side-nav-menu scrollable">
+                <ul class="side-nav-menu scrollable" style="list-style-type: none; min-width: 120px">
                     <?php echo sidebar() ?>
                 </ul>
             </div>
