@@ -6,7 +6,7 @@ function getIndexPageOrder()
     $conn = connectDb();
     try {
         $per_page = 10;
-        $sql = "select * from order";
+        $sql = "SELECT * from `order`";
         $result = $conn->query($sql);
         $total_records = mysqli_num_rows($result);
         $total_pages = ceil($total_records / $per_page);    

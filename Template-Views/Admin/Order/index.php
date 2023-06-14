@@ -15,7 +15,6 @@ $listOrders = getListOrder();
 $total_pages = getIndexPageOrder();
 $page = isset($_GET['pI']) ? $_GET['pI'] : 1;
 $lengthhOrders = count($listOrders);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
