@@ -16,11 +16,7 @@ $listImgs = unserialize($_SESSION['imgProducts']);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_detail.css">
-=======
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_DEtail.css">
->>>>>>> 423b14e6abe1bf1377d586590176a951148c6aec
     <title>Chi tiết sản phẩm</title>
 </head>
 
@@ -132,7 +128,7 @@ $listImgs = unserialize($_SESSION['imgProducts']);
                 foreach ($listFeedBacks as $feedbackData) {
                     $feedback = $feedbackData["feedback"];
                     $user = $feedbackData["user"];
-            
+        
                     echo "Người dùng: " . $user->getUserName() . "<br>";
                     echo "Thời gian: " . $feedback->getFeedbackTime() . "<br>";
                     echo "Nội dung: " . $feedback->getFeedbackContent() . "<br>";

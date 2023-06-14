@@ -18,7 +18,6 @@ while ($row = $getImgsProduct->fetch_assoc()) {
     $imgProduct = new ImgProduct($row["id"],$row["idProduct"],$row["image"]);
     $imgProducts[] = $imgProduct;
 }
-$conn->close();
 
 $listFeedBackSQL = "SELECT * FROM feedback INNER JOIN user on feedback.userID = user.userID WHERE proID = ".$ID;
 $resultFeedBacks = $conn->query($listFeedBackSQL);
@@ -72,6 +71,7 @@ if($result->num_rows>0){
         $row["image"]
     );
 }
+$conn->close();
 
 header("Location: /Project_WebBanHang/Template-Views/Admin/Product/EditProduct.php?id=$ID");
 ?>
