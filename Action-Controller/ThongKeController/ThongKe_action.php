@@ -22,7 +22,7 @@ if (!empty($_POST["DOANHTHU1"]) && !empty($_POST["DOANHTHU2"])) {
             INNER JOIN product ON order_detail.prID = product.proID
             INNER JOIN giftcode ON `order`.`giftID` = giftcode.giftID
             WHERE `order`.`orderDate` >= '$ngayTu' AND `order`.`orderDate` <= '$ngayDen'";
-        // Thong ke theo cac thang//
+            // Thong ke theo cac thang//
             $thongKeTheoCacThang = "SELECT 
             YEAR(`order`.`orderDate`) AS Nam,
             MONTH(`order`.`orderDate`) AS Thang,
