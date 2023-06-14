@@ -68,43 +68,80 @@ try {
                     <li class="item-order" style="background-color: #ea815e;">
                         <p class="title">Đơn hàng đang chờ xác nhận</p>
                         <p class="quantity">
-                            <?php echo $soDonDangChoXacNhan; ?>
+                            <?php 
+                            if (isset($_SESSION['ChoXacNhan'])) {
+                                echo $_SESSION['ChoXacNhan'];
+                            } else {
+                                echo $soDonDangChoXacNhan; 
+                            }
+                            ?>
                         </p>
                     </li>
                     <li class="item-order" style="background-color:#F7375D;">
                         <p class="title">Đơn hàng đang giao</p>
                         <p class="quantity">
-                            <?php echo $soDonDangGiao; ?>
+                            <?php
+                            if (isset($_SESSION['DangGiao'])) {
+                                echo $_SESSION['DangGiao'];
+                            } else {
+                                echo $soDonDangGiao;
+                            }
+                            ?>
                         </p>
                     </li>
                     <li class="item-order" style="background-color:#D448FF;">
                         <p class="title">Đơn hàng đã giao</p>
                         <p class="quantity">
-                            <?php echo $soDonDaGiao; ?>
+                            <?php
+                            if (isset($_SESSION['DaGiao'])) {
+                                echo $_SESSION['DaGiao'];
+                            } else {
+                                echo $soDonDaGiao; 
+                            }
+                            ?>
                         </p>
                     </li>
                     <li class="item-order" style="background-color:red;">
                         <p class="title">Đơn hàng đã huỷ</p>
                         <p class="quantity">
-                            <?php echo $soDonDaHuy; ?>
+                            <?php
+                            if (isset($_SESSION['DaHuy'])) {
+                                echo $_SESSION['DaHuy'];
+                            } else {
+                                echo $soDonDaHuy;
+                            }
+                            ?>
                         </p>
                     </li>
                 </ul>
+                <?php
+                unset($_SESSION['ChoXacNhan'],$_SESSION['DangGiao'],$_SESSION['DaGiao'],$_SESSION['DaHuy']);
+                ?>
                 <div class="form-date">
                     <div>
                         <form action="/Project_WebBanHang/Action-Controller/ThongKeController/ThongKe_action.php"
                             method="post">
                             <label class="title-form" for="DOANHTHU">DOANH THU:</label>
                             <p>Từ:</p>
-                            <input type="datetime-local" id="DOANHTHU1" name="DOANHTHU1">
+                            <input type="datetime-local" id="DOANHTHU1" name="DOANHTHU1" value="<?php echo isset($_SESSION['Ngaydau']) ? $_SESSION['Ngaydau'] : '';?>">
                             <p>Đến:</p>
-                            <input type="datetime-local" id="DOANHTHU2" name="DOANHTHU2">
+                            <input type="datetime-local" id="DOANHTHU2" name="DOANHTHU2" value="<?php echo isset($_SESSION['NgaySau']) ? $_SESSION['NgaySau'] : '';?>">
                             <br>
                             <br>
                             <button style="border:1px solid #ccc;border-radius:3px;" type="submit">Thống kê</button>
                         </form>
                     </div>
-                    <div class="chart-container">
+                    <?php unset($_SESSION['NgaySau'],$_SESSION['Ngaydau']) ?>
+                    <?php
+                      if (isset($_SESSION['tongTien'])) {
+                        $tongTien = $_SESSION['tongTien'];
+                        echo "<p>Tổng tiền: " . $tongTien . "</p>";
+                        unset($_SESSION['tongTien']);
+                    } else {
+                        echo "0";
+                    }
+                    ?>
+                    <!-- <div class="chart-container">
                         <div class="chart-title">Biểu đồ thống kê</div>
                         <div class="chart">
                             <?php
@@ -124,12 +161,12 @@ try {
                             }
                             ?>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <?php
                 if (isset($_SESSION['error-date'])) {
                     $errorDate = $_SESSION['error-date'];
-                    echo "<p>Lỗi: " . $errorDate . "</p>";
+                    echo "<p> " . $errorDate . "</p>";
                     unset($_SESSION['error-date']);
                 }
                 ?>

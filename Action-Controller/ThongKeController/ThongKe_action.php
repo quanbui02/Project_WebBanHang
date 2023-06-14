@@ -72,7 +72,7 @@ if (!empty($_POST["DOANHTHU1"]) && !empty($_POST["DOANHTHU2"])) {
                 $_SESSION['DangGiao'] = $row['soDonDangGiao'];
                 $_SESSION['DaGiao'] = $row['soDonDaGiao'];
                 $_SESSION['DaHuy'] = $row['soDonDaHuy'];
-                header("Location: /Project_WebBanHang/Template-Views/Admin/Shared/Thongke.php");
+                header("Location: /Project_WebBanHang/Template-Views/Admin/Shared/Index.php");
             } else {
                 throw new Exception("Không có kết quả.");
             }
@@ -87,10 +87,10 @@ if (!empty($_POST["DOANHTHU1"]) && !empty($_POST["DOANHTHU2"])) {
             }
         }
     } else {
-        $_SESSION['error-date'] = "Vui lòng nhập ngày hợp lệ.";
+        $_SESSION['error-date'] = "Vui lòng nhập ngày hợp lệ";
         header("Location: /Project_WebBanHang/Template-Views/Admin/Shared/Index.php");
     }
 } else {
-    $_SESSION['error-date'] = "Vui lòng nhập đầy đủ ngày.";
+    $_SESSION['error-date'] = "Vui lòng nhập đầy đủ ngày";
     header("Location: /Project_WebBanHang/Template-Views/Admin/Shared/Index.php");
 }
