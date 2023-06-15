@@ -141,27 +141,6 @@ try {
                         echo "0";
                     }
                     ?>
-                    <!-- <div class="chart-container">
-                        <div class="chart-title">Biểu đồ thống kê</div>
-                        <div class="chart">
-                            <?php
-                            // Lấy dữ liệu thống kê từ session
-                            $thongKe = $_SESSION['thongKe'];
-
-                            // Tạo các cột biểu đồ dựa trên dữ liệu thống kê
-                            foreach ($thongKe as $item) {
-                                $month = $item['month'];
-                                $tongTien = $item['tongTien'];
-
-                                // Tính chiều cao của cột dựa trên tổng tiền
-                                $height = $tongTien / 100; // Giả sử mỗi đơn vị là 100
-                            
-                                echo '<div class="bar" style="height: ' . $height . '%;"></div>';
-                                echo '<div class="label">' . $month . '</div>';
-                            }
-                            ?>
-                        </div>
-                    </div> -->
                 </div>
                 <?php
                 if (isset($_SESSION['error-date'])) {
