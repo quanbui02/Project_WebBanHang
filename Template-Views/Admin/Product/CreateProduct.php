@@ -20,7 +20,8 @@ $lengthGroup = count($listGroup);
     <div class="details">
       <div class="Cate">
         <div class="label"> <label for="Cat">Danh mục sản phẩm:</label></div>
-        <div class="content"> <select id="category" name="GroupProduct_ID">
+        <div class="content">
+           <select id="category" name="GroupProduct_ID">
             <option value="">-- Chọn danh mục --</option>
             <?php
             for ($i = 0; $i < $lengthGroup; $i++) {
@@ -29,7 +30,8 @@ $lengthGroup = count($listGroup);
               <?php
             }
             ?>
-          </select></div>
+          </select>
+        </div>
       </div>
       <div class="namepro">
         <div class="label"><label>Tên sản phẩm</label></div>

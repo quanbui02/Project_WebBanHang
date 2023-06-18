@@ -48,7 +48,7 @@ $listGroup = getListGroup();
                 ?>
                  <div class="item-pr">
                    <div class="pro-image">
-                       <img src="<?php echo $listProduct[$i]->getImg(); ?>" >
+                       <img src="/Project_WebBanHang/Upload/img/<?php echo $listProduct[$i]->getImg(); ?>" >
                    </div>
                    <div class="pro-infor">
                        <div class="pro-name"><?php echo $listProduct[$i]->getPrName(); ?></div>

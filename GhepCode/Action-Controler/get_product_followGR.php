@@ -4,7 +4,7 @@ session_start();
 $_SESSION["group-mode"] = true;
 $id = intval($_GET["id_group"]);
 $conn = new mysqli("127.0.0.1", "root", "","csdldoan");
-$sql  = "select * from product where grID = '".$id."'";
+$sql  = "select * from product where grID = '".$id."' and active = 1";
 $result = $conn->query($sql);
 $_SESSION["pro-group"]=array();
 $count = 0;

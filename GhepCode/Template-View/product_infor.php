@@ -16,7 +16,7 @@ if(empty($_SESSION["feedback"])){
         </div>
         <div class="infor">
             <div class="picture">
-                <img src="<?php echo $_SESSION["product"]->getImg(); ?>" >
+                <img src="/Project_WebBanHang/Upload/img/<?php echo $_SESSION["product"]->getImg(); ?>" >
             </div>
             <div class="details">
                 <div class="name">

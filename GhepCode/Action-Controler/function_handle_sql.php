@@ -36,11 +36,11 @@ function getListProduct($proName){
         $count = 0;
         $lists =  array();
         if(strlen($proName) == 0){
-            $sql = "select * from product ";
+            $sql = "select * from product where active = 1";
             $result = $conn->query($sql);
         }else{
             //like N'%n%'
-            $sql = "select * from product where proName like '%".$proName."%'";
+            $sql = "select * from product where proName like '%".$proName."%' and active = 1";
             $result = $conn->query($sql);
         }
         if($result->num_rows>0){
@@ -85,7 +85,7 @@ function getListGroup(){
     try{
         $list= array();
         $count = 0;
-        $sql = "select * from group_product";
+        $sql = "select * from group_product where active = 1";
         $result = $conn->query($sql);
         if($result->num_rows>0){
             while($row = $result->fetch_assoc()){
