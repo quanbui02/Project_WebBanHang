@@ -1,6 +1,6 @@
 #toast {
   position: fixed;
-  top: 94px;
+  top: 94px !important;
   right: 32px;
   z-index: 999999;
 }
@@ -13,6 +13,8 @@
   padding: 20px 0;
   min-width: 400px;
   max-width: 450px;
+  border-left: none !important;
+  box-shadow: none !important;
   transition: all linear 0.3s;
 }
 
