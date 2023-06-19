@@ -12,7 +12,7 @@ function getListUser()
         // tính toán offset
         $offset = ($current_page - 1) * $per_page;
         // truy vấn lấy dữ liệu
-        $sql = "SELECT * FROM user where active = 1 LIMIT $per_page OFFSET $offset";
+        $sql = "SELECT * FROM user where active = 1 and position like 'Thành viên' LIMIT $per_page OFFSET $offset";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {

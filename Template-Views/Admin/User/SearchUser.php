@@ -133,7 +133,7 @@ $total_pages = count($listUserSearch);
                         </div>
                     </div>
                 </div>
-                <div class="Pagination">
+                <!-- <div class="Pagination">
                     <ul class="pagination">
                         <?php if ($page > 1) { ?>
                         <li class="page-item"><a href="?p=<?php echo ($page - 1); ?>" class="page-link text-dark">Trở
@@ -150,7 +150,7 @@ $total_pages = count($listUserSearch);
                                 class="page-link text-dark">Tiếp</a></li>
                         <?php } ?>
                     </ul>
-                </div>
+                </div> -->
 
             </div>
 
