@@ -66,7 +66,7 @@ $lengthUser = count($listUser);
         </div>
 
         <div class="wrapper">
-            <form class="search-menu">
+            <form class="search-menu" action="/Project_WebBanHang/Action-Controller/UserController/SearchUser_action.php">
                 <div class="search-salary">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"
                         fill="currentColor" stroke-width=".4">
