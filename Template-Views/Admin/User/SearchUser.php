@@ -49,15 +49,15 @@ $total_pages = count($listUserSearch);
                 Admin
             </div>
             <div class="header-menu">
-                <a href="#">Trang chủ</a>
-                <a href="#">Sản phẩm</a>
-                <a href="#">Danh mục sản phẩm</a>
-                <a href="#" class="active">Khách hàng</a>
-                <a href="#">Đơn hàng </a>
-                <a href="#">Khuyễn Mãi</a>
+                <a href="/Project_WebBanHang/Template-Views/Admin/Shared/Index.php">Trang chủ</a>
+                <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">Sản phẩm</a>
+                <a href="/Project_WebBanHang/Template-Views/Admin/Category/Index.php">Danh mục sản phẩm</a>
+                <a href="/Project_WebBanHang/Template-Views/Admin/User/Index.php" class="active">Khách hàng</a>
+                <a href="/Project_WebBanHang/Template-Views/Admin/Order/Index.php">Đơn hàng </a>
+                <a href="/Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php">Khuyễn Mãi</a>
             </div>
             <div class="user-settings">
-                <a href="#" class="logout-btn">Đăng xuất</a>
+                <a href="/Project_WebBanHang/Action-Controller/LoginController/Logout_action.php" class="logout-btn">Đăng xuất</a>
             </div>
         </div>
 
