@@ -17,4 +17,19 @@ function convertDateTime($datetime) {
     }
 }
 
+function convertToDdMmYyyy($date) {
+    // Create a DateTime object and suppress any warnings
+    $dateTime = @DateTime::createFromFormat('Y-m-d', $date);
+    
+    // Check if the date is valid
+    if (!$dateTime || $dateTime->format('Y-m-d') !== $date) {
+        return false; // Invalid date
+    }
+    
+    // Format the date as dd/mm/yyyy
+    $formattedDate = $dateTime->format('d/m/Y');
+    
+    return $formattedDate;
+}
+
 ?>

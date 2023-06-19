@@ -1,7 +1,7 @@
 <?php
 include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/User.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/UserDAO.php";
-include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/ultis/time.php";
 
 session_start();
 
@@ -25,7 +25,11 @@ $lengthUser = count($listUser);
     <link rel="stylesheet" href="../../../assets/css/User/user.css">
     <link rel="stylesheet" href="../../../assets/css/popUpModel.css">
     <link rel="stylesheet" href="../../../assets/css/pagination.css">
-    <link rel="stylesheet" href="../../../assets/ToastMessage/ToastMessage.css">
+    <link rel="stylesheet" href="../../../assets/css/ToastMessage/ToastMessage.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
 
     <title>Quản lý khách hàng</title>
     </style>
@@ -37,9 +41,14 @@ $lengthUser = count($listUser);
         <div class="header">
             <div class="logo">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <path xmlns="http://www.w3.org/2000/svg" d="M512 503.5H381.7a48 48 0 01-45.3-32.1L265 268.1l-9-25.5 2.7-124.6L338.2 8.5l23.5 67.1L512 503.5z" fill="#0473ff" data-original="#28b446" />
-                    <path xmlns="http://www.w3.org/2000/svg" fill="#0473ff" data-original="#219b38" d="M361.7 75.6L265 268.1l-9-25.5 2.7-124.6L338.2 8.5z" />
-                    <path xmlns="http://www.w3.org/2000/svg" d="M338.2 8.5l-82.2 234-80.4 228.9a48 48 0 01-45.3 32.1H0l173.8-495h164.4z" fill="#0473ff" data-original="#518ef8" />
+                    <path xmlns="http://www.w3.org/2000/svg"
+                        d="M512 503.5H381.7a48 48 0 01-45.3-32.1L265 268.1l-9-25.5 2.7-124.6L338.2 8.5l23.5 67.1L512 503.5z"
+                        fill="#0473ff" data-original="#28b446" />
+                    <path xmlns="http://www.w3.org/2000/svg" fill="#0473ff" data-original="#219b38"
+                        d="M361.7 75.6L265 268.1l-9-25.5 2.7-124.6L338.2 8.5z" />
+                    <path xmlns="http://www.w3.org/2000/svg"
+                        d="M338.2 8.5l-82.2 234-80.4 228.9a48 48 0 01-45.3 32.1H0l173.8-495h164.4z" fill="#0473ff"
+                        data-original="#518ef8" />
                 </svg>
                 Admin
             </div>
@@ -57,12 +66,19 @@ $lengthUser = count($listUser);
         </div>
 
         <div class="wrapper">
-            <form class="search-menu" action="/Project_WebBanHang/Action-Controller/UserController/SearchUser_action.php">
+            <form class="search-menu">
                 <div class="search-salary">
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="currentColor" stroke-width=".4">
-                        <path d="M12.6 18H9.8a.8.8 0 010-1.5h2.8a.9.9 0 000-1.8h-1.2a2.4 2.4 0 010-4.7h2.8a.8.8 0 010 1.5h-2.8a.9.9 0 000 1.8h1.2a2.4 2.4 0 010 4.7z" stroke="currentColor" />
-                        <path d="M12 20a.8.8 0 01-.8-.8v-2a.8.8 0 011.6 0v2c0 .5-.4.8-.8.8zM12 11.5a.8.8 0 01-.8-.8v-2a.8.8 0 011.6 0v2c0 .5-.4.8-.8.8z" stroke="currentColor" />
-                        <path d="M21.3 23H2.6A2.8 2.8 0 010 20.2V3.9C0 2.1 1.2 1 2.8 1h18.4C22.9 1 24 2.2 24 3.8v16.4c0 1.6-1.2 2.8-2.8 2.8zM2.6 2.5c-.6 0-1.2.6-1.2 1.3v16.4c0 .7.6 1.3 1.3 1.3h18.4c.7 0 1.3-.6 1.3-1.3V3.9c0-.7-.6-1.3-1.3-1.3z" stroke="currentColor" />
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="currentColor"
+                        fill="currentColor" stroke-width=".4">
+                        <path
+                            d="M12.6 18H9.8a.8.8 0 010-1.5h2.8a.9.9 0 000-1.8h-1.2a2.4 2.4 0 010-4.7h2.8a.8.8 0 010 1.5h-2.8a.9.9 0 000 1.8h1.2a2.4 2.4 0 010 4.7z"
+                            stroke="currentColor" />
+                        <path
+                            d="M12 20a.8.8 0 01-.8-.8v-2a.8.8 0 011.6 0v2c0 .5-.4.8-.8.8zM12 11.5a.8.8 0 01-.8-.8v-2a.8.8 0 011.6 0v2c0 .5-.4.8-.8.8z"
+                            stroke="currentColor" />
+                        <path
+                            d="M21.3 23H2.6A2.8 2.8 0 010 20.2V3.9C0 2.1 1.2 1 2.8 1h18.4C22.9 1 24 2.2 24 3.8v16.4c0 1.6-1.2 2.8-2.8 2.8zM2.6 2.5c-.6 0-1.2.6-1.2 1.3v16.4c0 .7.6 1.3 1.3 1.3h18.4c.7 0 1.3-.6 1.3-1.3V3.9c0-.7-.6-1.3-1.3-1.3z"
+                            stroke="currentColor" />
                         <path d="M23.3 6H.6a.8.8 0 010-1.5h22.6a.8.8 0 010 1.5z" stroke="currentColor" />
                     </svg>
                     <input name="search-user" id="search" placeholder="Tìm kiếm..." value />
@@ -74,7 +90,8 @@ $lengthUser = count($listUser);
                 <div class="container">
                     <div class="table">
                         <div class="table-header">
-                            <div class="header__item"><a id="ID" class="filter__link filter__link--number" href="#">ID</a></div>
+                            <div class="header__item"><a id="ID" class="filter__link filter__link--number"
+                                    href="#">ID</a></div>
                             <div class="header__item"><a id="account" class="filter__link" href="#">Tài khoản</a></div>
                             <div class="header__item"><a class="filter__link" href="#">Mật khẩu</a></div>
                             <div class="header__item"><a class="filter__link filter__link--number" href="#">Vị trí</a>
@@ -100,7 +117,7 @@ $lengthUser = count($listUser);
                                     echo ' <div class="table-data">' . $user->getPass() . "</div>";
                                     echo ' <div class="table-data">' . $user->getPos() . "</div>";
                                     echo ' <div class="table-data">' . $user->getFullName() . "</div>";
-                                    echo ' <div class="table-data">' . $user->getBirth() . "</div>";
+                                    echo ' <div class="table-data">' . convertToDdMmYyyy( $user->getBirth()) . "</div>";
                                     echo ' <div class="table-data">' . $user->getAddress() . "</div>";
                                     echo ' <div class="table-data">' . $user->getEmail() . "</div>";
                                     echo ' <div class="table-data">' . $user->getPhone() . "</div>";
@@ -123,16 +140,18 @@ $lengthUser = count($listUser);
                 <div class="Pagination">
                     <ul class="pagination">
                         <?php if ($page > 1) { ?>
-                            <li class="page-item"><a href="?p=<?php echo ($page - 1); ?>" class="page-link text-dark">Trở
-                                    lại</a></li>
+                        <li class="page-item"><a href="?p=<?php echo ($page - 1); ?>" class="page-link text-dark">Trở
+                                lại</a></li>
                         <?php } ?>
 
                         <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                            <li class="page-item <?php if ($i == $page) echo 'active'; ?>"><a href="?p=<?php echo $i; ?>" class="page-link text-dark"><?php echo $i; ?></a></li>
+                        <li class="page-item <?php if ($i == $page) echo 'active'; ?>"><a href="?p=<?php echo $i; ?>"
+                                class="page-link text-dark"><?php echo $i; ?></a></li>
                         <?php } ?>
 
                         <?php if ($page < $total_pages) { ?>
-                            <li class="page-item"><a href="?p=<?php echo ($page + 1); ?>" class="page-link text-dark">Tiếp</a></li>
+                        <li class="page-item"><a href="?p=<?php echo ($page + 1); ?>"
+                                class="page-link text-dark">Tiếp</a></li>
                         <?php } ?>
                     </ul>
                 </div>
@@ -152,7 +171,6 @@ $lengthUser = count($listUser);
         </div>
 
         <div id="toast" class="toast"></div>
-        <button onclick="showToast()">Hiển thị Toast</button>
 </body>
 
 </html>
@@ -162,107 +180,115 @@ $lengthUser = count($listUser);
 <script src="../../../assets/css/ToastMessage/ToastMessage.js"></script>
 
 <script>
-    let idDelete;
-    const searchBox = document.getElementById("search");
-    searchBox.addEventListener("keypress", function(event) {
-        if (event.keyCode === 13) {
-            if (searchBox.value.trim() == "") {
-                event.preventDefault();
-                toast({
-                    title: "Lưu ý",
-                    message: "Mời bạn nhập thông tin cần tìm kiếm",
-                    type: "error",
-                    duration: 5000
-                });
-            }
-        }
-    });
+let idDelete;
 
-    function openModal(id) {
-        var modal = document.getElementById("myModal");
-        modal.classList.add("show");
-        idDelete = id;
-    }
-
-    function closeModal() {
-        var modal = document.getElementById("myModal");
-        modal.classList.remove("show");
-
-        idDelete = null
-    }
-
-    function deleteItem() {
-        if (idDelete) {
-            window.location.href =
-                `/Project_WebBanHang/Action-Controller/UserController/DeleteUser_action.php?id=${idDelete}`
+function checkInputSearch(event) {
+    if (event.keyCode === 13 || event.type === "click") {
+        if (searchBox.value.trim() === "") {
+            console.log(1);
+            event.preventDefault();
+            toast({
+                title: "Thất bại!",
+                message: "Vui lòng điền đầy đủ thông tin trước khi tìm kiếm",
+                type: "error",
+                duration: 5000
+            });
+        } else {
+            window.location.href = "/Project_WebBanHang/Action-Controller/UserController/SearchUser_action.php";
         }
     }
+}
 
-    var properties = [
-        'ID',
-        'account',
-        'name',
-        'address',
-    ];
+const searchBox = document.getElementById("search");
+const btnSearch = document.querySelector('.search-button');
+btnSearch.addEventListener("click", checkInputSearch);
+searchBox.addEventListener("keypress", checkInputSearch);
 
-    $.each(properties, function(i, val) {
+function openModal(id) {
+    var modal = document.getElementById("myModal");
+    modal.classList.add("show");
+    idDelete = id;
+}
 
-        var orderClass = '';
+function closeModal() {
+    var modal = document.getElementById("myModal");
+    modal.classList.remove("show");
 
-        $("#" + val).click(function(e) {
-            e.preventDefault();
-            $('.filter__link.filter__link--active').not(this).removeClass('filter__link--active');
-            $(this).toggleClass('filter__link--active');
-            $('.filter__link').removeClass('asc desc');
+    idDelete = null
+}
 
-            if (orderClass == 'desc' || orderClass == '') {
-                $(this).addClass('asc');
-                orderClass = 'asc';
-            } else {
-                $(this).addClass('desc');
-                orderClass = 'desc';
-            }
+function deleteItem() {
+    if (idDelete) {
+        window.location.href =
+            `/Project_WebBanHang/Action-Controller/UserController/DeleteUser_action.php?id=${idDelete}`
+    }
+}
 
-            var parent = $(this).closest('.header__item');
-            var index = $(".header__item").index(parent);
-            var $table = $('.table-content');
-            var rows = $table.find('.table-row').get();
-            var isSelected = $(this).hasClass('filter__link--active');
-            var isNumber = $(this).hasClass('filter__link--number');
+var properties = [
+    'ID',
+    'account',
+    'name',
+    'address',
+];
 
-            rows.sort(function(a, b) {
+$.each(properties, function(i, val) {
 
-                var x = $(a).find('.table-data').eq(index).text();
-                var y = $(b).find('.table-data').eq(index).text();
+    var orderClass = '';
 
-                if (isNumber == true) {
+    $("#" + val).click(function(e) {
+        e.preventDefault();
+        $('.filter__link.filter__link--active').not(this).removeClass('filter__link--active');
+        $(this).toggleClass('filter__link--active');
+        $('.filter__link').removeClass('asc desc');
 
-                    if (isSelected) {
-                        return x - y;
-                    } else {
-                        return y - x;
-                    }
+        if (orderClass == 'desc' || orderClass == '') {
+            $(this).addClass('asc');
+            orderClass = 'asc';
+        } else {
+            $(this).addClass('desc');
+            orderClass = 'desc';
+        }
 
+        var parent = $(this).closest('.header__item');
+        var index = $(".header__item").index(parent);
+        var $table = $('.table-content');
+        var rows = $table.find('.table-row').get();
+        var isSelected = $(this).hasClass('filter__link--active');
+        var isNumber = $(this).hasClass('filter__link--number');
+
+        rows.sort(function(a, b) {
+
+            var x = $(a).find('.table-data').eq(index).text();
+            var y = $(b).find('.table-data').eq(index).text();
+
+            if (isNumber == true) {
+
+                if (isSelected) {
+                    return x - y;
                 } else {
-
-                    if (isSelected) {
-                        if (x < y) return -1;
-                        if (x > y) return 1;
-                        return 0;
-                    } else {
-                        if (x > y) return -1;
-                        if (x < y) return 1;
-                        return 0;
-                    }
+                    return y - x;
                 }
-            });
 
-            $.each(rows, function(index, row) {
-                $table.append(row);
-            });
+            } else {
 
-            return false;
+                if (isSelected) {
+                    if (x < y) return -1;
+                    if (x > y) return 1;
+                    return 0;
+                } else {
+                    if (x > y) return -1;
+                    if (x < y) return 1;
+                    return 0;
+                }
+            }
         });
 
+        $.each(rows, function(index, row) {
+            $table.append(row);
+        });
+
+        return false;
     });
+
+});
 </script>
