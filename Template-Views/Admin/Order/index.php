@@ -60,7 +60,6 @@ $lengthhOrders = count($listOrders);
             <div class="container_content">
                 <div class="content_Admin_List">
                     <h3 style="margin-top:15px">Danh sách hóa đơn</h3>
-
                     <?php
                     if ($lengthhOrders > 0) {
 

@@ -1,19 +1,20 @@
 <?php
-include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/GiftcodeDAO.php";
-include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GiftCode.php";
-
+include_once "C:/xampp/htdocs/Project_WebBanHang/layout/sidebar.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Order.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/OrderDAO.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/ultis/time.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/ultis/state.php";
 
 session_start();
 
-if ($_SESSION["login"] == false) {
+if($_SESSION["login"] == false) {
     header("Location: /Project_WebBanHang/Template-Views/Admin/LoginAdmin/Index.php");
 }
 
-$listGift = getListGift();
-$total_pages = getIndexPage();
-$page = isset($_GET['pg']) ? $_GET['pg'] : 1;
-$_SESSION['index'] = $page;
-$lengthGift = count($listGift);
+$listOrders = getListOrder();
+$total_pages = getIndexPageOrder();
+$page = isset($_GET['pI']) ? $_GET['pI'] : 1;
+$lengthhOrders = count($listOrders);
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +31,7 @@ $lengthGift = count($listGift);
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
-    <title>Quản lý khuyến mãi</title>
+    <title>Quản lý đơn hàng</title>
     </style>
 
 </head>
@@ -51,24 +52,25 @@ $lengthGift = count($listGift);
                 <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">Sản phẩm</a>
                 <a href="/Project_WebBanHang/Template-Views/Admin/Category/Index.php">Danh mục sản phẩm</a>
                 <a href="/Project_WebBanHang/Template-Views/Admin/User/Index.php">Khách hàng</a>
-                <a href="/Project_WebBanHang/Template-Views/Admin/Order/Index.php">Đơn hàng </a>
-                <a href="/Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php" class="active">Khuyến Mãi</a>
+                <a href="/Project_WebBanHang/Template-Views/Admin/Order/Index.php" class="active">Đơn hàng </a>
+                <a href="/Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php">Khuyến Mãi</a>
             </div>
             <div class="user-settings">
                 <a href="/Project_WebBanHang/Action-Controller/LoginController/Logout_action.php" class="logout-btn">Đăng xuất</a>
             </div>
         </div>
         <div class="wrapper">
-        <h3 style="text-align: center;">Danh sách mã giảm giá</h3>
-            <button class="add-product-js btn_add">Thêm mã giảm giá</button>
+        <h3 style="text-align: center;">Danh sách đơn hàng</h3>
             <div>
             <div class="container">
     <div class="table">
         <div class="table-header">
             <div class="header__item"><a id="ID" class="filter__link filter__link--number" href="#">ID</a></div>
-            <div class="header__item"><a id="account" class="filter__link" href="#">Mã Gift</a></div>
-            <div class="header__item"><a class="filter__link" href="#">Thành tiền</a></div>
-            <div class="header__item"><a class="filter__link filter__link--number" href="#">Số lượng</a>
+            <div class="header__item"><a id="account" class="filter__link" href="#">Ngày tạo</a></div>
+            <div class="header__item"><a class="filter__link" href="#">Khách hàng</a></div>
+            <div class="header__item"><a class="filter__link filter__link--number" href="#">Email</a>
+            </div>
+            <div class="header__item"><a class="filter__link filter__link--number" href="#">Số điện thoại</a>
             </div>
             <div class="header__item"><a id="name" class="filter__link" href="#">Trạng thái</a>
             </div>
@@ -76,40 +78,44 @@ $lengthGift = count($listGift);
             </div>
         </div>
         <div class="table-content">
-            <?php
-            if ($lengthGift > 0) {
-                foreach ($listGift as $gift) {
-                    echo '<div class="table-row">';
-                    echo '    <div class="table-data">' . $gift->getGiftID() . '</div>';
-                    echo '    <div class="table-data">' . $gift->getGiftContent() . '</div>';
-                    echo '    <div class="table-data">' . $gift->getGiftValue() . '</div>';
-                    echo '    <div class="table-data">' . $gift->getGiftQuantity() . '</div>';
-                    echo '    <div class="table-data">';if ($gift->getGiftActive() == 1) { echo 'Hoạt động'; } else {  echo 'Đã huỷ';} echo '    </div>';
-                    echo '        <div class="table-data act">';
-                    if ($gift->getGiftActive() == 1) {
-                        echo '            <div class="item-edit">';
-                        echo '                <a href="/Project_WebBanHang/Action-Controller/GiftCodeController/GetInfoGift_action.php?id=' . $gift->getGiftID() . '" class="btn mx-1 btn_edit">';
-                        echo '                    Sửa';
-                        echo '                </a>';
-                        echo '            </div>';
-                        echo '            <div class="item-edit del">';
-                        echo '                <a onclick="openModal(' . $gift->getGiftID() . ')" class="btn mx-1 btn_del btn_edit" style="cursor:pointer;">';
-                        echo '                    Xoá';
-                        echo '                </a>';
-                        echo '            </div>';
-                    } else {
-                        echo '            <a onclick="openModal(' . $gift->getGiftID() . ',' . $gift->getGiftActive() . ')" style="cursor:pointer;" class="btn mx-1 btn_active btn_edit">';
-                        echo '                Kích hoạt';
-                        echo '            </a>';
-                    }
-                    echo '        </div>';
-                    echo "</div>";
-                }
-            } else {
-                echo 'KHÔNG CÓ DANH MỤC SẢN PHẨM NÀO!';
-            }
-            ?>
-        </div>
+    <?php
+    if ($lengthhOrders > 0) {
+        foreach ($listOrders as $orderData) {
+            $order = $orderData['order'];
+            $user = $orderData['user'];
+    ?>
+            <div class="table-row">
+                <div class="table-data"><?php echo $order->getOrderID(); ?></div>
+                <div class="table-data"><?php echo convertDateTime($order->getDate()); ?></div>
+                <div class="table-data"><?php echo $user->getUserName(); ?></div>
+                <div class="table-data"><?php echo $user->getEmail(); ?></div>
+                <div class="table-data"><?php echo $user->getPhone(); ?></div>
+                <div class="table-data"><?php echo statusOrder($order->getStatus()); ?></div>
+                <div class="table-data">
+                    <div class="item-edit">
+                        <a title="Chi tiết" href="/Project_WebBanHang/Action-Controller/OrderController/DetailOrder_action.php?id=<?php echo $order->getOrderID(); ?>" class="btn mx-1">
+                            Chi tiết đơn hàng
+                        </a>
+                    </div>
+                    <?php if ($order->getStatus() == "payed") { ?>
+                        <div class="item-edit">
+                            <a title="Xác nhận đơn hàng" href="/Project_WebBanHang/Action-Controller/OrderController/OrderConfirmProduct_action.php?id=<?php echo $order->getOrderID(); ?>" class="btn mx-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z" />
+                                </svg>
+                            </a>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+    <?php
+        }
+    } else {
+        echo "KHÔNG CÓ SẢN PHẨM NÀO!";
+    }
+    ?>
+</div>
+
     </div>
 </div>
                 <div class="Pagination">
