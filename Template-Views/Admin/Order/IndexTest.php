@@ -5,6 +5,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/OrderDAO.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/ultis/time.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/ultis/state.php";
 
+
 session_start();
 
 if($_SESSION["login"] == false) {
@@ -28,6 +29,7 @@ $lengthhOrders = count($listOrders);
     <link rel="stylesheet" href="../../../assets/css/popUpModel.css">
     <link rel="stylesheet" href="../../../assets/css/pagination.css">
     <link rel="stylesheet" href="../../../assets/css/GiftCode/gift.css">
+    <link rel="stylesheet" href="../../../assets/css/ToastMessage/ToastMessage.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
@@ -61,6 +63,18 @@ $lengthhOrders = count($listOrders);
         </div>
         <div class="wrapper">
         <h3 style="text-align: center;">Danh sách đơn hàng</h3>
+        <form class="search-menu" action="/Project_WebBanHang/Action-Controller/OrderController/Search-Order.php">
+                <div class="search-salary">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="currentColor" stroke-width=".4">
+                        <path d="M12.6 18H9.8a.8.8 0 010-1.5h2.8a.9.9 0 000-1.8h-1.2a2.4 2.4 0 010-4.7h2.8a.8.8 0 010 1.5h-2.8a.9.9 0 000 1.8h1.2a2.4 2.4 0 010 4.7z" stroke="currentColor" />
+                        <path d="M12 20a.8.8 0 01-.8-.8v-2a.8.8 0 011.6 0v2c0 .5-.4.8-.8.8zM12 11.5a.8.8 0 01-.8-.8v-2a.8.8 0 011.6 0v2c0 .5-.4.8-.8.8z" stroke="currentColor" />
+                        <path d="M21.3 23H2.6A2.8 2.8 0 010 20.2V3.9C0 2.1 1.2 1 2.8 1h18.4C22.9 1 24 2.2 24 3.8v16.4c0 1.6-1.2 2.8-2.8 2.8zM2.6 2.5c-.6 0-1.2.6-1.2 1.3v16.4c0 .7.6 1.3 1.3 1.3h18.4c.7 0 1.3-.6 1.3-1.3V3.9c0-.7-.6-1.3-1.3-1.3z" stroke="currentColor" />
+                        <path d="M23.3 6H.6a.8.8 0 010-1.5h22.6a.8.8 0 010 1.5z" stroke="currentColor" />
+                    </svg>
+                    <input name="search-user" id="search" placeholder="Tìm kiếm..." value />
+                </div>
+                <button class="search-button">Tìm kiếm</button>
+        </form>
             <div>
             <div class="container">
     <div class="table">
@@ -94,7 +108,7 @@ $lengthhOrders = count($listOrders);
                 <div class="table-data">
                     <div class="item-edit">
                         <a title="Chi tiết" href="/Project_WebBanHang/Action-Controller/OrderController/DetailOrder_action.php?id=<?php echo $order->getOrderID(); ?>" class="btn mx-1">
-                            Chi tiết đơn hàng
+                            Chi tiết
                         </a>
                     </div>
                     <?php if ($order->getStatus() == "payed") { ?>
@@ -115,22 +129,21 @@ $lengthhOrders = count($listOrders);
     }
     ?>
 </div>
-
     </div>
 </div>
                 <div class="Pagination">
                     <ul class="pagination">
                         <?php if ($page > 1) { ?>
-                            <li class="page-item"><a href="?pg=<?php echo ($page - 1); ?>" class="page-link text-dark">Trở
+                            <li class="page-item"><a href="?pI=<?php echo ($page - 1); ?>" class="page-link text-dark">Trở
                                     lại</a></li>
                         <?php } ?>
 
                         <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                            <li class="page-item <?php if ($i == $page) echo 'active'; ?>"><a href="?pg=<?php echo $i; ?>" class="page-link text-dark"><?php echo $i; ?></a></li>
+                            <li class="page-item <?php if ($i == $page) echo 'active'; ?>"><a href="?pI=<?php echo $i; ?>" class="page-link text-dark"><?php echo $i; ?></a></li>
                         <?php } ?>
 
                         <?php if ($page < $total_pages) { ?>
-                            <li class="page-item"><a href="?pg=<?php echo ($page + 1); ?>" class="page-link text-dark">Tiếp</a></li>
+                            <li class="page-item"><a href="?pI=<?php echo ($page + 1); ?>" class="page-link text-dark">Tiếp</a></li>
                         <?php } ?>
                     </ul>
                 </div>
@@ -138,30 +151,8 @@ $lengthhOrders = count($listOrders);
             </div>
 
         </div>
-
-        <div id="myModal" class="modal-popup">
-        <div class="modal-content-popup">
-            <p class="text-modal">Bạn có chắc chắn muốn Kích hoạt/ xóa?</p>
-            <div class="list-btn">
-                <button class="button delete action-delete" onclick="deleteItem()">Kích hoạt/ Xóa</button>
-                <button class="button" onclick="closeModal()">Hủy</button>
-            </div>
-        </div>
     </div>
-        <div class="modal-addGroup">
-            <div class="modal-container js-modal-container">
-                <p class="modal-close js-modal-close">X</p>
-                <form method="post" action="/Project_WebBanHang/Action-Controller/GiftCodeController/CreateGift_action.php">
-                    <label>Số tiền</label>
-                    <input id="GiftValue" type="number" name="GiftValue" required />
-                    <br>
-                    <label>Số lượng</label>
-                    <input id="GiftQuantity" type="number" name="GiftQuantity" required />
-                    <br>
-                    <button class="Addbtn" type="submit">Thêm</button>
-                </form>
-            </div>
-        </div>
+    <div id="toast" class="toast"></div>
 </body>
 
 </html>
@@ -171,60 +162,6 @@ $lengthhOrders = count($listOrders);
 <script src="../../../assets/css/ToastMessage/ToastMessage.js"></script>
 
 <script>
-
-let active;
-    let idDelete;
-
-    function openModal(id, active) {
-        var modal = document.getElementById("myModal");
-        modal.classList.add("show");
-        idDelete = id;
-        state = active;
-    }
-
-    function closeModal() {
-        var modal = document.getElementById("myModal");
-        modal.classList.remove("show");
-        idDelete = null;
-        state = null;
-    }
-
-    function deleteItem() {
-        if (idDelete && state == 0) {
-            window.location.href = `/Project_WebBanHang/Action-Controller/GiftCodeController/EditGift_action.php?active=${idDelete}`
-        } else {
-            window.location.href = `/Project_WebBanHang/Action-Controller/GiftCodeController/DeleteGift_action.php?id=${idDelete}`
-        }
-    }
-
-
-// open model add gift
-const addGroupButton = document.querySelectorAll('.add-product-js')
-    const modal = document.querySelector('.modal-addGroup')
-    const modalClose = document.querySelector('.js-modal-close')
-    const modalContainer = document.querySelector('.js-modal-container')
-
-    function showBuyTicket() {
-        modal.classList.add('open')
-    }
-
-    function hideBuyTicket() {
-        modal.classList.remove('open')
-    }
-
-
-    addGroupButton[0].addEventListener('click', showBuyTicket)
-
-
-    modalClose.addEventListener('click', hideBuyTicket)
-
-    modal.addEventListener('click', hideBuyTicket)
-
-    modalContainer.addEventListener('click', (event) => {
-        event.stopPropagation()
-    })
-
-
 
 //
    

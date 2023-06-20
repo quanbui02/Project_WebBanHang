@@ -5,7 +5,7 @@ function getIndexPageOrder()
     include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
     $conn = connectDb();
     try {
-        $per_page = 10;
+        $per_page = 12;
         $sql = "SELECT * from `order`";
         $result = $conn->query($sql);
         $total_records = mysqli_num_rows($result);
@@ -28,11 +28,11 @@ function getListOrder()
     try {
         $list = array();
         $count = 0;
-        $per_page = 10;
+        $per_page = 12;
         $current_page = isset($_GET['pI']) ? $_GET['pI'] : 1;
         $offset = ($current_page - 1) * $per_page;
 
-        $sql = "SELECT * FROM `order` INNER JOIN user ON `order`.userID = user.userID;";
+        $sql = "SELECT * FROM `order` INNER JOIN user ON `order`.userID = user.userID LIMIT $per_page OFFSET $offset;";
 
         $result = $conn->query($sql);
 
