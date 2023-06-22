@@ -22,6 +22,7 @@
 
 .modal-popup.show {
     display: block;
+    z-index: 10;
 }
 
 .text-modal {

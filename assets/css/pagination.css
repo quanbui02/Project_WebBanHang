@@ -27,14 +27,14 @@
 }
 
 .page-item.active a {
-    z-index: 3;
+  
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
 }
 
 .page-item a:hover {
-    z-index: 2;
+
     color: #007bff;
     background-color: #f8f9fa;
     border-color: #ddd;

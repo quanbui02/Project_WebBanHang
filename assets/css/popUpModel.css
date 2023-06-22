@@ -20,10 +20,6 @@
     border-radius: 4px;
 }
 
-.modal-popup.show {
-    display: block;
-}
-
 .text-modal {
     font-size: 18px;
 }
@@ -69,6 +65,7 @@
 
 .modal-popup.show {
     display: block;
+    z-index: 10;
 }
 
 .text-modal {
