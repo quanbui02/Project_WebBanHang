@@ -38,7 +38,7 @@
     font-size: 1.2rem;
     cursor: pointer;
     margin-top: 4px;
-    background-color: rgb(24, 106, 208);
+    background-color: #0162ff;
     color: aliceblue;
     font-family: Arial;
     font-weight: 100;
@@ -134,7 +134,7 @@
         }
 
         .modal-footer a {
-            color: #2196f3
+            color: #2196f3;
         }
 
         @keyframes modalFadeIn {

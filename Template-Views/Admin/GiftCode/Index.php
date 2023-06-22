@@ -81,7 +81,7 @@ $lengthGift = count($listGift);
                 foreach ($listGift as $gift) {
                     echo '<div class="table-row">';
                     echo '    <div class="table-data">' . $gift->getGiftID() . '</div>';
-                    echo '    <div class="table-data">' . $gift->getGiftContent() . '</div>';
+                    echo '    <div class="table-data">' . strtoupper($gift->getGiftContent()) . '</div>';
                     echo '    <div class="table-data">' . $gift->getGiftValue() . '</div>';
                     echo '    <div class="table-data">' . $gift->getGiftQuantity() . '</div>';
                     echo '    <div class="table-data">';if ($gift->getGiftActive() == 1) { echo 'Hoạt động'; } else {  echo 'Đã huỷ';} echo '    </div>';
