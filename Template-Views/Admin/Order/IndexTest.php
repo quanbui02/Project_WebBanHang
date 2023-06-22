@@ -62,8 +62,13 @@ $lengthOrders = count($listOrders);
             </div>
         </div>
         <div class="wrapper">
+<<<<<<< HEAD
             <h3 style="text-align: center;">Danh sách đơn hàng</h3>
             <form class="search-menu" action="/Project_WebBanHang/Action-Controller/OrderController/Search-Order.php">
+=======
+        <h3 style="text-align: center;">Danh sách đơn hàng</h3>
+        <form class="search-menu" action="/Project_WebBanHang/Action-Controller/OrderController/Search-Order.php">
+>>>>>>> 3da906a (updateUIorder)
                 <div class="search-salary">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="currentColor" stroke-width=".4">
                         <path d="M12.6 18H9.8a.8.8 0 010-1.5h2.8a.9.9 0 000-1.8h-1.2a2.4 2.4 0 010-4.7h2.8a.8.8 0 010 1.5h-2.8a.9.9 0 000 1.8h1.2a2.4 2.4 0 010 4.7z" stroke="currentColor" />
@@ -74,6 +79,7 @@ $lengthOrders = count($listOrders);
                     <input name="search-user" id="search" placeholder="Tìm kiếm..." value />
                 </div>
                 <button class="search-button">Tìm kiếm</button>
+<<<<<<< HEAD
             </form>
             <div>
                 <div class="container">
@@ -132,6 +138,65 @@ $lengthOrders = count($listOrders);
                         </div>
                     </div>
                 </div>
+=======
+        </form>
+            <div>
+            <div class="container">
+    <div class="table">
+        <div class="table-header">
+            <div class="header__item"><a id="ID" class="filter__link filter__link--number" href="#">ID</a></div>
+            <div class="header__item"><a id="account" class="filter__link" href="#">Ngày tạo</a></div>
+            <div class="header__item"><a class="filter__link" href="#">Khách hàng</a></div>
+            <div class="header__item"><a class="filter__link filter__link--number" href="#">Email</a>
+            </div>
+            <div class="header__item"><a class="filter__link filter__link--number" href="#">Số điện thoại</a>
+            </div>
+            <div class="header__item"><a id="name" class="filter__link" href="#">Trạng thái</a>
+            </div>
+            <div class="header__item"><a class="filter__link filter__link--number" href="#">Thao tác</a>
+            </div>
+        </div>
+        <div class="table-content">
+    <?php
+    if ($lengthhOrders > 0) {
+        foreach ($listOrders as $orderData) {
+            $order = $orderData['order'];
+            $user = $orderData['user'];
+    ?>
+            <div class="table-row">
+                <div class="table-data"><?php echo $order->getOrderID(); ?></div>
+                <div class="table-data"><?php echo convertDateTime($order->getDate()); ?></div>
+                <div class="table-data"><?php echo $user->getUserName(); ?></div>
+                <div class="table-data"><?php echo $user->getEmail(); ?></div>
+                <div class="table-data"><?php echo $user->getPhone(); ?></div>
+                <div class="table-data"><?php echo statusOrder($order->getStatus()); ?></div>
+                <div class="table-data">
+                    <div class="item-edit">
+                        <a title="Chi tiết" href="/Project_WebBanHang/Action-Controller/OrderController/DetailOrder_action.php?id=<?php echo $order->getOrderID(); ?>" class="btn mx-1">
+                            Chi tiết
+                        </a>
+                    </div>
+                    <?php if ($order->getStatus() == "payed") { ?>
+                        <div class="item-edit">
+                            <a title="Xác nhận đơn hàng" href="/Project_WebBanHang/Action-Controller/OrderController/OrderConfirmProduct_action.php?id=<?php echo $order->getOrderID(); ?>" class="btn mx-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z" />
+                                </svg>
+                            </a>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+    <?php
+        }
+    } else {
+        echo "KHÔNG CÓ SẢN PHẨM NÀO!";
+    }
+    ?>
+</div>
+    </div>
+</div>
+>>>>>>> 3da906a (updateUIorder)
                 <div class="Pagination">
                     <ul class="pagination">
                         <?php if ($page > 1) { ?>
