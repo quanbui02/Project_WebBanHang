@@ -30,7 +30,6 @@ $lengthUser = count($listUser);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 
     <title>Quản lý khách hàng</title>
-    </style>
 
 </head>
 
@@ -159,8 +158,8 @@ $lengthUser = count($listUser);
 </html>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="../../../assets/css/User/user.js"></script>
 <script src="../../../assets/css/ToastMessage/ToastMessage.js"></script>
+<script src="../../../assets/css/User/user.js"></script>
 
 <script>
     let idDelete;
