@@ -149,6 +149,28 @@ $lengthGift = count($listGift);
         </div>
 
     </div>
+    </div>
+    <div class="Pagination">
+        <ul class="pagination">
+            <?php if ($page > 1) { ?>
+            <li class="page-item"><a href="?pg=<?php echo ($page - 1); ?>" class="page-link text-dark">Trở
+                    lại</a></li>
+            <?php } ?>
+
+            <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
+            <li class="page-item <?php if ($i == $page) echo 'active'; ?>"><a href="?pg=<?php echo $i; ?>"
+                    class="page-link text-dark"><?php echo $i; ?></a></li>
+            <?php } ?>
+
+            <?php if ($page < $total_pages) { ?>
+            <li class="page-item"><a href="?pg=<?php echo ($page + 1); ?>" class="page-link text-dark">Tiếp</a></li>
+            <?php } ?>
+        </ul>
+    </div>
+
+    </div>
+
+    </div>
 
     <div id="myModal" class="modal-popup">
         <div class="modal-content-popup">
@@ -173,7 +195,6 @@ $lengthGift = count($listGift);
                 <button class="Addbtn" type="submit">Thêm</button>
             </form>
         </div>
-    </div>
 </body>
 
 </html>
@@ -261,45 +282,42 @@ var properties = [
 ];
 
 $.each(properties, function(i, val) {
-
-    var orderClass = '';
+    var orderClass = "";
 
     $("#" + val).click(function(e) {
         e.preventDefault();
-        $('.filter__link.filter__link--active').not(this).removeClass('filter__link--active');
-        $(this).toggleClass('filter__link--active');
-        $('.filter__link').removeClass('asc desc');
+        $(".filter__link.filter__link--active")
+            .not(this)
+            .removeClass("filter__link--active");
+        $(this).toggleClass("filter__link--active");
+        $(".filter__link").removeClass("asc desc");
 
-        if (orderClass == 'desc' || orderClass == '') {
-            $(this).addClass('asc');
-            orderClass = 'asc';
+        if (orderClass == "desc" || orderClass == "") {
+            $(this).addClass("asc");
+            orderClass = "asc";
         } else {
-            $(this).addClass('desc');
-            orderClass = 'desc';
+            $(this).addClass("desc");
+            orderClass = "desc";
         }
 
-        var parent = $(this).closest('.header__item');
+        var parent = $(this).closest(".header__item");
         var index = $(".header__item").index(parent);
-        var $table = $('.table-content');
-        var rows = $table.find('.table-row').get();
-        var isSelected = $(this).hasClass('filter__link--active');
-        var isNumber = $(this).hasClass('filter__link--number');
+        var $table = $(".table-content");
+        var rows = $table.find(".table-row").get();
+        var isSelected = $(this).hasClass("filter__link--active");
+        var isNumber = $(this).hasClass("filter__link--number");
 
         rows.sort(function(a, b) {
-
-            var x = $(a).find('.table-data').eq(index).text();
-            var y = $(b).find('.table-data').eq(index).text();
+            var x = $(a).find(".table-data").eq(index).text();
+            var y = $(b).find(".table-data").eq(index).text();
 
             if (isNumber == true) {
-
                 if (isSelected) {
                     return x - y;
                 } else {
                     return y - x;
                 }
-
             } else {
-
                 if (isSelected) {
                     if (x < y) return -1;
                     if (x > y) return 1;
@@ -318,6 +336,5 @@ $.each(properties, function(i, val) {
 
         return false;
     });
-
 });
 </script>
