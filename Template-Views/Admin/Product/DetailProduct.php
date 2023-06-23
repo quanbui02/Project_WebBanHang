@@ -12,9 +12,6 @@ $listGroup = getAllListGroup();
 $lengthGroup = count($listGroup);
 $listImgs = unserialize($_SESSION['imgProducts']);
 
-
-
-var_dump($_SESSION['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
