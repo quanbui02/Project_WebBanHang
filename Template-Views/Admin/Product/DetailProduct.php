@@ -1,7 +1,11 @@
 <?php
 include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Product.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/User.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Feedback.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/ImgProduct.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/GroupDAO.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/UserDAO.php";
+
 
 session_start();
 $listGroup = getAllListGroup();
@@ -117,28 +121,28 @@ $listImgs = unserialize($_SESSION['imgProducts']);
         </div>
         <div>
 
-            <?php
-            var_dump($_SESSION["listFeedBacks"]);
+        <?php
+    // var_dump($_SESSION["listFeedBacks"]);
 
-            if (isset($_SESSION["listFeedBacks"])) {
-                // Lấy giá trị của biến listFeedBacks từ phiên làm việc
-                $listFeedBacks = $_SESSION["listFeedBacks"];
-            
-                // Hiển thị thông tin phản hồi
-                foreach ($listFeedBacks as $feedbackData) {
-                    $feedback = $feedbackData["feedback"];
-                    $user = $feedbackData["user"];
-        
-                    echo "Người dùng: " . $user->getUserName() . "<br>";
-                    echo "Thời gian: " . $feedback->getFeedbackTime() . "<br>";
-                    echo "Nội dung: " . $feedback->getFeedbackContent() . "<br>";
-                    echo "<hr>";
-                }
-            } else {
-                echo "Không có phản hồi.";
-            }
+    if (isset($_SESSION["listFeedBacks"])) {
+        $listFeedBacks = $_SESSION["listFeedBacks"];
+        foreach ($listFeedBacks as $feedbackData) {
+            $feedback = $feedbackData["feedback"];
+            $user = $feedbackData["user"];
+            // var_dump($feedback);
+            // var_dump($user);
+            echo "<div>";
+            echo "<p>" . $user->getUserName() . "</p>";
+            echo "<p>Thời gian: " . $feedback->getDate() . "</p>";
+            echo "<p>Nội dung: " . $feedback->getFbContent() . "</p>";
+            echo "<hr>";
+            echo "</div>";
+        }
+    } else {
+        echo "<p>Không có phản hồi.</p>";
+    }
+?>
 
-            ?>
 
         </div>
 
