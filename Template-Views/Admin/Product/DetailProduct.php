@@ -12,6 +12,9 @@ $listGroup = getAllListGroup();
 $lengthGroup = count($listGroup);
 $listImgs = unserialize($_SESSION['imgProducts']);
 
+
+
+var_dump($_SESSION['id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,18 +36,16 @@ $listImgs = unserialize($_SESSION['imgProducts']);
     <div class="block">
         <div class="image1">
             <p style="font-style: italic; text-align:left; margin-bottom:3px">Ảnh đại diện sản phẩm</p>
-            <img src="/Project_WebBanHang/Upload/img/<?php echo $_SESSION["product"]->getImg(); ?>" alt="Product Image"
-                style="width:300px;height:300px;object-fit:cover;">
+            <img src="/Project_WebBanHang/Upload/img/<?php echo $_SESSION["product"]->getImg(); ?>" alt="Product Image" style="width:300px;height:300px;object-fit:cover;">
         </div>
 
         <div class="image2">
             <p style="font-style: italic; text-align: left; margin-bottom:3px">Ảnh chi tiết sản phẩm</p>
             <?php
             foreach ($listImgs as $imgProduct) {
-                ?>
-                <img style="width:150px;height:150px;object-fit:cover;"
-                    src="/Project_WebBanHang/Upload/imgDetail/<?php echo $imgProduct->getImg() ?>">
-                <?php
+            ?>
+                <img style="width:150px;height:150px;object-fit:cover;" src="/Project_WebBanHang/Upload/imgDetail/<?php echo $imgProduct->getImg() ?>">
+            <?php
             }
             ?>
         </div>
@@ -108,12 +109,12 @@ $listImgs = unserialize($_SESSION['imgProducts']);
                 <div class="label">Hoạt động: </div>
                 <div class="content">
                     <?php if ($_SESSION["product"]->getAct() == 1) {
-                        ?> <span>đang hoạt động</span>
-                        <?php
+                    ?> <span>đang hoạt động</span>
+                    <?php
                     } else {
-                        ?>
+                    ?>
                         <span>không hoạt động</span>
-                        <?php
+                    <?php
                     }
                     ?>
                 </div>
@@ -121,27 +122,27 @@ $listImgs = unserialize($_SESSION['imgProducts']);
         </div>
         <div>
 
-        <?php
-    // var_dump($_SESSION["listFeedBacks"]);
+            <?php
+            // var_dump($_SESSION["listFeedBacks"]);
 
-    if (isset($_SESSION["listFeedBacks"])) {
-        $listFeedBacks = $_SESSION["listFeedBacks"];
-        foreach ($listFeedBacks as $feedbackData) {
-            $feedback = $feedbackData["feedback"];
-            $user = $feedbackData["user"];
-            // var_dump($feedback);
-            // var_dump($user);
-            echo "<div>";
-            echo "<p>" . $user->getUserName() . "</p>";
-            echo "<p>Thời gian: " . $feedback->getDate() . "</p>";
-            echo "<p>Nội dung: " . $feedback->getFbContent() . "</p>";
-            echo "<hr>";
-            echo "</div>";
-        }
-    } else {
-        echo "<p>Không có phản hồi.</p>";
-    }
-?>
+            if (isset($_SESSION["listFeedBacks"])) {
+                $listFeedBacks = $_SESSION["listFeedBacks"];
+                foreach ($listFeedBacks as $feedbackData) {
+                    $feedback = $feedbackData["feedback"];
+                    $user = $feedbackData["user"];
+                    // var_dump($feedback);
+                    // var_dump($user);
+                    echo "<div>";
+                    echo "<p>" . $user->getUserName() . "</p>";
+                    echo "<p>Thời gian: " . $feedback->getDate() . "</p>";
+                    echo "<p>Nội dung: " . $feedback->getFbContent() . "</p>";
+                    echo "<hr>";
+                    echo "</div>";
+                }
+            } else {
+                echo "<p>Không có phản hồi.</p>";
+            }
+            ?>
 
 
         </div>

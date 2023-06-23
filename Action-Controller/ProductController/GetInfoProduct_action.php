@@ -19,41 +19,6 @@ while ($row = $getImgsProduct->fetch_assoc()) {
     $imgProducts[] = $imgProduct;
 }
 
-$listFeedBackSQL = "SELECT * FROM feedback INNER JOIN user on feedback.userID = user.userID WHERE proID = ".$ID;
-$resultFeedBacks = $conn->query($listFeedBackSQL);
-$listFeedBacks = array();
-
-if ($resultFeedBacks->num_rows > 0) {
-    while ($resultFeedBack = $resultFeedBacks->fetch_assoc()) {
-        $feedback = new Feedback(
-            $resultFeedBack["fbID"], 
-            $resultFeedBack["proID"], 
-            $resultFeedBack["userID"],
-            $resultFeedBack["fbTime"], 
-            $resultFeedBack["fbContent"]
-        );
-
-        $user = new User(
-            $resultFeedBack["userID"],
-            $resultFeedBack["userName"],
-            $resultFeedBack["pass"],
-            $resultFeedBack["position"],
-            $resultFeedBack["fullName"],
-            $resultFeedBack["birth"],
-            $resultFeedBack["address"],
-            $resultFeedBack["email"],
-            $resultFeedBack["phone"],
-            $resultFeedBack["active"]
-        );
-
-        $listFeedBacks[] = array(
-            "feedback" => $feedback,
-            "user" => $user
-        );
-    }
-}
-
-$_SESSION["listFeedBacks"] = $listFeedBacks;
 
 $_SESSION['InfoImgProducts'] = serialize($imgProducts);
 if($result->num_rows>0){
