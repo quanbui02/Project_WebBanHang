@@ -23,26 +23,85 @@ if (!empty($_POST["DOANHTHU1"]) && !empty($_POST["DOANHTHU2"])) {
             INNER JOIN giftcode ON `order`.`giftID` = giftcode.giftID
             WHERE `order`.`orderDate` >= '$ngayTu' AND `order`.`orderDate` <= '$ngayDen'";
         // Thong ke theo cac thang//
-            $thongKeTheoCacThang = "SELECT 
-            YEAR(`order`.`orderDate`) AS Nam,
-            MONTH(`order`.`orderDate`) AS Thang,
-            SUM(CASE 
-                WHEN `order`.status = 'completed' 
-                THEN order_detail.number * product.price - giftcode.giftValue 
-                ELSE 0 
-            END) AS TienHangThang 
+        //     $thongKeTheoCacThang = "SELECT 
+        //     YEAR(`order`.`orderDate`) AS Nam,
+        //     MONTH(`order`.`orderDate`) AS Thang,
+        //     SUM(CASE 
+        //         WHEN `order`.status = 'completed' 
+        //         THEN order_detail.number * product.price - giftcode.giftValue 
+        //         ELSE 0 
+        //     END) AS TienHangThang 
+        // FROM 
+        //     `order` 
+        //     INNER JOIN order_detail ON `order`.orderID = order_detail.orderID 
+        //     INNER JOIN product ON order_detail.prID = product.proID 
+        //     INNER JOIN giftcode ON `order`.`giftID` = giftcode.giftID 
+        // WHERE 
+        //     `order`.`orderDate` >= '$ngayTu' 
+        //     AND `order`.`orderDate` <= '$ngayDen' 
+        //     AND `order`.status = 'completed' 
+        // GROUP BY 
+        //     YEAR(`order`.`orderDate`), 
+        //     MONTH(`order`.`orderDate`);";
+
+        //
+
+        $thongKeTheoCacThang = "SELECT 
+            months.Nam,
+            months.Thang,
+            COALESCE(SUM(TienHangThang), 0) AS TienHangThang
         FROM 
-            `order` 
-            INNER JOIN order_detail ON `order`.orderID = order_detail.orderID 
-            INNER JOIN product ON order_detail.prID = product.proID 
-            INNER JOIN giftcode ON `order`.`giftID` = giftcode.giftID 
-        WHERE 
-            `order`.`orderDate` >= '$ngayTu' 
-            AND `order`.`orderDate` <= '$ngayDen' 
-            AND `order`.status = 'completed' 
+            (
+                SELECT 
+                    YEAR(date_range.date) AS Nam,
+                    MONTH(date_range.date) AS Thang
+                FROM (
+                    SELECT 
+                        DATE_FORMAT('$ngayTu', '%Y-%m-01') + INTERVAL (t2.n * 10 + t1.n) MONTH AS date
+                    FROM 
+                        (SELECT 0 AS n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) t1,
+                        (SELECT 0 AS n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9) t2
+                    WHERE 
+                        DATE_FORMAT('$ngayTu', '%Y-%m-01') + INTERVAL (t2.n * 10 + t1.n) MONTH <= '$ngayDen'
+                ) AS date_range
+                GROUP BY 
+                    YEAR(date_range.date),
+                    MONTH(date_range.date)
+            ) AS months
+        LEFT JOIN
+            (
+                SELECT 
+                    YEAR(`order`.`orderDate`) AS Nam,
+                    MONTH(`order`.`orderDate`) AS Thang,
+                    SUM(CASE 
+                        WHEN `order`.`status` = 'completed' 
+                        THEN order_detail.number * product.price - giftcode.giftValue 
+                        ELSE 0 
+                    END) AS TienHangThang 
+                FROM 
+                    `order` 
+                    INNER JOIN order_detail ON `order`.orderID = order_detail.orderID 
+                    INNER JOIN product ON order_detail.prID = product.proID 
+                    INNER JOIN giftcode ON `order`.`giftID` = giftcode.giftID 
+                WHERE 
+                    `order`.`orderDate` >= '$ngayTu' 
+                    AND `order`.`orderDate` <= '$ngayDen' 
+                    AND `order`.`status` = 'completed' 
+                GROUP BY 
+                    YEAR(`order`.`orderDate`), 
+                    MONTH(`order`.`orderDate`)
+            ) AS result
+        ON months.Thang = result.Thang AND months.Nam = result.Nam
         GROUP BY 
-            YEAR(`order`.`orderDate`), 
-            MONTH(`order`.`orderDate`);";
+            months.Nam,
+            months.Thang
+        ORDER BY 
+            months.Nam,
+            months.Thang;
+        ";
+        
+
+        //
 
             $thongkeThang = $conn->query($thongKeTheoCacThang);
 

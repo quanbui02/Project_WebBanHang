@@ -31,6 +31,8 @@ try {
     $conn->close();
 }
 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,8 +47,7 @@ try {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="Index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Trang chủ Admin</title>
 </head>
 
@@ -68,11 +69,11 @@ try {
                     <li class="item-order" style="background-color: #ea815e;">
                         <p class="title">Đơn hàng đang chờ xác nhận</p>
                         <p class="quantity">
-                            <?php 
+                            <?php
                             if (isset($_SESSION['ChoXacNhan'])) {
                                 echo $_SESSION['ChoXacNhan'];
                             } else {
-                                echo $soDonDangChoXacNhan; 
+                                echo $soDonDangChoXacNhan;
                             }
                             ?>
                         </p>
@@ -96,7 +97,7 @@ try {
                             if (isset($_SESSION['DaGiao'])) {
                                 echo $_SESSION['DaGiao'];
                             } else {
-                                echo $soDonDaGiao; 
+                                echo $soDonDaGiao;
                             }
                             ?>
                         </p>
@@ -115,25 +116,24 @@ try {
                     </li>
                 </ul>
                 <?php
-                unset($_SESSION['ChoXacNhan'],$_SESSION['DangGiao'],$_SESSION['DaGiao'],$_SESSION['DaHuy']);
+                unset($_SESSION['ChoXacNhan'], $_SESSION['DangGiao'], $_SESSION['DaGiao'], $_SESSION['DaHuy']);
                 ?>
                 <div class="form-date">
                     <div>
-                        <form action="/Project_WebBanHang/Action-Controller/ThongKeController/ThongKe_action.php"
-                            method="post">
+                        <form action="/Project_WebBanHang/Action-Controller/ThongKeController/ThongKe_action.php" method="post">
                             <label class="title-form" for="DOANHTHU">DOANH THU:</label>
                             <p>Từ:</p>
-                            <input type="datetime-local" id="DOANHTHU1" name="DOANHTHU1" value="<?php echo isset($_SESSION['Ngaydau']) ? $_SESSION['Ngaydau'] : '';?>">
+                            <input type="datetime-local" id="DOANHTHU1" name="DOANHTHU1" value="<?php echo isset($_SESSION['Ngaydau']) ? $_SESSION['Ngaydau'] : ''; ?>">
                             <p>Đến:</p>
-                            <input type="datetime-local" id="DOANHTHU2" name="DOANHTHU2" value="<?php echo isset($_SESSION['NgaySau']) ? $_SESSION['NgaySau'] : '';?>">
+                            <input type="datetime-local" id="DOANHTHU2" name="DOANHTHU2" value="<?php echo isset($_SESSION['NgaySau']) ? $_SESSION['NgaySau'] : ''; ?>">
                             <br>
                             <br>
                             <button style="border:1px solid #ccc;border-radius:3px;" type="submit">Thống kê</button>
                         </form>
                     </div>
-                    <?php unset($_SESSION['NgaySau'],$_SESSION['Ngaydau']) ?>
+                    <?php unset($_SESSION['NgaySau'], $_SESSION['Ngaydau']) ?>
                     <?php
-                      if (isset($_SESSION['tongTien'])) {
+                    if (isset($_SESSION['tongTien'])) {
                         $tongTien = $_SESSION['tongTien'];
                         echo "<p>Tổng tiền: " . $tongTien . "</p>";
                         unset($_SESSION['tongTien']);
@@ -141,6 +141,25 @@ try {
                         echo "0";
                     }
                     ?>
+                    <?php $thang = $_SESSION['listThangThongKe']; ?>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tháng</th>
+                                <th>Năm</th>
+                                <th>Tổng tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($thang as $item) : ?>
+                                <tr>
+                                    <td><?php echo $item['thang']; ?></td>
+                                    <td><?php echo $item['nam']; ?></td>
+                                    <td><?php echo $item['tongTien']; ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
                 <?php
                 if (isset($_SESSION['error-date'])) {
