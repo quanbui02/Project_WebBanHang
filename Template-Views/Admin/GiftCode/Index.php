@@ -59,59 +59,65 @@ $lengthGift = count($listGift);
             </div>
         </div>
         <div class="wrapper">
-        <h3 style="text-align: center;">Danh sách mã giảm giá</h3>
+            <h3 style="text-align: center;">Danh sách mã giảm giá</h3>
             <button class="add-product-js btn_add">Thêm mã giảm giá</button>
             <div>
-            <div class="container">
-    <div class="table">
-        <div class="table-header">
-            <div class="header__item"><a id="ID" class="filter__link filter__link--number" href="#">ID</a></div>
-            <div class="header__item"><a id="account" class="filter__link" href="#">Mã Gift</a></div>
-            <div class="header__item"><a class="filter__link" href="#">Thành tiền</a></div>
-            <div class="header__item"><a class="filter__link filter__link--number" href="#">Số lượng</a>
-            </div>
-            <div class="header__item"><a id="name" class="filter__link" href="#">Trạng thái</a>
-            </div>
-            <div class="header__item"><a class="filter__link filter__link--number" href="#">Thao tác</a>
-            </div>
-        </div>
-        <div class="table-content">
-            <?php
-            if ($lengthGift > 0) {
-                foreach ($listGift as $gift) {
-                    echo '<div class="table-row">';
-                    echo '    <div class="table-data">' . $gift->getGiftID() . '</div>';
-                    echo '    <div class="table-data">' . strtoupper($gift->getGiftContent()) . '</div>';
-                    echo '    <div class="table-data">' . $gift->getGiftValue() . '</div>';
-                    echo '    <div class="table-data">' . $gift->getGiftQuantity() . '</div>';
-                    echo '    <div class="table-data">';if ($gift->getGiftActive() == 1) { echo 'Hoạt động'; } else {  echo 'Đã huỷ';} echo '    </div>';
-                    echo '        <div class="table-data act">';
-                    if ($gift->getGiftActive() == 1) {
-                        echo '            <div class="item-edit">';
-                        echo '                <a href="/Project_WebBanHang/Action-Controller/GiftCodeController/GetInfoGift_action.php?id=' . $gift->getGiftID() . '" class="btn mx-1 btn_edit">';
-                        echo '                    Sửa';
-                        echo '                </a>';
-                        echo '            </div>';
-                        echo '            <div class="item-edit del">';
-                        echo '                <a onclick="openModal(' . $gift->getGiftID() . ')" class="btn mx-1 btn_del btn_edit" style="cursor:pointer;">';
-                        echo '                    Xoá';
-                        echo '                </a>';
-                        echo '            </div>';
-                    } else {
-                        echo '            <a onclick="openModal(' . $gift->getGiftID() . ',' . $gift->getGiftActive() . ')" style="cursor:pointer;" class="btn mx-1 btn_active btn_edit">';
-                        echo '                Kích hoạt';
-                        echo '            </a>';
-                    }
-                    echo '        </div>';
-                    echo "</div>";
-                }
-            } else {
-                echo 'KHÔNG CÓ DANH MỤC SẢN PHẨM NÀO!';
-            }
-            ?>
-        </div>
-    </div>
-</div>
+                <div class="container">
+                    <div class="table">
+                        <div class="table-header">
+                            <div class="header__item"><a id="ID" class="filter__link filter__link--number" href="#">ID</a></div>
+                            <div class="header__item"><a id="account" class="filter__link" href="#">Mã Gift</a></div>
+                            <div class="header__item"><a class="filter__link" href="#">Thành tiền</a></div>
+                            <div class="header__item"><a class="filter__link filter__link--number" href="#">Số lượng</a>
+                            </div>
+                            <div class="header__item"><a id="name" class="filter__link" href="#">Trạng thái</a>
+                            </div>
+                            <div class="header__item"><a class="filter__link filter__link--number" href="#">Thao tác</a>
+                            </div>
+                        </div>
+                        <div class="table-content">
+                            <?php
+                            if ($lengthGift > 0) {
+                                foreach ($listGift as $gift) {
+                                    echo '<div class="table-row">';
+                                    echo '    <div class="table-data">' . $gift->getGiftID() . '</div>';
+                                    echo '    <div class="table-data">' . strtoupper($gift->getGiftContent()) . '</div>';
+                                    echo '    <div class="table-data">' . $gift->getGiftValue() . '</div>';
+                                    echo '    <div class="table-data">' . $gift->getGiftQuantity() . '</div>';
+                                    echo '    <div class="table-data">';
+                                    if ($gift->getGiftActive() == 1) {
+                                        echo 'Hoạt động';
+                                    } else {
+                                        echo 'Đã huỷ';
+                                    }
+                                    echo '    </div>';
+                                    echo '        <div class="table-data act">';
+                                    if ($gift->getGiftActive() == 1) {
+                                        echo '            <div class="item-edit">';
+                                        echo '                <a href="/Project_WebBanHang/Action-Controller/GiftCodeController/GetInfoGift_action.php?id=' . $gift->getGiftID() . '" class="btn mx-1 btn_edit">';
+                                        echo '                    Sửa';
+                                        echo '                </a>';
+                                        echo '            </div>';
+                                        echo '            <div class="item-edit del">';
+                                        echo '                <a onclick="openModal(' . $gift->getGiftID() . ')" class="btn mx-1 btn_del btn_edit" style="cursor:pointer;">';
+                                        echo '                    Xoá';
+                                        echo '                </a>';
+                                        echo '            </div>';
+                                    } else {
+                                        echo '            <a onclick="openModal(' . $gift->getGiftID() . ',' . $gift->getGiftActive() . ')" style="cursor:pointer;" class="btn mx-1 btn_active btn_edit">';
+                                        echo '                Kích hoạt';
+                                        echo '            </a>';
+                                    }
+                                    echo '        </div>';
+                                    echo "</div>";
+                                }
+                            } else {
+                                echo 'KHÔNG CÓ DANH MỤC SẢN PHẨM NÀO!';
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
                 <div class="Pagination">
                     <ul class="pagination">
                         <?php if ($page > 1) { ?>
@@ -134,14 +140,15 @@ $lengthGift = count($listGift);
         </div>
 
         <div id="myModal" class="modal-popup">
-        <div class="modal-content-popup">
-            <p class="text-modal">Bạn có chắc chắn muốn Kích hoạt/ xóa?</p>
-            <div class="list-btn">
-                <button class="button delete action-delete" onclick="deleteItem()">Kích hoạt/ Xóa</button>
-                <button class="button" onclick="closeModal()">Hủy</button>
+            <div class="modal-content-popup">
+                <p class="text-modal">Bạn có chắc chắn muốn Kích hoạt/ xóa?</p>
+                <div class="list-btn">
+                    <button class="button delete action-delete" onclick="deleteItem()">Kích hoạt/ Xóa</button>
+                    <button class="button" onclick="closeModal()">Hủy</button>
+                </div>
             </div>
         </div>
-    </div>
+        
         <div class="modal-addGroup">
             <div class="modal-container js-modal-container">
                 <p class="modal-close js-modal-close">X</p>
@@ -165,8 +172,7 @@ $lengthGift = count($listGift);
 <script src="../../../assets/css/ToastMessage/ToastMessage.js"></script>
 
 <script>
-
-let active;
+    let active;
     let idDelete;
 
     function openModal(id, active) {
@@ -192,8 +198,8 @@ let active;
     }
 
 
-// open model add gift
-const addGroupButton = document.querySelectorAll('.add-product-js')
+    // open model add gift
+    const addGroupButton = document.querySelectorAll('.add-product-js')
     const modal = document.querySelector('.modal-addGroup')
     const modalClose = document.querySelector('.js-modal-close')
     const modalContainer = document.querySelector('.js-modal-container')
@@ -220,8 +226,8 @@ const addGroupButton = document.querySelectorAll('.add-product-js')
 
 
 
-//
-   
+    //
+
     var properties = [
         'ID',
         'account',
@@ -290,5 +296,3 @@ const addGroupButton = document.querySelectorAll('.add-product-js')
 
     });
 </script>
-
-

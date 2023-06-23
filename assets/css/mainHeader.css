@@ -163,6 +163,7 @@ body {
   width: 100%;
   padding-left: 20px;
   justify-content: flex-start;
+  margin-top: 24px;
 }
 
 .search-menu div:not(:last-of-type) {
