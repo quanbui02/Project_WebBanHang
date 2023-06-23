@@ -12,144 +12,195 @@ $listImgs = unserialize($_SESSION['InfoImgProducts']);
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/Project_WebBanHang/assets/css/product.css">
-  <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_Edit.css">
+  <link rel="stylesheet" href="../../../assets/css/mainHeader.css">
+  <link rel="stylesheet" href="../../../assets/css/User/user.css">
+  <link rel="stylesheet" href="../../../assets/css/popUpModel.css">
+  <link rel="stylesheet" href="../../../assets/css/pagination.css">
+  <link rel="stylesheet" href="../../../assets/css/ToastMessage/ToastMessage.css">
+  <link rel="stylesheet" href="../../../assets/css/Product/editProduct.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+  <title>Quản lý sản phẩm</title>
 </head>
 
 <body>
- 
-  <?php if (empty($_SESSION["err_value"])) {
-    echo "";
-  } else {
-    echo "<span style='color:red;font-size:14px;'>" . $_SESSION["err_value"] . "</span>";
-  } ?>
-  <form method="post" enctype="multipart/form-data"
-    action="/Project_WebBanHang/Action-Controller/ProductController/EditProduct_action.php">
-    <div class="details">
-      <div class="Cate">
-        <div class="label"><label for="Cat">Danh mục sản phẩm:</label></div>
-        <div class="content"> <select id="category" name="GroupProduct_ID">
-            <?php
-            $selectedGrID = (int) $_SESSION["InfoProduct"]->getGrID();
-            for ($i = 0; $i < $lengthGroup; $i++) {
-              $grID = $listGroup[$i]->getGrID();
-              $nameGroup = $listGroup[$i]->getNameGroup();
-              if ($selectedGrID == $grID) {
-                echo "<option value='$grID' selected>$nameGroup</option>";
-              } else {
-                echo "<option value='$grID'>$nameGroup</option>";
-              }
-            }
-            ?>
-          </select></div>
-      </div>
-
-      <div class="namepro">
-        <div class="label"><label>Tên sản phẩm</label></div>
-        <div class="content"> <input class="Input" type="text" id="PrName" name="ProductName"
-            value="<?php echo $_SESSION["InfoProduct"]->getPrName(); ?>" /></div>
-      </div>
-      <div class="Price">
-        <div class="label"> <label>Giá</label></div>
-        <div class="content"> <input class="Input" type="text" id="price" name="ProductPrice"
-            value="<?php echo $_SESSION["InfoProduct"]->getPrice(); ?>" /></div>
-      </div>
-      <div class="Quanti">
-        <div class="label"> <label>Số lượng</label></div>
-        <div class="content"> <input class="Input" type="text" id="quantity" name="ProductQuantity"
-            value="<?php echo $_SESSION["InfoProduct"]->getQuantity(); ?>" /></div>
-      </div>
-      <div class="Size">
-        <div class="label"> <label>Kích cỡ</label></div>
-        <div class="content"> <input class="Input" type="text" id="size" name="ProductSize"
-            value="<?php echo $_SESSION["InfoProduct"]->getSize(); ?>" /></div>
-      </div>
-      <div class="Col">
-        <div class="label"><label>Màu sắc</label></div>
-        <div class="content"> <input class="Input" type="text" id="color" name="ProductColor"
-            value="<?php echo $_SESSION["InfoProduct"]->getColor(); ?>" /></div>
-      </div>
-      <div class="Des">
-        <div class="label"><label>Mô tả (* không bắt buộc)</label></div>
-        <div class="content"> <textarea class="Input" type="text" id="description" name="ProductDescription"
-            placeholder="Mô tả sản phẩm..."><?php echo $_SESSION["InfoProduct"]->getDes(); ?></textarea></div>
-      </div>
-      <div class="Ima">
-        <div class="label"> <label for="image">Chỉnh sửa ảnh đại diện:</label></div>
-        <div class="content1"> <input type="file" name="ProductImage" onchange="loadFile(event)"></div>
-        <div class="content"> <img id="output" style="width:300px;height:300px;object-fit:cover;"
-            src="/Project_WebBanHang/Upload/img/<?php echo $_SESSION["InfoProduct"]->getImg() ?>" /></div>
-      </div>
-      <div class="ImaDes">
-        <div class="label"> <label for="image">Thêm ảnh mô tả:</label></div>
-        <div class="content1"><input id="inputImg" type="file" name="images[]" multiple="multiple"></div>
-      <!-- </div> -->
-      <div id="imageContainer">
-        <?php
-        foreach ($listImgs as $imgProduct) {
-          ?>
-          <img style="width:150px;height:150px;object-fit:cover;"
-            src="/Project_WebBanHang/Upload/imgDetail/<?php echo $imgProduct->getImg() ?>">
-          <?php
-        }
-        ?>
-      </div></div>
-      <!-- <button type="submit">Cập nhật</button> -->
-      <div class="loadback">
-      <div class="load"><button type="submit">Cập nhật</button></div>
-      <div class="back">
-        <button> <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">
-            <?php $_SESSION["err_value"] = ""; ?> Trở lại</a></button> </div>
-      </div>
+  <div class="header">
+    <div class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path xmlns="http://www.w3.org/2000/svg" d="M512 503.5H381.7a48 48 0 01-45.3-32.1L265 268.1l-9-25.5 2.7-124.6L338.2 8.5l23.5 67.1L512 503.5z" fill="#0473ff" data-original="#28b446" />
+        <path xmlns="http://www.w3.org/2000/svg" fill="#0473ff" data-original="#219b38" d="M361.7 75.6L265 268.1l-9-25.5 2.7-124.6L338.2 8.5z" />
+        <path xmlns="http://www.w3.org/2000/svg" d="M338.2 8.5l-82.2 234-80.4 228.9a48 48 0 01-45.3 32.1H0l173.8-495h164.4z" fill="#0473ff" data-original="#518ef8" />
+      </svg>
+      Admin
     </div>
-     
- </form>
+    <div class="header-menu">
+      <a href="/Project_WebBanHang/Template-Views/Admin/Shared/Index.php">Trang chủ</a>
+      <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php" class="active">Sản phẩm</a>
+      <a href="/Project_WebBanHang/Template-Views/Admin/Category/Index.php">Danh mục sản phẩm</a>
+      <a href="/Project_WebBanHang/Template-Views/Admin/User/Index.php">Khách hàng</a>
+      <a href="/Project_WebBanHang/Template-Views/Admin/Order/Index.php">Đơn hàng </a>
+      <a href="/Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php">Khuyễn Mãi</a>
+    </div>
+    <div class="user-settings">
+      <a href="/Project_WebBanHang/Action-Controller/LoginController/Logout_action.php" class="logout-btn">Đăng
+        xuất</a>
+    </div>
+  </div>
 
+  <div class="main">
+    <div class="main-content">
+      <div class="main-container edit-product">
+        <h2>Chỉnh sửa sản phẩm</h2>
+        <div class="edit-post-form product">
+          <form class="edit-product-form" method="post" enctype="multipart/form-data" action="/Project_WebBanHang/Action-Controller/ProductController/EditProduct_action.php">
+            <div style="display: flex;">
+              <div class="text-form">
+                <div class="form-field field-1 medium">
+                  <label for="product-name">Loại sản phẩm</label>
+                  <select id="category" name="GroupProduct_ID">
+                    <?php
+                    $selectedGrID = (int) $_SESSION["InfoProduct"]->getGrID();
+                    for ($i = 0; $i < $lengthGroup; $i++) {
+                      $grID = $listGroup[$i]->getGrID();
+                      $nameGroup = $listGroup[$i]->getNameGroup();
+                      if ($selectedGrID == $grID) {
+                        echo "<option value='$grID' selected>$nameGroup</option>";
+                      } else {
+                        echo "<option value='$grID'>$nameGroup</option>";
+                      }
+                    }
+                    ?>
+                  </select>
+                </div>
+                <div class="form-field field-1 medium">
+                  <label for="product-name">Tên sản phẩm</label>
+                  <input id="product-name" type="text" name="ProductName" value="<?php echo $_SESSION["InfoProduct"]->getPrName(); ?>" required />
+                </div>
+                <div class="form-field field-2 medium">
+                  <label for="product-price">Giá sản phẩm</label>
+                  <input id="product-price" type="number" name="ProductPrice" value="<?php echo $_SESSION["InfoProduct"]->getPrice(); ?>" required />
+                </div>
+                <div class="form-field field-3 medium">
+                  <label for="shop-url">Số lượng</label>
+                  <input id="product-price" type="number" name="ProductQuantity" value="<?php echo $_SESSION["InfoProduct"]->getQuantity(); ?>" required />
+                </div>
+                <div class="form-field field-5 medium">
+                  <label for="product-image">Kích cỡ</label>
+                  <input class="Input" type="text" id="size" name="ProductSize" value="<?php echo $_SESSION["InfoProduct"]->getSize(); ?>" required />
+                </div>
+                <div class="form-field field-5 medium">
+                  <label for="product-image">Màu sắc</label>
+                  <input class="Input" type="text" id="color" name="ProductColor" value="<?php echo $_SESSION["InfoProduct"]->getColor(); ?>" required />
+                </div>
+                <div class="form-field field-4 medium">
+                  <label for="product-description">Mô tả sản phẩm</label>
+                  <textarea id="product-description" type="text" rows="2" name="ProductDescription" placeholder="Mô tả sản phẩm..."><?php echo $_SESSION["InfoProduct"]->getDes(); ?></textarea>
+                </div>
+              </div>
+              <div class="images-form">
+                <div>
+                  <div class="form-field field-5 short">
+                    <label for="product-image">Chỉnh sửa ảnh dại diện</label>
+                    <input type="file" name="ProductImage" onchange="loadFile(event)">
+                    <div class="content"> <img id="output" src="/Project_WebBanHang/Upload/img/<?php echo $_SESSION["InfoProduct"]->getImg() ?>" />
+                    </div>
+                  </div>
+                  <div class="form-field field-5 short">
+                    <label for="product-image">Chỉnh sửa ảnh mô tả</label>
+                    <input type="file" id="images" multiple="multiple" name="images[]" />
+                    <div id="input">
+                      <?php
+                      foreach ($listImgs as $imgProduct) {
+                      ?>
+                        <div class="image-container">
+                          <img class="review" src="/Project_WebBanHang/Upload/imgDetail/<?php echo $imgProduct->getImg() ?>">
+                          <span class="delete-btn" onclick="deleteImageContainer(this)">X</span>
+                        </div>
+                      <?php
+                      }
+                      ?>
+                    </div>
+                  </div>
+                </div>
 
-  <script>
-    var loadFile = function (event) {
-      var output = document.getElementById('output');
-      output.src = URL.createObjectURL(event.target.files[0]);
-      output.onload = function () {
-        URL.revokeObjectURL(output.src)
-      }
-    };
-    document.addEventListener("DOMContentLoaded", function () {
-      let imageInput = document.querySelector("#inputImg");
-      let imageContainer = document.querySelector("#load");
-
-      imageInput.addEventListener("change", function () {
-        imageContainer.innerHTML = ""; // Xóa hết ảnh trước đó trong #imageContainer
-
-        // Lặp qua từng file được chọn
-        for (let i = 0; i < this.files.lengthh; i++) {
-          let file = this.files[i];
-
-          // Kiểm tra nếu file không phải là ảnh thì bỏ qua
-          if (!file.type.match("image.*")) {
-            continue;
-          }
-
-          // Đọc file ảnh
-          let reader = new FileReader();
-          reader.onload = function (event) {
-            // Tạo một thẻ <img> mới và thêm vào #imageContainer
-            let imgElement = document.createElement("img");
-            imgElement.setAttribute("src", event.target.result);
-            imgElement.setAttribute("object-fit", "cover");
-            imgElement.setAttribute("height", "150px");
-            imgElement.setAttribute("width", "150px");
-            classCSs = imgElement.classList;
-            classCSs.add("imgs");
-            imageContainer.appendChild(imgElement);
-          };
-          reader.readAsDataURL(file);
-        }
-      });
-    });
-  </script>
+                <div class="edit-post-actions">
+                  <div class="button-container">
+                    <button class="save-draft" type="submit" type="submit">Chỉnh sửa</button>
+                    <?php if (empty($_SESSION["err_value"])) {
+                      echo "";
+                    } else {
+                      echo "<span style='color:red;font-size:14px;'>" . $_SESSION["err_value"] . "</span>";
+                    } ?>
+                  </div>
+                </div>
+          </form>
+        </div>
+      </div>
+      <button class="update" onclick="onBack()" style="background-color: red; padding: 12px 8px;">Quay
+        lại
+    </div>
+  </div>
 </body>
 
+</body>
+
+<script>
+  const onBack = () => {
+    window.location.href =
+      `/Project_WebBanHang/Template-Views/Admin/Product/Index.php`
+  }
+
+  function deleteImageContainer(element) {
+    var imageContainer = element.parentNode;
+    imageContainer.remove();
+  }
+
+
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src)
+    }
+  };
+
+  var processFiles = (input) => {
+    var $input = document.getElementById("input");
+    // If has files in this input.
+    if (input.files) {
+      for (var file in input.files) {
+        if (isNaN(file)) return;
+        var reader = new FileReader();
+        let $imgContainer = document.createElement("div"); // Create a container for the image and the X button
+        $imgContainer.setAttribute("class", "image-container");
+        let $img = document.createElement("img");
+        $img.setAttribute("class", "review");
+        reader.onload = function(e) {
+          $img.setAttribute("src", e.target.result);
+        }
+        reader.readAsDataURL(input.files[file]);
+
+        let $deleteBtn = document.createElement("span"); // Create the X button
+        $deleteBtn.setAttribute("class", "delete-btn");
+        $deleteBtn.innerText = "X";
+        $deleteBtn.addEventListener("click", function() {
+          $imgContainer.remove(); // Remove the image container when the X button is clicked
+        });
+
+        $imgContainer.appendChild($img); // Add the image to the container
+        $imgContainer.appendChild($deleteBtn); // Add the X button to the container
+        $input.appendChild($imgContainer); // Add the image container to the input container
+      }
+    }
+  }
+
+  var $input = document.getElementById("images");
+  $input.addEventListener("change", function() {
+    processFiles(this)
+  });
+</script>
+
 </html>
+<!-- <script src="../../../assets/css/Product/product.js"></script> -->

@@ -102,7 +102,7 @@ var processFiles = (input) => {
             if (isNaN(file)) return;
             var reader = new FileReader();
             let $img = document.createElement("img");
-            $img.setAttribute("class", "review");
+            $img.setAttribute("class", "");
             reader.onload = function(e) {
                 console.log(e);
                 $img.setAttribute("src", e.target.result);
