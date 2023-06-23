@@ -76,11 +76,11 @@ $listImgs = unserialize($_SESSION['InfoImgProducts']);
                 </div>
                 <div class="form-field field-1 medium">
                   <label for="product-name">Tên sản phẩm</label>
-                  <input id="product-name" type="text" name="product-name" name="ProductName" value="<?php echo $_SESSION["InfoProduct"]->getPrName(); ?>" required />
+                  <input id="product-name" type="text" name="ProductName" value="<?php echo $_SESSION["InfoProduct"]->getPrName(); ?>" required />
                 </div>
                 <div class="form-field field-2 medium">
                   <label for="product-price">Giá sản phẩm</label>
-                  <input id="product-price" type="number" name="product-price" name="ProductPrice" value="<?php echo $_SESSION["InfoProduct"]->getPrice(); ?>" required />
+                  <input id="product-price" type="number" name="ProductPrice" value="<?php echo $_SESSION["InfoProduct"]->getPrice(); ?>" required />
                 </div>
                 <div class="form-field field-3 medium">
                   <label for="shop-url">Số lượng</label>
