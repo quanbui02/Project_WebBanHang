@@ -1,3 +1,4 @@
+
 .act {
     display:flex;
     justify-content: space-evenly;
@@ -30,7 +31,6 @@
 /* button Add giftCode */
 
 .btn_add {
-    position: absolute;
     border:none;
     width: 200px;
     height: 40px;

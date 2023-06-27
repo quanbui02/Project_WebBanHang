@@ -6,6 +6,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
 session_start();
 $conn = connectDb();
 $GiftID = intval($_GET["active"]);
+$ID = intval($_GET["id"]);
 
 if($GiftID != null) {
     $Active = 1;
@@ -20,7 +21,7 @@ else {
     if(empty($GiftValue) || $GiftQuantity == null) {
         header("Location: /Project_WebBanHang/Template-Views/Admin/GiftCode/EditGift.php?id=".$_SESSION["infoGift"]->getGiftID());   
     }else{
-            $updateGift = new GiftCode((int)$_SESSION["infoGift"]->getGiftID(),$_SESSION["infoGift"]->getGiftContent(),$GiftValue,$GiftQuantity,$_SESSION["infoGift"]->getGiftActive());
+            $updateGift = new GiftCode($ID ,$_SESSION["infoGift"]->getGiftContent(),$GiftValue,$GiftQuantity,$_SESSION["infoGift"]->getGiftActive());
             updateGift($updateGift);
             header("Location: /Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php");      
         }
