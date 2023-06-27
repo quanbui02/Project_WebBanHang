@@ -1,4 +1,28 @@
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteEngine On
+
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^admin/(.+)$ admin/index.php?url=$1 [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteBase /Project_WebBanHang/
+
+DirectoryIndex index.php index.html
+
+# Quy tắc đăng nhập
+RewriteRule ^login$ /Project_WebBanHang/Template-Views/Admin/LoginAdmin/Index.php [L]
+
+# Quy tắc sản phẩm
+RewriteRule ^product$ /Project_WebBanHang/Template-Views/Admin/Product/Index.php [L]
+
+# Quy tắc danh mục
+RewriteRule ^category$ /Project_WebBanHang/Template-Views/Admin/Category/Index.php [L]
+
+# Quy tắc giftCode
+RewriteRule ^giftCode$ /Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php [L]
+
+# Quy tắc user
+RewriteRule ^user$ /Project_WebBanHang/Template-Views/Admin/User/Index.php [L]
+
+# Quy tắc order
+RewriteRule ^order$ /Project_WebBanHang/Template-Views/Admin/Order/Index.php [L]
+
+# Quy tắc thống kê
+RewriteRule ^home$ /Project_WebBanHang/Template-Views/Admin/Shared/Index.php [L]
