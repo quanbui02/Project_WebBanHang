@@ -1,0 +1,9 @@
+.function-product { 
+    display: flex;
+    justify-content: center;
+}
+
+.function-product .item-edit {
+    margin: 0 12px;
+}
+
