@@ -5,7 +5,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/Feedback.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/ImgProduct.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/GroupDAO.php";
 include_once "C:/xampp/htdocs/Project_WebBanHang/DAO/UserDAO.php";
-
+include_once "C:/xampp/htdocs/Project_WebBanHang/ultis/time.php";
 
 session_start();
 $listGroup = getAllListGroup();
@@ -18,139 +18,137 @@ $listImgs = unserialize($_SESSION['imgProducts']);
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Project_WebBanHang/assets/css/pro_detail.css">
+    <link rel="stylesheet" href="../../../assets/css/mainHeader.css">
+    <link rel="stylesheet" href="../../../assets/css/User/user.css">
+    <link rel="stylesheet" href="../../../assets/css/popUpModel.css">
+    <link rel="stylesheet" href="../../../assets/css/pagination.css">
+    <link rel="stylesheet" href="../../../assets/css/ToastMessage/ToastMessage.css">
+    <link rel="stylesheet" href="../../../assets/css/Product/editProduct.css">
+    <link rel="stylesheet" href="../../../assets/css/Product/detailProduct.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
     <title>Chi tiết sản phẩm</title>
 </head>
 
 <body>
     <div class="header">
-        <div class="detailheader">
-            <h2 style="padding-top:12px">Chi tiết sản phẩm</h2>
+        <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path xmlns="http://www.w3.org/2000/svg" d="M512 503.5H381.7a48 48 0 01-45.3-32.1L265 268.1l-9-25.5 2.7-124.6L338.2 8.5l23.5 67.1L512 503.5z" fill="#0473ff" data-original="#28b446" />
+                <path xmlns="http://www.w3.org/2000/svg" fill="#0473ff" data-original="#219b38" d="M361.7 75.6L265 268.1l-9-25.5 2.7-124.6L338.2 8.5z" />
+                <path xmlns="http://www.w3.org/2000/svg" d="M338.2 8.5l-82.2 234-80.4 228.9a48 48 0 01-45.3 32.1H0l173.8-495h164.4z" fill="#0473ff" data-original="#518ef8" />
+            </svg>
+            Admin
+        </div>
+        <div class="header-menu">
+            <a href="/Project_WebBanHang/Template-Views/Admin/Shared/Index.php">Trang chủ</a>
+            <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php" class="active">Sản phẩm</a>
+            <a href="/Project_WebBanHang/Template-Views/Admin/Category/Index.php">Danh mục sản phẩm</a>
+            <a href="/Project_WebBanHang/Template-Views/Admin/User/Index.php">Khách hàng</a>
+            <a href="/Project_WebBanHang/Template-Views/Admin/Order/Index.php">Đơn hàng </a>
+            <a href="/Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php">Khuyễn Mãi</a>
+        </div>
+        <div class="user-settings">
+            <a href="/Project_WebBanHang/Action-Controller/LoginController/Logout_action.php" class="logout-btn">Đăng
+                xuất</a>
         </div>
     </div>
-    <div class="block">
-        <div class="image1">
-            <p style="font-style: italic; text-align:left; margin-bottom:3px">Ảnh đại diện sản phẩm</p>
-            <img src="/Project_WebBanHang/Upload/img/<?php echo $_SESSION["product"]->getImg(); ?>" alt="Product Image" style="width:300px;height:300px;object-fit:cover;">
+
+    <div class="main">
+        <div class="main-content">
+            <div class="main-container edit-product">
+                <h2>Chi tiết sản phẩm</h2>
+                <div class="edit-post-form product">
+                    <div style="display: flex;">
+                        <div class="text-form">
+                            <div class="form-field field-1 medium">
+                                <label for="product-name">Tên sản phẩm</label>
+                                <input readonly id="product-name" type="text" name="ProductName" value="<?php echo $_SESSION["InfoProduct"]->getPrice(); ?>" />
+                            </div>
+                            <div class="form-field field-2 medium">
+                                <label for="product-price">Giá sản phẩm</label>
+                                <input readonly id="product-price" type="number" name="ProductPrice" value="<?php echo $_SESSION["InfoProduct"]->getPrice(); ?>" />
+                            </div>
+                            <div class="form-field field-3 medium">
+                                <label for="shop-url">Số lượng</label>
+                                <input readonly id="product-price" type="number" name="ProductQuantity" value="<?php echo $_SESSION["InfoProduct"]->getQuantity(); ?>" />
+                            </div>
+                            <div class="form-field field-5 medium">
+                                <label for="product-image">Kích cỡ</label>
+                                <input readonly class="Input" type="text" id="size" name="ProductSize" value="<?php echo $_SESSION["InfoProduct"]->getSize(); ?>" />
+                            </div>
+                            <div class="form-field field-5 medium">
+                                <label for="product-image">Màu sắc</label>
+                                <input readonly class="Input" type="text" id="color" name="ProductColor" value="<?php echo $_SESSION["InfoProduct"]->getColor(); ?>" />
+                            </div>
+                            <div class="form-field field-4 medium">
+                                <label for="product-description">Mô tả sản phẩm</label>
+                                <textarea readonly id="product-description" type="text" rows="2" name="ProductDescription" placeholder="Mô tả sản phẩm..."><?php echo $_SESSION["InfoProduct"]->getDes(); ?></textarea>
+                            </div>
+                        </div>
+                        <div class="images-form">
+                            <div>
+                                <div class="form-field field-5 short">
+                                    <label for="product-description">Ảnh đại diện sản phẩm</label>
+                                    <div class="content"> <img onclick="openFullscreen(this)" id="output" src="/Project_WebBanHang/Upload/img/<?php echo $_SESSION["InfoProduct"]->getImg() ?>" />
+                                    </div>
+                                </div>
+                                <div class="form-field field-5 short">
+                                    <label for="product-description">Ảnh mô tả sản phẩm</label>
+                                    <div id="input">
+                                        <?php
+                                        foreach ($listImgs as $imgProduct) {
+                                        ?>
+                                            <div class="image-container">
+                                                <img onclick="openFullscreen(this)" class="review" src="/Project_WebBanHang/Upload/imgDetail/<?php echo $imgProduct->getImg() ?>">
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comments-container">
+                        <h1>Danh sách phẩn hồi sản phẩm</h1>
+
+                        <ul id="comments-list" class="comments-list">
+                            <?php
+                                $listFeedBacks = $_SESSION["listFeedBacks"];
+                                foreach ($listFeedBacks as $feedbackData) {
+                                    $feedback = $feedbackData["feedback"];
+                                    $user = $feedbackData["user"];
+                                    echo "<li>";
+                                    echo "<div class='comment-main-level'>";
+                                    echo "<div class='comment-avatar'><img src='https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI='></div>";
+                                    echo "<div class='comment-box'>";
+                                    echo "<div class='comment-head'>";
+                                    echo "<h6 class='comment-name'>" . $user->getUserName() . "</h6>";
+                                    echo "<span>" . convertDateTime($feedback->getDate())  . "</span>";
+                                    echo "</div>";
+                                    echo "<div class='comment-content'>" .  $feedback->getFbContent()  . "</div>";
+                                    echo "</div>";
+                                    echo "</div>";
+                                    echo "</li>";
+                                }
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+                <button class="update" onclick="onBack()" style="background-color: red; padding: 12px 8px;">Quay lại </button>
+            </div>
+
+
+            <div id="fullscreen-overlay" onclick="closeFullscreen()">
+                <img id="fullscreen-image" src="" alt="Fullscreen Image">
+            </div>
         </div>
-
-        <div class="image2">
-            <p style="font-style: italic; text-align: left; margin-bottom:3px">Ảnh chi tiết sản phẩm</p>
-            <?php
-            foreach ($listImgs as $imgProduct) {
-            ?>
-                <img style="width:150px;height:150px;object-fit:cover;" src="/Project_WebBanHang/Upload/imgDetail/<?php echo $imgProduct->getImg() ?>">
-            <?php
-            }
-            ?>
-        </div>
-        <!-- </div> -->
-        <!-- </div> -->
-        <div class="details">
-            <div class="id">
-                <div class="label"> Mã sản phẩm: </div>
-                <div class="content">
-                    <?php echo $_SESSION["product"]->getPrID(); ?>
-                </div>
-            </div>
-            <div class="name">
-                <div class="label">Tên sản phẩm: </div>
-                <div class="content">
-                    <?php echo $_SESSION["product"]->getPrName(); ?>
-                </div>
-            </div>
-            <div class="groupName">
-                <div class="label">Thuộc danh mục: </div>
-                <div class="content">
-                    <?php for ($i = 0; $i < $lengthGroup; $i++) {
-                        if ($_SESSION["product"]->getGrID() == $listGroup[$i]->getGrID()) {
-                            echo $listGroup[$i]->getNameGroup();
-                        }
-                    } ?>
-                </div>
-            </div>
-
-            <div class="size">
-                <div class="label">Kích cỡ sản phẩm: </div>
-                <div class="content">
-                    <?php echo $_SESSION["product"]->getSize(); ?>
-                </div>
-            </div>
-            <div class="quantity">
-                <div class="label">Số lượng sản phẩm: </div>
-                <div class="content">
-                    <?php echo $_SESSION["product"]->getQuantity(); ?>
-                </div>
-            </div>
-            <div class="price">
-                <div class="label">Giá sản phẩm: </div>
-                <div class="content">
-                    <?php echo $_SESSION["product"]->getPrice(); ?> VND
-                </div>
-            </div>
-            <div class="description">
-                <div class="label">Mô tả sản phẩm: </div>
-                <div class="content">
-                    <?php if ($_SESSION["product"]->getDes() == "") {
-                        echo "Chưa có mô tả sản phẩm";
-                    } else {
-                        echo $_SESSION["product"]->getDes();
-                    } ?> VND
-                </div>
-
-            </div>
-
-            <div class="Active_gr">
-                <div class="label">Hoạt động: </div>
-                <div class="content">
-                    <?php if ($_SESSION["product"]->getAct() == 1) {
-                    ?> <span>đang hoạt động</span>
-                    <?php
-                    } else {
-                    ?>
-                        <span>không hoạt động</span>
-                    <?php
-                    }
-                    ?>
-                </div>
-            </div>
-        </div>
-        <div>
-
-            <?php
-            // var_dump($_SESSION["listFeedBacks"]);
-
-            if (isset($_SESSION["listFeedBacks"])) {
-                $listFeedBacks = $_SESSION["listFeedBacks"];
-                foreach ($listFeedBacks as $feedbackData) {
-                    $feedback = $feedbackData["feedback"];
-                    $user = $feedbackData["user"];
-                    // var_dump($feedback);
-                    // var_dump($user);
-                    echo "<div>";
-                    echo "<p>" . $user->getUserName() . "</p>";
-                    echo "<p>Thời gian: " . $feedback->getDate() . "</p>";
-                    echo "<p>Nội dung: " . $feedback->getFbContent() . "</p>";
-                    echo "<hr>";
-                    echo "</div>";
-                }
-            } else {
-                echo "<p>Không có phản hồi.</p>";
-            }
-            ?>
-
-
-        </div>
-
-    </div>
-    </div>
-    <div class="back">
-        <button> <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">
-                Trở lại</button>
-        </a>
     </div>
 </body>
+
+<script src="../../../assets/css/Product/detailProduct.js"></script>
 
 </html>
