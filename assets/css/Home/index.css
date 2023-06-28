@@ -1,96 +1,64 @@
-.container_admin {
-    width: 100%;
-    position: relative;
+body {
+  font-family: "Open Sans", Arial;
+  background: #EDEDED;
 }
-
-.content_Admin {
-    position: absolute;
-    width: 100%;
+main {
+  width: 500px;
+  margin: 10px auto;
+  padding: 10px 20px 30px;
+  background: #FFF;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
 }
-
-.content_Admin {
-    font-size: 1.2rem;
-    display: block;
-    line-height: 3rem;
+p {
+  margin-top: 2rem;
+  font-size: 13px;
 }
-
-.list-orders {
-    display: flex;
-    list-style-type: none;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+#bar-chart {
+  width: 500px;
+  height: 300px;
+  position: relative;
 }
-
-.item-order {
-    width: 439px;
-    margin: 30px 60px;
-    border-radius: 12px;
+#line-chart {
+  width: 500px;
+  height: 300px;
+  position: relative;
 }
-
-.item-order .title {
-    font-size: 22px;
-    margin: 12px 12px;
-    font-weight: 700;
+#bar-chart::before, #line-chart::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 240px;
+  height: 30px;
+  left: 155px;
+  top: 254px;
+  background: #FAFAFA;
+  box-shadow: 1px 1px 0 0 #DDD;
 }
-
-.item-order .quantity {
-    font-size: 36px;
-    margin-left: 18px;
-    font-weight: 500;
-    ;
+#pie-chart {
+  width: 500px;
+  height: 250px;
+  position: relative;
 }
-
-.form-date {
-    width: 70%;
-    margin: 0 auto;
-    display: flex;
+#pie-chart::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 115px;
+  left: 315px;
+  top: 0;
+  background: #FAFAFA;
+  box-shadow: 1px 1px 0 0 #DDD;
 }
-
-.title-form {
-    font-size: 25px;
-    font-weight: 700;
-}
-
-input[type="datetime-local"] {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-    width: 200px;
-}
-
-input[type="datetime-local"]:hover {
-    background-color: #f0f0f0;
-}
-
-input[type="datetime-local"]:focus {
-    background-color: #fff;
-    border-color: #4d90fe;
-    box-shadow: 0 0 2px rgba(77, 144, 254, 0.6);
-}
-
-input[type="datetime-local"]:valid {
-    border-color: #4caf50;
-}
-
-
-.chart {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    width: 100%;
-    height: 300px;
-    background-color: #f2f2f2;
-}
-
-.bar {
-    width: 30px;
-    margin-right: 10px;
-    background-color: #4CAF50;
-    transition: height 0.5s ease;
-}
-
-.bar:hover {
-    background-color: #6fd567;
+#pie-chart::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 260px;
+  left: 70px;
+  width: 170px;
+  height: 2px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 50%;
+  box-shadow: 0 0 3px 4px rgba(0,0,0,0.1);
 }
