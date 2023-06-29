@@ -1,64 +1,61 @@
-body {
-  font-family: "Open Sans", Arial;
-  background: #EDEDED;
-}
-main {
-  width: 500px;
-  margin: 10px auto;
-  padding: 10px 20px 30px;
-  background: #FFF;
-  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-}
-p {
-  margin-top: 2rem;
-  font-size: 13px;
-}
-#bar-chart {
-  width: 500px;
-  height: 300px;
-  position: relative;
-}
-#line-chart {
-  width: 500px;
-  height: 300px;
-  position: relative;
-}
-#bar-chart::before, #line-chart::before {
-  content: "";
+
+.card-body-icon {
   position: absolute;
-  display: block;
-  width: 240px;
-  height: 30px;
-  left: 155px;
-  top: 254px;
-  background: #FAFAFA;
-  box-shadow: 1px 1px 0 0 #DDD;
+  z-index: 0;
+  top: -25px;
+  right: -25px;
+  font-size: 5rem;
+  -webkit-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  transform: rotate(15deg);
 }
-#pie-chart {
-  width: 500px;
-  height: 250px;
-  position: relative;
+
+.main-content {
+  width: 75%;
+  margin: 0 auto;
+  margin-top: 46px;
 }
-#pie-chart::before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 120px;
-  height: 115px;
-  left: 315px;
-  top: 0;
-  background: #FAFAFA;
-  box-shadow: 1px 1px 0 0 #DDD;
+
+.chart {
+  width: 75%;
+  margin: 0 auto;
+  margin-top: 46px;
 }
-#pie-chart::after {
-  content: "";
-  position: absolute;
-  display: block;
-  top: 260px;
-  left: 70px;
-  width: 170px;
-  height: 2px;
-  background: rgba(0,0,0,0.1);
-  border-radius: 50%;
-  box-shadow: 0 0 3px 4px rgba(0,0,0,0.1);
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-form {
+  flex-basis: 100%;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.input-group {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.input-group p {
+  margin-right: 5px;
+}
+
+.btn-submit {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #f5f5f5;
+  color: #333;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #e0e0e0;
 }
