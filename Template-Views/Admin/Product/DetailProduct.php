@@ -65,34 +65,34 @@ $listImgs = unserialize($_SESSION['imgProducts']);
                         <div class="text-form">
                             <div class="form-field field-1 medium">
                                 <label for="product-name">Tên sản phẩm</label>
-                                <input readonly id="product-name" type="text" name="ProductName" value="<?php echo $_SESSION["InfoProduct"]->getPrice(); ?>" />
+                                <input readonly id="product-name" type="text" name="ProductName" value="<?php echo $_SESSION["product"]->getPrName(); ?>" />
                             </div>
                             <div class="form-field field-2 medium">
                                 <label for="product-price">Giá sản phẩm</label>
-                                <input readonly id="product-price" type="number" name="ProductPrice" value="<?php echo $_SESSION["InfoProduct"]->getPrice(); ?>" />
+                                <input readonly id="product-price" type="number" name="ProductPrice" value="<?php echo $_SESSION["product"]->getPrice(); ?>" />
                             </div>
                             <div class="form-field field-3 medium">
                                 <label for="shop-url">Số lượng</label>
-                                <input readonly id="product-price" type="number" name="ProductQuantity" value="<?php echo $_SESSION["InfoProduct"]->getQuantity(); ?>" />
+                                <input readonly id="product-price" type="number" name="ProductQuantity" value="<?php echo $_SESSION["product"]->getQuantity(); ?>" />
                             </div>
                             <div class="form-field field-5 medium">
                                 <label for="product-image">Kích cỡ</label>
-                                <input readonly class="Input" type="text" id="size" name="ProductSize" value="<?php echo $_SESSION["InfoProduct"]->getSize(); ?>" />
+                                <input readonly class="Input" type="text" id="size" name="ProductSize" value="<?php echo $_SESSION["product"]->getSize(); ?>" />
                             </div>
                             <div class="form-field field-5 medium">
                                 <label for="product-image">Màu sắc</label>
-                                <input readonly class="Input" type="text" id="color" name="ProductColor" value="<?php echo $_SESSION["InfoProduct"]->getColor(); ?>" />
+                                <input readonly class="Input" type="text" id="color" name="ProductColor" value="<?php echo $_SESSION["product"]->getColor(); ?>" />
                             </div>
                             <div class="form-field field-4 medium">
                                 <label for="product-description">Mô tả sản phẩm</label>
-                                <textarea readonly id="product-description" type="text" rows="2" name="ProductDescription" placeholder="Mô tả sản phẩm..."><?php echo $_SESSION["InfoProduct"]->getDes(); ?></textarea>
+                                <textarea readonly id="product-description" type="text" rows="2" name="ProductDescription" placeholder="Mô tả sản phẩm..."><?php echo $_SESSION["product"]->getDes(); ?></textarea>
                             </div>
                         </div>
                         <div class="images-form">
                             <div>
                                 <div class="form-field field-5 short">
                                     <label for="product-description">Ảnh đại diện sản phẩm</label>
-                                    <div class="content"> <img onclick="openFullscreen(this)" id="output" src="/Project_WebBanHang/Upload/img/<?php echo $_SESSION["InfoProduct"]->getImg() ?>" />
+                                    <div class="content"> <img onclick="openFullscreen(this)" id="output" src="/Project_WebBanHang/Upload/img/<?php echo $_SESSION["product"]->getImg() ?>" />
                                     </div>
                                 </div>
                                 <div class="form-field field-5 short">
