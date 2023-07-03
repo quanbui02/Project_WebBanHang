@@ -1,13 +1,11 @@
 let active;
 let idDelete;
 
-// open model add gift
 const addGroupButton = document.querySelectorAll(".add-product-js");
 const modal = document.querySelector(".modal-addGroup");
 const modalClose = document.querySelector(".js-modal-close");
 const modalContainer = document.querySelector(".js-modal-container");
-
-console.log(addGroupButton);
+const modalConfirmDelete = document.querySelector("#myModal");
 
 function openModal(id, active) {
   var modal = document.getElementById("myModal");
@@ -22,6 +20,13 @@ function closeModal() {
   idDelete = null;
   state = null;
 }
+
+modalConfirmDelete.addEventListener("click", () => {
+  var modal = document.getElementById("myModal");
+  modal.classList.remove("show");
+  idDelete = null;
+  state = null;
+});
 
 function deleteItem() {
   if (idDelete && state == 0) {
@@ -69,6 +74,8 @@ addGroupButton[0].addEventListener("click", showBuyTicket);
 modalClose.addEventListener("click", hideBuyTicket);
 
 modal.addEventListener("click", hideBuyTicket);
+
+modal.addEventListener("click", closeModal);
 
 modalContainer.addEventListener("click", (event) => {
   event.stopPropagation();

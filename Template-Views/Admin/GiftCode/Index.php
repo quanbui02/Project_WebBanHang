@@ -75,8 +75,10 @@ $lengthGift = count($listGift);
                             <div class="header__item"><a id="ID" class="filter__link filter__link--number"
                                     href="#">ID</a></div>
                             <div class="header__item"><a id="codeGift" class="filter__link" href="#">Mã Gift</a></div>
-                            <div class="header__item"><a id="priceGift" class="filter__link filter__link--number" href="#">Thành tiền</a></div>
-                            <div class="header__item"><a id="quantityGift" class="filter__link filter__link--number" href="#">Số lượng</a>
+                            <div class="header__item"><a id="priceGift" class="filter__link filter__link--number"
+                                    href="#">Thành tiền</a></div>
+                            <div class="header__item"><a id="quantityGift" class="filter__link filter__link--number"
+                                    href="#">Số lượng</a>
                             </div>
                             <div class="header__item"><a id="name" class="filter__link" href="#">Trạng thái</a>
                             </div>
@@ -101,15 +103,15 @@ $lengthGift = count($listGift);
                                     echo '</div>';
                                     echo '<div class="table-data act">';
                                     if ($gift->getGiftActive() == 1) {
-                                        echo '<div class="item-edit">';
-                                        echo '<a onClick="openEditModal(' . $gift->getGiftID() . ', \'' . $gift->getGiftValue() . '\', \'' . $gift->getGiftQuantity() . '\')" class="btn mx-1 btn_edit">';
+                                        echo '<div class="item-edit" onClick="openEditModal(' . $gift->getGiftID() . ', \'' . $gift->getGiftValue() . '\', \'' . $gift->getGiftQuantity() . '\')">';
+                                        echo '<a class="btn mx-1 btn_edit">';
                                         echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">';
                                         echo '<path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />';
                                         echo '</svg>';
                                         echo '</a>';
                                         echo '</div>';
-                                        echo '<div class="item-edit">';
-                                        echo '<a onclick="openModal(' . $gift->getGiftID() . ')" class="btn mx-1 btn_del btn_edit" style="cursor:pointer;">';
+                                        echo '<div class="item-edit delete-item" onclick="openModal(' . $gift->getGiftID() . ')">';
+                                        echo '<a class="btn mx-1 btn_del btn_edit" style="cursor:pointer;">';
                                         echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">';
                                         echo '<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>';
                                         echo '<path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>';
@@ -117,12 +119,14 @@ $lengthGift = count($listGift);
                                         echo '</a>';
                                         echo '</div>';
                                     } else {
-                                        echo '<a onclick="openModal(' . $gift->getGiftID() . ',' . $gift->getGiftActive() . ')" style="cursor:pointer;" class="btn mx-1 btn_active btn_edit">';
+                                        echo '<div onclick="openModal(' . $gift->getGiftID() . ',' . $gift->getGiftActive() . ')" class="item-edit convert-gift-active">';
+                                        echo '<a style="cursor:pointer;" class="btn mx-1 btn_active btn_edit">';
                                         echo '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">';
                                         echo '<path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>';
                                         echo '<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>';
                                         echo '</svg>';
                                         echo '</a>';
+                                        echo '</div>';
                                     }
                                     echo '</div>';
                                     echo "</div>";
@@ -152,9 +156,7 @@ $lengthGift = count($listGift);
                         <?php } ?>
                     </ul>
                 </div>
-
             </div>
-
         </div>
 
         <div id="myModal" class="modal-popup">
@@ -170,8 +172,7 @@ $lengthGift = count($listGift);
         <div class="modal-addGroup">
             <div class="modal-container js-modal-container">
                 <p class="modal-close js-modal-close">X</p>
-                <form method="post"
-                id="add_gift"
+                <form method="post" id="add_gift"
                     action="/Project_WebBanHang/Action-Controller/GiftCodeController/CreateGift_action.php">
                     <label>Số tiền</label>
                     <input id="GiftValue" type="number" name="GiftValue" required />
@@ -188,6 +189,5 @@ $lengthGift = count($listGift);
 </html>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="../../../assets/css/ToastMessage/ToastMessage.js"></script>
 <script src="../../../assets/css/GiftCode/gift.js"></script>
 <script src="../../../assets/css/sortColumn/index.js"></script>

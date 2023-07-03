@@ -23,6 +23,14 @@
     margin: 0 auto;
 }
 
+.delete-item {
+    background-color: rgb(252, 36, 36);
+}
+
+.convert-gift-active {
+    background-color: #009688;
+}
+
 .btn_edit {
     color: #242424;
     font-weight: 500;
@@ -40,7 +48,6 @@
 }
 .btn_active {
     display:inline-block;
-    background-color: rgba(4, 228, 86, 0.2);
     width: auto;
     height: auto;
     padding:2px 8px;
