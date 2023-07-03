@@ -73,7 +73,7 @@ if($_SESSION["login"]==false){
                     <div class="user-name">
                         <div class="label">Tên đăng nhập:</div>
                         <div class="form-input">
-                             <input type="text" name ="user-name" value ="<?php echo $_SESSION["user-infor"]->getUserName(); ?>">
+                             <input required type="text" name ="user-name" value ="<?php echo $_SESSION["user-infor"]->getUserName(); ?>">
                         </div>
                     </div>
                     <div class="password">

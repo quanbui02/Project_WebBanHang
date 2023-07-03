@@ -87,7 +87,7 @@ finally{
                     <div class="label" style="font-style:italic;font-weight:14px">Tổng tiền: </div>
                 </div>
                 <div class="purchase-btn">
-                    <button><a href="<?php echo "/Project_WebBanHang/GhepCode/Template-View/purchase.php?code=".$cartOrder->getUserID().$cartOrder->getOrderID()."&money=".$cartOrder->sumMoney()."&id=".$cartOrder->getOrderID(); ?>">Thanh toán</a></button>
+                    <button><a href="<?php echo "/Project_WebBanHang/GhepCode/Template-View/purchase.php?code=".$cartOrder->getUserID().$cartOrder->getOrderID()."&money=".$cartOrder->sumMoney()."&id=".$cartOrder->getOrderID(); ?>">Đặt hàng</a></button>
                 </div>
                 <?php
             }else{
