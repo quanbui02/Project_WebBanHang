@@ -126,16 +126,16 @@ $lengthGroup = count($listGroup);
             <div class="Pagination">
                 <ul class="pagination">
                     <?php if ($page > 1) { ?>
-                        <li class="page-item"><a href="?p=<?php echo ($page - 1); ?>" class="page-link text-dark">Trở
+                        <li class="page-item"><a href="?page=<?php echo ($page - 1); ?>" class="page-link text-dark">Trở
                                 lại</a></li>
                     <?php } ?>
 
                     <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-                        <li class="page-item <?php if ($i == $page) echo 'active'; ?>"><a href="?p=<?php echo $i; ?>" class="page-link text-dark"><?php echo $i; ?></a></li>
+                        <li class="page-item <?php if ($i == $page) echo 'active'; ?>"><a href="?page=<?php echo $i; ?>" class="page-link text-dark"><?php echo $i; ?></a></li>
                     <?php } ?>
 
                     <?php if ($page < $total_pages) { ?>
-                        <li class="page-item"><a href="?p=<?php echo ($page + 1); ?>" class="page-link text-dark">Tiếp</a>
+                        <li class="page-item"><a href="?page=<?php echo ($page + 1); ?>" class="page-link text-dark">Tiếp</a>
                         </li>
                     <?php } ?>
                 </ul>

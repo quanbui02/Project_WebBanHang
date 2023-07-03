@@ -19,7 +19,7 @@ let idDelete;
         input.value = value;
         title.innerHTML = "Chỉnh sửa danh mục"
         button.innerHTML = "Sửa"
-        form.action = `/Project_WebBanHang/Action-Controller/CategoryController/EditGroup_action.php?id=${id}` // đoạn này chỉnh thêm id vào
+        form.action = `/Project_WebBanHang/Action-Controller/CategoryController/EditGroup_action.php?id=${id}`
 
         showBuyTicket()
     }
