@@ -206,7 +206,9 @@ try {
 </body>
 
 <?php
-$month = $_SESSION['listThangThongKe'];
+if(isset($_SESSION['listThangThongKe'])) {
+    $month = $_SESSION['listThangThongKe'];
+
 $labels = [];
 $data = [];
 
@@ -232,6 +234,7 @@ foreach ($month as $item) {
     $label = $monthNames[$monthKey] . '-' . $date->format('Y');
     $labels[] = $label;
     $data[] = $item['tongTien'];
+}
 }
 ?>
 

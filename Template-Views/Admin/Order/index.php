@@ -81,7 +81,7 @@ $lengthOrders = count($listOrders);
                         stroke="currentColor" />
                     <path d="M23.3 6H.6a.8.8 0 010-1.5h22.6a.8.8 0 010 1.5z" stroke="currentColor" />
                 </svg>
-                <input name="search-product" id="search" placeholder="Tìm kiếm..." />
+                <input name="search-order" id="search" placeholder="Tìm kiếm..." />
             </div>
             <button class="search-button">Tìm kiếm</button>
         </form>
