@@ -103,3 +103,20 @@ function updateGift($newGift){
         $conn->close();
     }
 }
+
+function updateGiftCode($id,$value,$quantity){
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Class-Model/GiftCode.php";
+    include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+    $conn = connectDb();
+    try{
+        $sql = "UPDATE giftcode SET giftValue = '".$value."',quantity ='".$quantity."' where giftID = '".$id."';";
+        $conn->query($sql);
+    }
+    catch(Exception $e){
+        $_SESSION["error-sql"] = $e->getMessage();
+    }
+    finally{
+        $conn->close();
+    }
+}
+
