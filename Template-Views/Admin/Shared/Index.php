@@ -179,7 +179,7 @@ try {
           unset($_SESSION['ChoXacNhan'], $_SESSION['DangGiao'], $_SESSION['DaGiao'], $_SESSION['DaHuy']);
          ?>
         <div class="chart">
-            <h2 class="title-form" for="DOANHTHU">DOANH THU:</h2>
+            <h2 class="title-form" for="DOANHTHU">DOANH THU: <?php if(isset($_SESSION['tongTien'])) { echo $_SESSION['tongTien']; } else {echo '';}?></h2>
             <form action="/Project_WebBanHang/Action-Controller/ThongKeController/ThongKe_action.php" method="post"
                 class="form-container">
                 <div class="input-group">
