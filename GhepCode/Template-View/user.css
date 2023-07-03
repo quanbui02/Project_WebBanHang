@@ -138,3 +138,7 @@ p{
 .confirm-btn{
     margin-top:5px ;
 }
+a{
+    width: 100%;
+    height:100%
+}

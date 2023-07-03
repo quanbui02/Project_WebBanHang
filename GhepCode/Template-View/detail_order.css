@@ -115,3 +115,7 @@ p{
 .sum-money .content,.purchase .content{
     margin-right: 8px;
 }
+a{
+    width: 100%;
+    height:100%
+}
