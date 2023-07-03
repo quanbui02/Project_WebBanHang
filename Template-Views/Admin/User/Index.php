@@ -104,6 +104,7 @@ $lengthUser = count($listUser);
                                     echo ' <div class="table-data">' . convertToDdMmYyyy($user->getBirth()) . "</div>";
                                     echo ' <div class="table-data">' . $user->getAddress() . "</div>";
                                     echo ' <div class="table-data">' . $user->getEmail() . "</div>";
+                         
                                     echo ' <div class="table-data">' . $user->getPhone() . "</div>";
                                     echo '    <div class="table-data">';
                                     echo '        <div class="item-edit">';

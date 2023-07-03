@@ -174,7 +174,4 @@ $lengthGroup = count($listGroup);
 </body>
 
 <script src="../../../assets/css/Category/Category.js"></script>
-<script>
-
-</script>
 </html>

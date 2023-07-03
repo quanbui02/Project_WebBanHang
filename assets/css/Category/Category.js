@@ -1,14 +1,21 @@
 let idDelete;
 
 const searchBox = document.getElementById("search");
-searchBox.addEventListener("keypress", function (event) {
-  if (event.keyCode === 13) {
-    if (searchBox.value.trim() == "") {
-      event.preventDefault();
-      alert("Vui Lòng điền thông tin cần tìm kiếm");
+const btnSearch = document.querySelector(".search-button");
+
+function checkInputSearch(event) {
+  if (event.keyCode === 13 || event.type === "click") {
+    if (searchBox.value.trim() === "") {
+      window.location.href =
+      "/Project_WebBanHang/Template-Views/Admin/Category/Index.php";
+    } else {
+      window.location.href =
+        "/Project_WebBanHang/Action-Controller/CategoryController/SearchGroup_action.php";
     }
   }
-});
+}
+btnSearch.addEventListener("click", checkInputSearch);
+searchBox.addEventListener("keypress", checkInputSearch);
 
 const openEditModal = (id, value) => {
   const form = document.querySelector("#add_cate");

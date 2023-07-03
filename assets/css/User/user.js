@@ -1,25 +1,19 @@
 let idDelete;
+const searchBox = document.getElementById("search");
+const btnSearch = document.querySelector(".search-button");
 
 function checkInputSearch(event) {
   if (event.keyCode === 13 || event.type === "click") {
     if (searchBox.value.trim() === "") {
-      console.log(1);
       event.preventDefault();
-      toast({
-        title: "Thất bại!",
-        message: "Vui lòng điền đầy đủ thông tin trước khi tìm kiếm",
-        type: "error",
-        duration: 5000,
-      });
+      window.location.href =
+      "/Project_WebBanHang/Template-Views/Admin/User/Index.php";
     } else {
       window.location.href =
         "/Project_WebBanHang/Action-Controller/UserController/SearchUser_action.php";
     }
   }
 }
-
-const searchBox = document.getElementById("search");
-const btnSearch = document.querySelector(".search-button");
 btnSearch.addEventListener("click", checkInputSearch);
 searchBox.addEventListener("keypress", checkInputSearch);
 
