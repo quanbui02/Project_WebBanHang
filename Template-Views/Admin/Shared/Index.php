@@ -1,5 +1,6 @@
 <?php
 include_once "C:/xampp/htdocs/Project_WebBanHang/Data/ConnectToDatabase.php";
+include_once "C:/xampp/htdocs/Project_WebBanHang/ultis/money.php";
 
 session_start();
 if ($_SESSION["login"] == false) {
@@ -85,7 +86,8 @@ try {
             </div>
 
             <div class="row main-content">
-            <h2 class="title-form" for="DOANHTHU" style="margin-bottom: 24px; font-size: 24px;">TÌNH TRẠNG TẤT CẢ ĐƠN HÀNG: </h2>
+                <h2 class="title-form" for="DOANHTHU" style="margin-bottom: 24px; font-size: 24px;">TÌNH TRẠNG TẤT CẢ
+                    ĐƠN HÀNG: </h2>
                 <div class="col-xl-3 col-sm-6 mb-3">
                     <div class="card text-white bg-primary o-hidden h-100">
                         <div class="card-body">
@@ -179,9 +181,10 @@ try {
             <?php
           unset($_SESSION['ChoXacNhan'], $_SESSION['DangGiao'], $_SESSION['DaGiao'], $_SESSION['DaHuy']);
          ?>
-<<<<<<< HEAD
             <div class="chart">
-                <h2 class="title-form" for="DOANHTHU">DOANH THU:</h2>
+                <h2 class="title-form" for="DOANHTHU">DOANH THU:
+                    <?php if(isset($_SESSION['tongTien'])) { echo formatCurrency($_SESSION['tongTien']); } else {echo '';}?>
+                </h2>
                 <form action="/Project_WebBanHang/Action-Controller/ThongKeController/ThongKe_action.php" method="post"
                     class="form-container">
                     <div class="input-group">
@@ -196,24 +199,6 @@ try {
                     </div>
                     <button type="submit" class="btn-submit">Thống kê</button>
                 </form>
-=======
-        <div class="chart">
-            <h2 class="title-form" for="DOANHTHU">DOANH THU: <?php if(isset($_SESSION['tongTien'])) { echo $_SESSION['tongTien']; } else {echo '';}?></h2>
-            <form action="/Project_WebBanHang/Action-Controller/ThongKeController/ThongKe_action.php" method="post"
-                class="form-container">
-                <div class="input-group">
-                    <p>Từ:</p>
-                    <input type="datetime-local" id="DOANHTHU1" name="DOANHTHU1"
-                        value="<?php echo isset($_SESSION['Ngaydau']) ? $_SESSION['Ngaydau'] : ''; ?>">
-                </div>
-                <div class="input-group">
-                    <p>Đến:</p>
-                    <input type="datetime-local" id="DOANHTHU2" name="DOANHTHU2"
-                        value="<?php echo isset($_SESSION['NgaySau']) ? $_SESSION['NgaySau'] : ''; ?>">
-                </div>
-                <button type="submit" class="btn-submit">Thống kê</button>
-            </form>
->>>>>>> e662ca7285556d8c1607429a98e562ea4708b0a7
 
 
                 <canvas id="myChart"></canvas>

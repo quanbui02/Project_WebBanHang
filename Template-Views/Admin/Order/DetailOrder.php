@@ -73,8 +73,8 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/ultis/money.php";
                         ?>
                             <li class="order-item">
                                 <div class="order-item__img">
-                                    <!-- <img src="https://picsum.photos/seed/picsum/200/300" alt="Image of Hamburg" /> -->
-                                    <img src="<?= $product->getImg() ?>" />
+                                    <!-- <img src="../../../Upload/img/image.jpg" alt="Image of Hamburg" /> -->
+                                    <img src="../../../Upload/img/<?= $product->getImg() ?>" />
                                 </div>
                                 <div>
                                     <h3 class="order-item__heading"><?= $product->getPrName() ?></h3>
