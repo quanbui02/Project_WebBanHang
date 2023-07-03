@@ -9,7 +9,7 @@ $email = $_REQUEST["email"];
 $phone = $_REQUEST["phone"];
 $username  = $_REQUEST["user-name"];
 $password  = $_REQUEST["password"];
-if(strlen($password)<8){
+if(strlen($password)<8 || strlen(trim($username))<=0){
     header("Location: /Project_WebBanHang/GhepCode/Template-View/user_infor.php");
     $_SESSION["error-pass"]="Độ dài mật khẩu cần ít nhất 8 ký tự !";
 }
