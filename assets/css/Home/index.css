@@ -10,6 +10,10 @@
   transform: rotate(15deg);
 }
 
+a {
+  text-decoration: none;
+}
+
 .main-content {
   width: 75%;
   margin: 0 auto;

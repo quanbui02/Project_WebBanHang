@@ -38,6 +38,7 @@ try {
     <link rel="stylesheet" href="../../../assets/css/mainHeader.css">
     <link rel="stylesheet" href="../../../assets/css/popUpModel.css">
     <link rel="stylesheet" href="../../../assets/css/pagination.css">
+    <link rel="stylesheet" href="../../../assets/css/User/user.css">
     <link rel="stylesheet" href="../../../assets/css/ToastMessage/ToastMessage.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -82,158 +83,169 @@ try {
                         class="logout-btn">Đăng xuất</a>
                 </div>
             </div>
-        </div>
 
-        <div class="row main-content">
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="card text-white bg-primary o-hidden h-100">
-                    <div class="card-body">
-                        <div class="card-body-icon">
-                            <i class="fa fa-fw fa-comments"></i>
-                        </div>
-                        <div class="mr-5"> <?php
+            <div class="row main-content">
+            <h2 class="title-form" for="DOANHTHU" style="margin-bottom: 24px; font-size: 24px;">TÌNH TRẠNG TẤT CẢ ĐƠN HÀNG: </h2>
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card text-white bg-primary o-hidden h-100">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fa fa-fw fa-comments"></i>
+                            </div>
+                            <div class="mr-5"> <?php
                                 if (isset($_SESSION['ChoXacNhan'])) {
                                   echo $_SESSION['ChoXacNhan'];
                                 } else {
                                   echo $soDonDangChoXacNhan;
                                 }
                                 ?> Đơn hàng chờ xác nhận</div>
-                    </div>
-                    <a class="card-footer text-white clearfix small z-1" href="#">
-                        <span class="float-left">View Details</span>
-                        <span class="float-right">
-                            <i class="fa fa-angle-right"></i>
-                        </span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="card text-white bg-warning o-hidden h-100">
-                    <div class="card-body">
-                        <div class="card-body-icon">
-                            <i class="fa fa-fw fa-list"></i>
                         </div>
-                        <div class="mr-5"><?php
+                        <a class="card-footer text-white clearfix small z-1" href="#">
+                            <span class="float-left">Không có lỗi</span>
+                            <span class="float-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card text-white bg-warning o-hidden h-100">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fa fa-fw fa-list"></i>
+                            </div>
+                            <div class="mr-5"><?php
                               if (isset($_SESSION['DangGiao'])) {
                                 echo $_SESSION['DangGiao'];
                               } else {
                                 echo $soDonDangGiao;
                               }
                               ?> Đơn hàng đang giao</div>
-                    </div>
-                    <a class="card-footer text-white clearfix small z-1" href="#">
-                        <span class="float-left">View Details</span>
-                        <span class="float-right">
-                            <i class="fa fa-angle-right"></i>
-                        </span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="card text-white bg-success o-hidden h-100">
-                    <div class="card-body">
-                        <div class="card-body-icon">
-                            <i class="fa fa-fw fa-shopping-cart"></i>
                         </div>
-                        <div class="mr-5"><?php
+                        <a class="card-footer text-white clearfix small z-1" href="#">
+                            <span class="float-left">Không có lỗi</span>
+                            <span class="float-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card text-white bg-success o-hidden h-100">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fa fa-fw fa-shopping-cart"></i>
+                            </div>
+                            <div class="mr-5"><?php
                               if (isset($_SESSION['DaGiao'])) {
                                 echo $_SESSION['DaGiao'];
                               } else {
                                 echo $soDonDaGiao;
                               }
                               ?> Đơn hàng đã giao</div>
-                    </div>
-                    <a class="card-footer text-white clearfix small z-1" href="#">
-                        <span class="float-left">View Details</span>
-                        <span class="float-right">
-                            <i class="fa fa-angle-right"></i>
-                        </span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 mb-3">
-                <div class="card text-white bg-danger o-hidden h-100">
-                    <div class="card-body">
-                        <div class="card-body-icon">
-                            <i class="fa fa-fw fa-support"></i>
                         </div>
-                        <div class="mr-5"> <?php
+                        <a class="card-footer text-white clearfix small z-1" href="#">
+                            <span class="float-left">Không có lỗi</span>
+                            <span class="float-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card text-white bg-danger o-hidden h-100">
+                        <div class="card-body">
+                            <div class="card-body-icon">
+                                <i class="fa fa-fw fa-support"></i>
+                            </div>
+                            <div class="mr-5"> <?php
                                 if (isset($_SESSION['DaHuy'])) {
                                   echo $_SESSION['DaHuy'];
                                 } else {
                                   echo $soDonDaHuy;
                                 }
                                 ?> Đơn hàng đã hủy</div>
+                        </div>
+                        <a class="card-footer text-white clearfix small z-1" href="#">
+                            <span class="float-left">Không có lỗi</span>
+                            <span class="float-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
                     </div>
-                    <a class="card-footer text-white clearfix small z-1" href="#">
-                        <span class="float-left">View Details</span>
-                        <span class="float-right">
-                            <i class="fa fa-angle-right"></i>
-                        </span>
-                    </a>
                 </div>
             </div>
-        </div>
-        <?php
+            <?php
           unset($_SESSION['ChoXacNhan'], $_SESSION['DangGiao'], $_SESSION['DaGiao'], $_SESSION['DaHuy']);
          ?>
-        <div class="chart">
-            <h2 class="title-form" for="DOANHTHU">DOANH THU:</h2>
-            <form action="/Project_WebBanHang/Action-Controller/ThongKeController/ThongKe_action.php" method="post"
-                class="form-container">
-                <div class="input-group">
-                    <p>Từ:</p>
-                    <input type="datetime-local" id="DOANHTHU1" name="DOANHTHU1"
-                        value="<?php echo isset($_SESSION['Ngaydau']) ? $_SESSION['Ngaydau'] : ''; ?>">
-                </div>
-                <div class="input-group">
-                    <p>Đến:</p>
-                    <input type="datetime-local" id="DOANHTHU2" name="DOANHTHU2"
-                        value="<?php echo isset($_SESSION['NgaySau']) ? $_SESSION['NgaySau'] : ''; ?>">
-                </div>
-                <button type="submit" class="btn-submit">Thống kê</button>
-            </form>
+            <div class="chart">
+                <h2 class="title-form" for="DOANHTHU">DOANH THU:</h2>
+                <form action="/Project_WebBanHang/Action-Controller/ThongKeController/ThongKe_action.php" method="post"
+                    class="form-container">
+                    <div class="input-group">
+                        <p>Từ:</p>
+                        <input type="datetime-local" id="DOANHTHU1" name="DOANHTHU1"
+                            value="<?php echo isset($_SESSION['Ngaydau']) ? $_SESSION['Ngaydau'] : ''; ?>">
+                    </div>
+                    <div class="input-group">
+                        <p>Đến:</p>
+                        <input type="datetime-local" id="DOANHTHU2" name="DOANHTHU2"
+                            value="<?php echo isset($_SESSION['NgaySau']) ? $_SESSION['NgaySau'] : ''; ?>">
+                    </div>
+                    <button type="submit" class="btn-submit">Thống kê</button>
+                </form>
 
 
-            <canvas id="myChart"></canvas>
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
     </div>
-
-    <!-- <tbody>
-        <?php $month = $_SESSION['listThangThongKe']; ?>
-        <?php foreach ($month as $item) : ?>
-        <tr>
-            <td>thang :<?php echo $item['thang']; ?></td>
-            <td>nam : <?php echo $item['nam']; ?></td>
-            <td>tong tien :<?php echo $item['tongTien']; ?></td>
-        </tr>
-        <?php endforeach; ?>
-    </tbody> -->
 </body>
 
-<!-- <script src="../../../assets/css/Home/Home.js"></script> -->
+<?php
+$month = $_SESSION['listThangThongKe'];
+$labels = [];
+$data = [];
+
+$monthNames = array(
+    'Jan' => 'T1',
+    'Feb' => 'T2',
+    'Mar' => 'T3',
+    'Apr' => 'T4',
+    'May' => 'T5',
+    'Jun' => 'T6',
+    'Jul' => 'T7',
+    'Aug' => 'T8',
+    'Sep' => 'T9',
+    'Oct' => 'T10',
+    'Nov' => 'T11',
+    'Dec' => 'T12'
+);
+
+foreach ($month as $item) {
+    $dateString = $item['thang'] . '-' . $item['nam'];
+    $date = DateTime::createFromFormat('m-Y', $dateString);
+    $monthKey = $date->format('M');
+    $label = $monthNames[$monthKey] . '-' . $date->format('Y');
+    $labels[] = $label;
+    $data[] = $item['tongTien'];
+}
+?>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Định nghĩa dữ liệu cho biểu đồ
+    var ctx = document.getElementById('myChart').getContext('2d');
     var data = {
-        labels: [],
+        labels: <?php echo json_encode($labels); ?>,
         datasets: [{
             label: 'Doanh thu',
-            data: [],
+            data: <?php echo json_encode($data); ?>,
             backgroundColor: 'rgba(75, 192, 192, 0.5)',
             borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1
         }]
     };
-
-    <?php foreach ($month as $item) : ?>
-    var label = '<?php echo date("M-Y", strtotime($item['thang'].'-'.$item['nam'])); ?>';
-    data.labels.push(label);
-    data.datasets[0].data.push(<?php echo $item['tongTien']; ?>);
-    <?php endforeach; ?>
-
     var options = {
         scales: {
             y: {
@@ -241,9 +253,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     };
-
-    // Lấy canvas và vẽ biểu đồ cột
-    var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: data,
