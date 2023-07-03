@@ -158,7 +158,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/ultis/money.php";
             </div>
 
             <div class="cancellation-wrapper">
-                <button>Quay lại</button>
+                <a href="/Project_WebBanHang/Template-Views/Admin/Order/index.php"><button>Quay lại</button></a>
             </div>
         </section>
 
