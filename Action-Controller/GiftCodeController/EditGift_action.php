@@ -23,7 +23,6 @@ else {
     if(empty($GiftValue) || $GiftQuantity == null) {
         header("Location: /Project_WebBanHang/Template-Views/Admin/GiftCode/EditGift.php?id=".$_SESSION["infoGift"]->getGiftID());   
     }else{
-            // $updateGift = new GiftCode($ID ,$_SESSION["infoGift"]->getGiftContent(),$GiftValue,$GiftQuantity,$_SESSION["infoGift"]->getGiftActive());
             updateGiftCode($ID,$GiftValue,$GiftQuantity);
             header("Location: /Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php");      
         }

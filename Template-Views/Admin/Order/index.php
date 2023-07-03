@@ -66,7 +66,7 @@ $lengthOrders = count($listOrders);
         </div>
 
         <form class="search-menu"
-            action="/Project_WebBanHang/Action-Controller/ProductController/SearchProduct_action.php">
+            action="/Project_WebBanHang/Action-Controller/OrderController/Search-Order.php">
             <div class="search-salary">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" fill="currentColor"
                     stroke-width=".4">
