@@ -141,13 +141,13 @@ if($_SESSION["login"]==false){
                                     $status=$listOrder[$i]->getStatus();
                                     if($status == "confirm"){
                                         ?>
-                                        <button class="confirm-btn"><a href="<?php echo"http://localhost:8080/Project_WebBanHang/GhepCode/Action-Controler/confirm_action.php?order_id=".$listOrder[$i]->getOrderID(); ?>">Đã nhận</a></button>
-                                        <button class="confirm-btn"><a href="<?php echo"http://localhost:8080/Project_WebBanHang/GhepCode/Action-Controler/destroy_order_action.php?order_id=".$listOrder[$i]->getOrderID(); ?>">Huỷ đơn</a></button>
+                                        <button class="confirm-btn"><a href="<?php echo"/Project_WebBanHang/GhepCode/Action-Controler/confirm_action.php?order_id=".$listOrder[$i]->getOrderID(); ?>">Đã nhận</a></button>
+                                        <button class="confirm-btn"><a href="<?php echo"/Project_WebBanHang/GhepCode/Action-Controler/destroy_order_action.php?order_id=".$listOrder[$i]->getOrderID(); ?>">Huỷ đơn</a></button>
                                         <?php
                                     }else{
                                         if($status == "payed"){
                                             ?>
-                                            <button class="confirm-btn"><a href="<?php echo"http://localhost:8080/Project_WebBanHang/GhepCode/Action-Controler/destroy_order_action.php?order_id=".$listOrder[$i]->getOrderID(); ?>">Huỷ đơn</a></button>
+                                            <button class="confirm-btn"><a href="<?php echo"/Project_WebBanHang/GhepCode/Action-Controler/destroy_order_action.php?order_id=".$listOrder[$i]->getOrderID(); ?>">Huỷ đơn</a></button>
                                             <?php
                                         }
                                     }

@@ -25,6 +25,7 @@ if (empty($_SESSION["login-err"])) {
         <input type="text" placeholder="Username" name="uname">
         <input type="password" placeholder="Password" name="psw">
         <button type="submit" id="login-button">Login</button>
+        <button><a href="/Project_WebBanHang/GhepCode/Template-View/trangchu.php?search=" style='text-decoration:none;color:#53e3a6'>Guest</a></button>
       </form>
     </div>
     <ul class="bg-bubbles">
