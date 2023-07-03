@@ -4,6 +4,25 @@
     justify-content: space-evenly;
     align-items: center;
 }
+
+.active-gift {
+    background-color: #0162ff;
+    width: 28%;
+    padding: 3px;
+    color: white;
+    border-radius: 7px;
+    margin: 0 auto;
+}
+
+.no-active-gift {
+    background-color: #cc003d;
+    width: 28%;
+    padding: 3px;
+    color: white;
+    border-radius: 7px;
+    margin: 0 auto;
+}
+
 .btn_edit {
     color: #242424;
     font-weight: 500;

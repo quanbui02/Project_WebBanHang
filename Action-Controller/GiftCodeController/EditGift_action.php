@@ -8,6 +8,8 @@ $conn = connectDb();
 $GiftID = intval($_GET["active"]);
 $ID = intval($_GET["id"]);
 
+echo $_SESSION["infoGift"];
+
 if($GiftID != null) {
     $Active = 1;
     $sql = "UPDATE giftcode set active = $Active where giftID = $GiftID";

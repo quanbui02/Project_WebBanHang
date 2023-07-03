@@ -1,5 +1,7 @@
-const searchBox = document.getElementById("search");
+const searchBox = document.querySelector("#search");
 const btnSearch = document.querySelector('.search-button');
+
+console.log(searchBox);
 
 function checkInputSearch(event) {
     if (event.keyCode === 13 || event.type === "click") {
@@ -21,23 +23,6 @@ function checkInputSearch(event) {
 
 btnSearch.addEventListener("click", checkInputSearch);
 searchBox.addEventListener("keypress", checkInputSearch);
-
-function checkInputSearch(event) {
-    if (event.keyCode === 13 || event.type === "click") {
-        if (searchBox.value.trim() === "") {
-            console.log(1);
-            event.preventDefault();
-            toast({
-                title: "Thất bại!",
-                message: "Vui lòng điền đầy đủ thông tin trước khi tìm kiếm",
-                type: "error",
-                duration: 5000
-            });
-        } else {
-            window.location.href = "/Project_WebBanHang/Action-Controller/ProductController/SearchProduct_action.php";
-        }
-    }
-}
 
 function openModal(id) {
     var modal = document.getElementById("myModal");

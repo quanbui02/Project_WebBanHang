@@ -74,9 +74,9 @@ $lengthGift = count($listGift);
                         <div class="table-header">
                             <div class="header__item"><a id="ID" class="filter__link filter__link--number"
                                     href="#">ID</a></div>
-                            <div class="header__item"><a id="account" class="filter__link" href="#">Mã Gift</a></div>
-                            <div class="header__item"><a class="filter__link" href="#">Thành tiền</a></div>
-                            <div class="header__item"><a class="filter__link filter__link--number" href="#">Số lượng</a>
+                            <div class="header__item"><a id="codeGift" class="filter__link" href="#">Mã Gift</a></div>
+                            <div class="header__item"><a id="priceGift" class="filter__link filter__link--number" href="#">Thành tiền</a></div>
+                            <div class="header__item"><a id="quantityGift" class="filter__link filter__link--number" href="#">Số lượng</a>
                             </div>
                             <div class="header__item"><a id="name" class="filter__link" href="#">Trạng thái</a>
                             </div>
@@ -94,9 +94,9 @@ $lengthGift = count($listGift);
                                     echo '<div class="table-data">' . $gift->getGiftQuantity() . '</div>';
                                     echo '<div class="table-data">';
                                     if ($gift->getGiftActive() == 1) {
-                                        echo 'Hoạt động';
+                                        echo '<div class="active-gift">Hoạt động</div>';
                                     } else {
-                                        echo 'Đã huỷ';
+                                        echo '<div class="no-active-gift">Đã huỷ</div>';
                                     }
                                     echo '</div>';
                                     echo '<div class="table-data act">';
@@ -188,6 +188,6 @@ $lengthGift = count($listGift);
 </html>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="../../../assets/css/User/user.js"></script>
 <script src="../../../assets/css/ToastMessage/ToastMessage.js"></script>
 <script src="../../../assets/css/GiftCode/gift.js"></script>
+<script src="../../../assets/css/sortColumn/index.js"></script>

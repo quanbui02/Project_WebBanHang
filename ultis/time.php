@@ -18,13 +18,21 @@ function convertDateTime($datetime) {
 }
 
 function convertToDdMmYyyy($date) {
-    // Convert the input date string to a DateTime object
+    if ($date === "0000-00-00 00:00:00.000000") {
+        return 'Không thỏa mãn';
+    }
+    
+    $currentDate = new DateTime();
     $dateTime = new DateTime($date);
     
-    // Format the date as dd/mm/yyyy
+    if ($dateTime > $currentDate) {
+        return 'Không thỏa mãn';
+    }
+    
     $formattedDate = $dateTime->format('d/m/Y');
     
     return $formattedDate;
 }
+
 
 ?>

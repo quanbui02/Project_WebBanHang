@@ -10,6 +10,12 @@
   transform: rotate(15deg);
 }
 
+body {
+  background-color: #e5ecef !important;
+  font-size: 15px;
+  color: #2f2f33;
+}
+
 a {
   text-decoration: none;
 }
