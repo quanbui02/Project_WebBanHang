@@ -91,12 +91,12 @@ $lengthOrders = count($listOrders);
                 <div class="table">
                     <div class="table-header">
                         <div class="header__item"><a id="ID" class="filter__link filter__link--number" href="#">Mã hóa đơn</a></div>
-                        <div class="header__item"><a id="account" class="filter__link" href="#">Ngày tạo</a></div>
-                        <div class="header__item"><a class="filter__link" href="#">Tên khách hàng</a></div>
+                        <div class="header__item"><a class="filter__link" href="#">Ngày tạo</a></div>
+                        <div class="header__item"><a id="name" class="filter__link" href="#">Tên khách hàng</a></div>
                         <div class="header__item"><a class="filter__link filter__link--number" href="#">Email khách hàng</a>
                         </div>
-                        <div class="header__item"><a id="name" class="filter__link" href="#">Số điện thoại khách hàng</a></div>
-                        <div class="header__item"><a id="address" class="filter__link" href="#">Trạng thái</a></div>
+                        <div class="header__item"><a class="filter__link" href="#">Số điện thoại khách hàng</a></div>
+                        <div class="header__item"><a class="filter__link" href="#">Trạng thái</a></div>
                         <div class="header__item"><a class="filter__link filter__link--number" href="#">Thao tác</a>
                         </div>
                     </div>
@@ -178,5 +178,9 @@ $lengthOrders = count($listOrders);
     </div>
 
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="../../../assets/css/sortColumn/index.js"></script>
+<script src="../../../assets/css/Order/Order.js"></script>
 
 </html>
