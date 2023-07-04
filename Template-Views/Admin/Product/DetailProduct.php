@@ -113,7 +113,7 @@ $listImgs = unserialize($_SESSION['imgProducts']);
                         </div>
                     </div>
                     <div class="comments-container">
-                        <h1>Danh sách phẩn hồi sản phẩm</h1>
+                        <h1>Danh sách phản hồi sản phẩm</h1>
 
                         <ul id="comments-list" class="comments-list">
                             <?php

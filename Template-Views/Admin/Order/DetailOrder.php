@@ -104,7 +104,7 @@ include_once "C:/xampp/htdocs/Project_WebBanHang/ultis/money.php";
                             <span>Total amount</span>
                         </div>
                         <div class="order-summary__right-container">
-                            <span>số 15, Đường Lương iphone14 ProMax, Quốc Oai, Hà Nội</span>
+                            <span>55 Giải Phóng,phường Đồng Tâm, quận Hai Bài Trưng, Hà Nội</span>
                             <span>
                                 <?php
                                 $totalValue = 0;
