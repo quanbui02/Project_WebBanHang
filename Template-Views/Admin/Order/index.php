@@ -57,7 +57,7 @@ $lengthOrders = count($listOrders);
                 <a href="/Project_WebBanHang/Template-Views/Admin/Category/Index.php">Danh mục sản phẩm</a>
                 <a href="/Project_WebBanHang/Template-Views/Admin/User/Index.php">Khách hàng</a>
                 <a href="/Project_WebBanHang/Template-Views/Admin/Order/Index.php" class="active">Đơn hàng </a>
-                <a href="/Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php">Khuyễn Mãi</a>
+                <a href="/Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php">Khuyến Mãi</a>
             </div>
             <div class="user-settings">
                 <a href="/Project_WebBanHang/Action-Controller/LoginController/Logout_action.php"

@@ -4,7 +4,7 @@ function statusOrder($statusOrder)
     if ($statusOrder == "cart") {
         return '<div style="margin: 0 auto;padding: 4px 12px; width: fit-content; background-color: #ea815e; color: white; border-radius: 8px;">Trong giỏ hàng</div>';
     } else if ($statusOrder == "payed") {
-        return '<div style="margin: 0 auto;padding: 4px 12px; width: fit-content; background-color: #F7375D; color: white; border-radius: 8px;">Đàng chờ xác nhận</div>';
+        return '<div style="margin: 0 auto;padding: 4px 12px; width: fit-content; background-color: #F7375D; color: white; border-radius: 8px;">Đang chờ xác nhận</div>';
     } else if ($statusOrder == "confirm") {
         return '<div style="margin: 0 auto;padding: 4px 12px; width: fit-content; background-color: green; color: white; border-radius: 8px;">Đang giao</div>';
     } else if ($statusOrder == "completed") {
