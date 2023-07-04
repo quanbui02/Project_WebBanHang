@@ -221,12 +221,12 @@ $lengthProduct = count($listProduct);
                                 margin: 0 auto;">
                                 <div style="width: 100%;">
                                     <div class=" form-group">
-                                        <label for="address">Số lượng</label>
+                                        <label for="quantity">Số lượng</label>
                                         <input type="number" id="quantity" name="ProductQuantity" class="form-control"
                                             placeholder="Enter your address" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="phone">Kích cỡ</label>
+                                        <label for="size">Kích cỡ</label>
                                         <input id="size" name="ProductSize" type="text" class="form-control"
                                             placeholder="Enter your phone no." required>
                                     </div>
@@ -234,14 +234,14 @@ $lengthProduct = count($listProduct);
 
                                 <div style="width: 100%;">
                                     <div class="form-group">
-                                        <label for="phone">Màu sắc</label>
+                                        <label for="color">Màu sắc</label>
                                         <input id="color" name="ProductColor" type="text" class="form-control"
                                             placeholder="Enter your phone no." required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email1">Giá Sản phẩm</label>
+                                        <label for="number">Giá Sản phẩm</label>
                                         <input type="number" id="price" name="ProductPrice" class="form-control"
-                                            id="email1" aria-describedby="emailHelp" placeholder="Enter your email"
+                                            id="number" aria-describedby="emailHelp" placeholder="Enter your email"
                                             required>
                                     </div>
                                 </div>
@@ -249,7 +249,7 @@ $lengthProduct = count($listProduct);
                             </div>
 
                             <div class="form-group">
-                                <label for="phone">Mô tả</label>
+                                <label for="description">Mô tả</label>
                                 <textarea id="description" name="ProductDescription" class="form-control" cols="3"
                                     rows="3"></textarea>
                             </div>
