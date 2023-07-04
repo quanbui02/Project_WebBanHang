@@ -195,7 +195,7 @@ $lengthProduct = count($listProduct);
                             <div class="form-group">
                                 <label for="name">Tên sản phẩm<sup class="text-danger">*</sup></label>
                                 <input id="PrName" name="ProductName" type="text" class="form-control"
-                                    placeholder="Enter your name" required>
+                                     required>
                             </div>
                             <div class="select form-group">
                                 <label for="name">Danh mục sản phẩm<sup class="text-danger">*</sup></label>
@@ -223,12 +223,12 @@ $lengthProduct = count($listProduct);
                                     <div class=" form-group">
                                         <label for="quantity">Số lượng</label>
                                         <input type="number" id="quantity" name="ProductQuantity" class="form-control"
-                                            placeholder="Enter your address" required>
+                                             required>
                                     </div>
                                     <div class="form-group">
                                         <label for="size">Kích cỡ</label>
                                         <input id="size" name="ProductSize" type="text" class="form-control"
-                                            placeholder="Enter your phone no." required>
+                                            required>
                                     </div>
                                 </div>
 
@@ -236,12 +236,12 @@ $lengthProduct = count($listProduct);
                                     <div class="form-group">
                                         <label for="color">Màu sắc</label>
                                         <input id="color" name="ProductColor" type="text" class="form-control"
-                                            placeholder="Enter your phone no." required>
+                                            required>
                                     </div>
                                     <div class="form-group">
                                         <label for="number">Giá Sản phẩm</label>
                                         <input type="number" id="price" name="ProductPrice" class="form-control"
-                                            id="number" aria-describedby="emailHelp" placeholder="Enter your email"
+                                            id="number" aria-describedby="emailHelp" 
                                             required>
                                     </div>
                                 </div>
