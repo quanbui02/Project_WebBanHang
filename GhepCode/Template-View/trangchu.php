@@ -25,9 +25,9 @@ $listGroup = getListGroup();
             </div>
             <div class="user-infor">
                 <div class="name">
-                    <div><a href="/Project_WebBanHang/GhepCode/Template-View/user_infor.php"><?php if($_SESSION["login"]==false){echo "Khách";}else{echo  $_SESSION["user-infor"]->getUserName();} ?></a></div>
+                    <div><a href="/Project_WebBanHang/GhepCode/Template-View/user_infor.php"><?php if(isset($_SESSION["login"])==false){echo "Khách";}else{echo  $_SESSION["user-infor"]->getUserName();} ?></a></div>
                     <button><a href="/Project_WebBanHang/GhepCode/Template-View/cart.php">Giỏ hàng</a></button>
-                    <?php if($_SESSION["login"]==false){echo "<button><a href='/Project_WebBanHang/GhepCode/Template-View/login.php'>Đăng nhập</a></button>";}else{echo "<button><a href='/Project_WebBanHang/GhepCode/Action-Controler/logout_action.php'>Đăng xuất</a></button>";} ?>
+                    <?php if(isset($_SESSION["login"])==false){echo "<button><a href='/Project_WebBanHang/GhepCode/Template-View/login.php'>Đăng nhập</a></button>";}else{echo "<button><a href='/Project_WebBanHang/GhepCode/Action-Controler/logout_action.php'>Đăng xuất</a></button>";} ?>
                 </div>
                 <div class="avatar"><img src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=2000" ></div>
             </div>
