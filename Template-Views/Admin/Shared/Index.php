@@ -70,12 +70,12 @@ try {
                     Admin
                 </div>
                 <div class="header-menu">
-                    <a href="/Project_WebBanHang/Template-Views/Admin/Shared/Index.php" class="active">Trang chủ</a>
-                    <a href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">Sản phẩm</a>
-                    <a href="/Project_WebBanHang/Template-Views/Admin/Category/Index.php">Danh mục sản phẩm</a>
-                    <a href="/Project_WebBanHang/Template-Views/Admin/User/Index.php">Khách hàng</a>
-                    <a href="/Project_WebBanHang/Template-Views/Admin/Order/Index.php">Đơn hàng </a>
-                    <a href="/Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php">Khuyễn Mãi</a>
+                    <a style="font-weight: 700;" href="/Project_WebBanHang/Template-Views/Admin/Shared/Index.php" class="active">Trang chủ</a>
+                    <a style="font-weight: 700;" href="/Project_WebBanHang/Template-Views/Admin/Product/Index.php">Sản phẩm</a>
+                    <a style="font-weight: 700;" href="/Project_WebBanHang/Template-Views/Admin/Category/Index.php">Danh mục sản phẩm</a>
+                    <a style="font-weight: 700;" href="/Project_WebBanHang/Template-Views/Admin/User/Index.php">Khách hàng</a>
+                    <a style="font-weight: 700;" href="/Project_WebBanHang/Template-Views/Admin/Order/Index.php">Đơn hàng </a>
+                    <a style="font-weight: 700;" href="/Project_WebBanHang/Template-Views/Admin/GiftCode/Index.php">Khuyễn Mãi</a>
                 </div>
                 <div class="user-settings">
                     <a href="/Project_WebBanHang/Action-Controller/LoginController/Logout_action.php"
